@@ -183,7 +183,16 @@ def fetch_simpler(keywords: list[str], api_key: str,
 # SAM.gov procurement type codes (comma-separate multiples via --sam-ptype)
 # p  pre-solicitation     o  solicitation        k  SBIR/STTR
 # a  award notice         s  special notice       r  sources sought
-SAM_PTYPE_HELP = "p=pre-sol, o=solicitation, k=SBIR/STTR, a=award, s=special, r=sources-sought"
+SAM_PTYPE_HELP = (
+    "p=pre-sol, o=solicitation, k=SBIR/STTR, "
+    "a=award, s=special, r=sources-sought"
+)
+
+# Cross-call cache: avoids re-querying SAM when the same
+# keyword appears in multiple config groups.
+# Key: (keyword, ptype, posted_from, posted_to)
+# Value: list[dict] of raw API hits
+_sam_query_cache: dict[tuple, list[dict]] = {}
 
 def _sam_get_with_retry(
     params: dict,
@@ -205,6 +214,31 @@ def _sam_get_with_retry(
         time.sleep(delay)
         delay *= 2
     return r  # unreachable, but satisfies type checkers
+
+
+def _sam_hit_to_record(h: dict) -> dict:
+    """Convert a raw SAM API hit to a normalised record."""
+    poc = (h.get("pointOfContact") or [{}])[0]
+    award = h.get("award") or {}
+    nid = h.get("noticeId", "")
+    return {
+        "source":              "sam",
+        "opportunity_id":      nid,
+        "opportunity_number":  h.get("solicitationNumber", ""),
+        "opportunity_title":   h.get("title", ""),
+        "agency_name":         h.get("fullParentPathName", ""),
+        "post_date":           h.get("postedDate", ""),
+        "close_date":          h.get("responseDeadLine", ""),
+        "award_floor":         "",
+        "award_ceiling":       award.get("amount", ""),
+        "summary_description": h.get("description", ""),
+        "opportunity_status":  h.get("active", ""),
+        "naics_code":          h.get("naicsCode", ""),
+        "set_aside":           h.get("typeOfSetAsideDescription", ""),
+        "notice_type":         h.get("type", ""),
+        "contact_email":       poc.get("email", ""),
+        "url": f"https://sam.gov/opp/{nid}/view",
+    }
 
 
 def fetch_sam(keywords: list[str], api_key: str,
@@ -229,15 +263,32 @@ def fetch_sam(keywords: list[str], api_key: str,
 
     ptypes = [p.strip() for p in ptype.split(",")]
     seen, records = set(), []
-    page_size = 25
+    page_size = min(max_results, 1000)
 
     for kw in keywords:
         for pt in ptypes:
+            cache_key = (kw, pt, posted_from, posted_to)
+            if cache_key in _sam_query_cache:
+                print(
+                    f"[sam] cache hit "
+                    f"(kw='{kw}', ptype={pt})",
+                    file=sys.stderr,
+                )
+                for h in _sam_query_cache[cache_key]:
+                    nid = h.get("noticeId")
+                    if nid and nid not in seen:
+                        seen.add(nid)
+                        records.append(
+                            _sam_hit_to_record(h)
+                        )
+                continue
+
+            all_hits: list[dict] = []
             offset = 0
             while True:
                 params = {
                     "api_key":    api_key,
-                    "title":      kw,         # server-side: title only
+                    "title":      kw,
                     "ptype":      pt,
                     "postedFrom": posted_from,
                     "postedTo":   posted_to,
@@ -256,37 +307,28 @@ def fetch_sam(keywords: list[str], api_key: str,
 
                 body  = r.json()
                 total = body.get("totalRecords", 0)
-                hits  = body.get("opportunitiesData", [])
+                hits  = body.get(
+                    "opportunitiesData", []
+                )
+                all_hits.extend(hits)
 
                 for h in hits:
                     nid = h.get("noticeId")
                     if nid and nid not in seen:
                         seen.add(nid)
-                        poc   = (h.get("pointOfContact") or [{}])[0]
-                        award = h.get("award") or {}
-                        records.append({
-                            "source":              "sam",
-                            "opportunity_id":      nid,
-                            "opportunity_number":  h.get("solicitationNumber", ""),
-                            "opportunity_title":   h.get("title", ""),
-                            "agency_name":         h.get("fullParentPathName", ""),
-                            "post_date":           h.get("postedDate", ""),
-                            "close_date":          h.get("responseDeadLine", ""),
-                            "award_floor":         "",
-                            "award_ceiling":       award.get("amount", ""),
-                            "summary_description": h.get("description", ""),
-                            "opportunity_status":  h.get("active", ""),
-                            "naics_code":          h.get("naicsCode", ""),
-                            "set_aside":           h.get("typeOfSetAsideDescription", ""),
-                            "notice_type":         h.get("type", ""),
-                            "contact_email":       poc.get("email", ""),
-                            "url": (f"https://sam.gov/opp/{nid}/view"),
-                        })
+                        records.append(
+                            _sam_hit_to_record(h)
+                        )
 
                 offset += page_size
-                if offset >= min(total, max_results) or not hits:
+                if (
+                    offset >= min(total, max_results)
+                    or not hits
+                ):
                     break
                 time.sleep(1.5)
+
+            _sam_query_cache[cache_key] = all_hits
 
     return records
 

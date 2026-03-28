@@ -173,7 +173,7 @@ def fetch_simpler(keywords: list[str], api_key: str,
             if fetched >= min(total, max_results) or not hits:
                 break
             page += 1
-            time.sleep(1.0)   # 60 req/min ceiling
+            time.sleep(1.5)   # 40 req/min ceiling
 
     return records
 
@@ -184,6 +184,28 @@ def fetch_simpler(keywords: list[str], api_key: str,
 # p  pre-solicitation     o  solicitation        k  SBIR/STTR
 # a  award notice         s  special notice       r  sources sought
 SAM_PTYPE_HELP = "p=pre-sol, o=solicitation, k=SBIR/STTR, a=award, s=special, r=sources-sought"
+
+def _sam_get_with_retry(
+    params: dict,
+    retries: int = 4,
+    backoff: float = 2.0,
+) -> requests.Response:
+    """GET SAM_URL with exponential backoff on 429."""
+    delay = backoff
+    for attempt in range(retries + 1):
+        r = requests.get(SAM_URL, params=params, timeout=30)
+        if r.status_code != 429 or attempt == retries:
+            r.raise_for_status()
+            return r
+        print(
+            f"[sam] 429 rate-limited; retrying in {delay:.0f}s "
+            f"(attempt {attempt + 1}/{retries})",
+            file=sys.stderr,
+        )
+        time.sleep(delay)
+        delay *= 2
+    return r  # unreachable, but satisfies type checkers
+
 
 def fetch_sam(keywords: list[str], api_key: str,
               ptype: str = "o,k",
@@ -223,11 +245,13 @@ def fetch_sam(keywords: list[str], api_key: str,
                     "offset":     offset,
                 }
                 try:
-                    r = requests.get(SAM_URL, params=params, timeout=30)
-                    r.raise_for_status()
+                    r = _sam_get_with_retry(params)
                 except requests.RequestException as e:
-                    print(f"[sam] Request error (kw='{kw}', ptype={pt}): {e}",
-                          file=sys.stderr)
+                    print(
+                        f"[sam] Request error "
+                        f"(kw='{kw}', ptype={pt}): {e}",
+                        file=sys.stderr,
+                    )
                     break
 
                 body  = r.json()
@@ -262,7 +286,7 @@ def fetch_sam(keywords: list[str], api_key: str,
                 offset += page_size
                 if offset >= min(total, max_results) or not hits:
                     break
-                time.sleep(0.5)
+                time.sleep(1.5)
 
     return records
 

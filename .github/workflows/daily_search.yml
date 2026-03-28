@@ -1,8 +1,8 @@
 # .github/workflows/daily_search.yml
 # ---------------------------------------------------------------
 # Runs daily at 06:00 UTC, queries grants.gov and SAM.gov, and
-# uploads index.html + opportunities.csv as a downloadable
-# GitHub Actions artifact.
+# commits index.html + opportunities.csv to an orphan branch
+# (gh-pages) so report history doesn't bloat main.
 #
 # Required repository secrets:
 #   SIMPLER_API_KEY  — from simpler.grants.gov/developer
@@ -12,9 +12,8 @@
 # root. Pushing a change to that file triggers an immediate
 # re-run.
 #
-# To download the report:
-#   Actions tab → select a run → Artifacts section →
-#   "opportunity-report-N"
+# To view the report:
+#   https://<owner>.github.io/<repo>/
 # ---------------------------------------------------------------
 
 name: Daily Opportunity Search
@@ -28,7 +27,7 @@ on:
       - "search_config.yaml"   # re-run when keywords change
 
 permissions:
-  contents: read               # read-only; no repo writes needed
+  contents: write              # needed to push to gh-pages branch
 
 jobs:
   search-and-publish:
@@ -56,29 +55,53 @@ jobs:
             --config search_config.yaml \
             --out-dir _report
 
-      # ── 4. Upload HTML + CSV as a downloadable artifact ───
-      - name: Upload opportunity report
-        uses: actions/upload-artifact@v4
-        with:
-          name: opportunity-report-${{ github.run_number }}
-          path: |
-            _report/index.html
-            _report/opportunities.csv
-          retention-days: 90
-          if-no-files-found: warn
+      # ── 4. Publish to orphan gh-pages branch ──────────────
+      - name: Deploy report to gh-pages
+        run: |
+          # Save built files outside the worktree
+          cp -r _report /tmp/_report
+
+          # Configure git identity
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # Create or switch to the orphan branch
+          if git ls-remote --exit-code origin gh-pages >/dev/null 2>&1; then
+            git fetch origin gh-pages
+            git checkout gh-pages
+          else
+            git checkout --orphan gh-pages
+            git rm -rf .
+          fi
+
+          # Clean working tree and copy report files
+          git rm -rf . 2>/dev/null || true
+          cp /tmp/_report/index.html docs/index.html 2>/dev/null || true
+          cp /tmp/_report/opportunities.csv docs/opportunities.csv 2>/dev/null || true
+
+          # Stage only if files exist
+          if [ -f docs/index.html ]; then
+            git add docs/
+            git commit -m "Update report $(date -u +'%Y-%m-%d %H:%M UTC')" \
+              --allow-empty
+            git push origin gh-pages --force
+          else
+            echo "::warning::No report files generated; skipping deploy"
+          fi
 
       # ── 5. Job summary (visible in Actions UI) ────────────
       - name: Write job summary
         run: |
+          # Report files are in /tmp/_report after branch switch
           COUNT=$(uv run python - <<'EOF'
           import csv, pathlib
-          p = pathlib.Path("_report/opportunities.csv")
+          p = pathlib.Path("/tmp/_report/opportunities.csv")
           print(max(0, len(list(csv.reader(p.open()))) - 1) if p.exists() else 0)
           EOF
           )
           SOURCES=$(uv run python - <<'EOF'
           import csv, pathlib, collections
-          p = pathlib.Path("_report/opportunities.csv")
+          p = pathlib.Path("/tmp/_report/opportunities.csv")
           if p.exists():
               rows = list(csv.DictReader(p.open()))
               c = collections.Counter(r.get("source","?") for r in rows)
@@ -95,5 +118,5 @@ jobs:
             echo "| **Total opportunities** | ${COUNT} |"
             echo "| **Breakdown** | ${SOURCES} |"
             echo "| **Run time** | $(date -u +'%Y-%m-%d %H:%M UTC') |"
-            echo "| **Download** | See Artifacts below this summary |"
+            echo "| **Report** | Deployed to gh-pages branch |"
           } >> "$GITHUB_STEP_SUMMARY"

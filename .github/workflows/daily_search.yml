@@ -2,7 +2,7 @@
 # ---------------------------------------------------------------
 # Runs daily at 06:00 UTC, queries grants.gov and SAM.gov, and
 # commits index.html + opportunities.csv to an orphan branch
-# (gh-pages) so report history doesn't bloat main.
+# (docs) so report history doesn't bloat main.
 #
 # Required repository secrets:
 #   SIMPLER_API_KEY  — from simpler.grants.gov/developer
@@ -27,7 +27,7 @@ on:
       - "search_config.yaml"   # re-run when keywords change
 
 permissions:
-  contents: write              # needed to push to gh-pages branch
+  contents: write              # needed to push to docs branch
 
 jobs:
   search-and-publish:
@@ -55,8 +55,8 @@ jobs:
             --config search_config.yaml \
             --out-dir _report
 
-      # ── 4. Publish to orphan gh-pages branch ──────────────
-      - name: Deploy report to gh-pages
+      # ── 4. Publish to orphan docs branch ────────────────
+      - name: Deploy report to docs branch
         run: |
           # Save built files outside the worktree
           cp -r _report /tmp/_report
@@ -66,16 +66,17 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           # Create or switch to the orphan branch
-          if git ls-remote --exit-code origin gh-pages >/dev/null 2>&1; then
-            git fetch origin gh-pages
-            git checkout gh-pages
+          if git ls-remote --exit-code origin docs >/dev/null 2>&1; then
+            git fetch origin docs
+            git checkout docs
           else
-            git checkout --orphan gh-pages
+            git checkout --orphan docs
             git rm -rf .
           fi
 
           # Clean working tree and copy report files
           git rm -rf . 2>/dev/null || true
+          mkdir -p docs
           cp /tmp/_report/index.html docs/index.html 2>/dev/null || true
           cp /tmp/_report/opportunities.csv docs/opportunities.csv 2>/dev/null || true
 
@@ -84,7 +85,7 @@ jobs:
             git add docs/
             git commit -m "Update report $(date -u +'%Y-%m-%d %H:%M UTC')" \
               --allow-empty
-            git push origin gh-pages --force
+            git push origin docs --force
           else
             echo "::warning::No report files generated; skipping deploy"
           fi
@@ -118,5 +119,5 @@ jobs:
             echo "| **Total opportunities** | ${COUNT} |"
             echo "| **Breakdown** | ${SOURCES} |"
             echo "| **Run time** | $(date -u +'%Y-%m-%d %H:%M UTC') |"
-            echo "| **Report** | Deployed to gh-pages branch |"
+            echo "| **Report** | Deployed to docs branch |"
           } >> "$GITHUB_STEP_SUMMARY"

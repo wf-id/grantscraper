@@ -23,10 +23,13 @@ keyword_groups:
       - "vaccines"
       - "vaccine"
 
-  - label: "HIV"
+  - label: "HIV & STIs"
     logic: OR
     keywords:
       - "HIV"
+      - "STI"
+      - "Sexually Transmitted"
+      - "Sexually Transmitted"
 
   - label: "Emerging and Vector-Borne Diseases"
     logic: OR
@@ -35,12 +38,14 @@ keyword_groups:
       - "vector-borne"
       - "global health"
       - "biosecurity"
-      - "disease"
+      - "infectious disease"
       - "vector"
       - "vectorborne"
       - "Lyme"
       - "Rickettsia"
       - "Hantavirus"
+      - "Influenza"
+      - "Enteric"
       - "SARS-CoV-2"
       - "West Nile"
 
@@ -60,8 +65,8 @@ keyword_groups:
 # ── API settings ─────────────────────────────────────────────────────────────
 api:
   use_legacy:  true    # grants.gov legacy — no key required
-  use_simpler: true    # simpler.grants.gov — needs SIMPLER_API_KEY secret
-  use_sam:     false   # sam.gov contracts/STTR/SBIR — needs SAM_API_KEY secret
+  use_simpler: false    # simpler.grants.gov — needs SIMPLER_API_KEY secret
+  use_sam:     true   # sam.gov contracts/STTR/SBIR — needs SAM_API_KEY secret
   max_results: 200     # records to fetch per keyword per API
 
   # grants.gov status filter: posted | forecasted | closed | archived

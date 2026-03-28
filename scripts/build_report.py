@@ -91,9 +91,37 @@ def collect(cfg: dict, simpler_key: str | None, sam_key: str | None) -> pd.DataF
     status    = api_cfg.get("grants_status", "posted")
     ptype     = api_cfg.get("sam_ptype", "o,k")
     pfrom     = api_cfg.get("sam_posted_from", "01/01/2023")
+    sam_kws   = api_cfg.get("sam_keywords")
 
     all_records: list[dict] = []
     seen_ids: set = set()
+
+    # If SAM uses its own keyword list, run it once up front
+    sam_records: list[dict] = []
+    if use_sam and sam_kws:
+        print("\n── SAM.gov (dedicated keywords) ──")
+        sam_records = fetch_sam(
+            sam_kws, sam_key, ptype=ptype,
+            posted_from=pfrom, max_results=max_res,
+        )
+        print(f"  [sam]     {len(sam_records)} records")
+        filtered_sam = keyword_filter(
+            sam_records, sam_kws, "OR",
+        )
+        print(
+            f"  → {len(filtered_sam)} after "
+            f"client-side OR filter"
+        )
+        for r in filtered_sam:
+            r["keyword_group"] = "SAM.gov"
+            key = (
+                r.get("opportunity_number")
+                or r["opportunity_title"]
+                + "|" + r.get("agency_name", "")
+            )
+            if key not in seen_ids:
+                seen_ids.add(key)
+                all_records.append(r)
 
     for group in cfg.get("keyword_groups", []):
         label    = group["label"]
@@ -109,13 +137,18 @@ def collect(cfg: dict, simpler_key: str | None, sam_key: str | None) -> pd.DataF
             group_records.extend(recs)
 
         if use_sim:
-            recs = fetch_simpler(keywords, simpler_key, status, max_res)
+            recs = fetch_simpler(
+                keywords, simpler_key, status, max_res,
+            )
             print(f"  [simpler] {len(recs)} records")
             group_records.extend(recs)
 
-        if use_sam:
-            recs = fetch_sam(keywords, sam_key, ptype=ptype,
-                             posted_from=pfrom, max_results=max_res)
+        # Only use per-group SAM when no dedicated list
+        if use_sam and not sam_kws:
+            recs = fetch_sam(
+                keywords, sam_key, ptype=ptype,
+                posted_from=pfrom, max_results=max_res,
+            )
             print(f"  [sam]     {len(recs)} records")
             group_records.extend(recs)
 

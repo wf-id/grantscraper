@@ -54,21 +54,14 @@ keyword_groups:
       - "Infection control"
       - "Infection prevention"
       - "Stewardship"
-      - "Antimicrobial Stewardship"
-      - "Antimicrobial Resistance"
-      - "Antimicrobial Resistance Management"
-      - "Antimicrobial Resistance Program"
-      - "Antimicrobial Resistance Prevention"
-      - "Antimicrobial Resistance Treatment"
-      - "Antimicrobial Resistance Surveillance"
-      - "Antimicrobial Resistance Surveillance Program"
+      - "Antimicrobial"
 
 
 # ── API settings ─────────────────────────────────────────────────────────────
 api:
   use_legacy:  true    # grants.gov legacy — no key required
   use_simpler: true    # simpler.grants.gov — needs SIMPLER_API_KEY secret
-  use_sam:     true    # sam.gov contracts/STTR/SBIR — needs SAM_API_KEY secret
+  use_sam:     false   # sam.gov contracts/STTR/SBIR — needs SAM_API_KEY secret
   max_results: 200     # records to fetch per keyword per API
 
   # grants.gov status filter: posted | forecasted | closed | archived
@@ -79,6 +72,11 @@ api:
   #   a = award notice   s = special     r = sources sought
   sam_ptype: "o,k,p"
   sam_posted_from: "01/01/2026"   # MM/DD/YYYY
+
+  # SAM.gov-specific keywords (optional).
+  # When set, SAM queries use these instead of keyword_groups.
+  sam_keywords:
+    - "infectious"
 
 # ── Report appearance ─────────────────────────────────────────────────────────
 page:

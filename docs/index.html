@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open Funding Opportunities</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f8fafc; color: #1e293b; line-height: 1.5;
+    }
+    header {
+      background: #0f172a; color: #f1f5f9; padding: 1.5rem 2rem;
+      border-bottom: 3px solid #2563eb;
+    }
+    header h1 { font-size: 1.5rem; font-weight: 700; }
+    header p  { font-size: 0.9rem; color: #94a3b8; margin-top: .25rem; }
+    .meta-bar {
+      background: #1e293b; color: #94a3b8; padding: .5rem 2rem;
+      font-size: .8rem; display: flex; gap: 1.5rem; align-items: center;
+    }
+    .meta-bar strong { color: #f1f5f9; }
+
+    /* Controls */
+    .controls {
+      display: flex; flex-wrap: wrap; gap: .75rem;
+      padding: 1rem 2rem; background: #fff;
+      border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; z-index: 10;
+      box-shadow: 0 1px 4px rgba(0,0,0,.06);
+    }
+    .controls input, .controls select {
+      padding: .45rem .75rem; border: 1px solid #cbd5e1;
+      border-radius: 6px; font-size: .875rem; background: #f8fafc;
+      color: #1e293b;
+    }
+    .controls input { flex: 1; min-width: 220px; }
+    #result-count { font-size: .85rem; color: #64748b; align-self: center; }
+
+    /* Cards */
+    #card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 1rem; padding: 1.25rem 2rem;
+    }
+    .card {
+      background: #fff; border: 1px solid #e2e8f0; border-radius: 10px;
+      padding: 1rem 1.1rem; display: flex; flex-direction: column; gap: .5rem;
+      transition: box-shadow .15s;
+    }
+    .card:hover { box-shadow: 0 4px 16px rgba(0,0,0,.09); }
+    .card-header { display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; }
+    .card-title { font-size: .95rem; font-weight: 600; }
+    .card-title a { color: #1d4ed8; text-decoration: none; }
+    .card-title a:hover { text-decoration: underline; }
+    .card-agency { font-size: .8rem; color: #64748b; }
+    .card-meta {
+      display: flex; flex-wrap: wrap; gap: .4rem;
+      font-size: .75rem; color: #475569;
+    }
+    .meta-item {
+      background: #f1f5f9; border-radius: 4px; padding: .15rem .45rem;
+    }
+    .card-desc { font-size: .8rem; color: #475569; }
+    .kw-tags { display: flex; flex-wrap: wrap; gap: .3rem; margin-top: .2rem; }
+    .kw-tag {
+      background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe;
+      border-radius: 4px; padding: .1rem .4rem; font-size: .72rem;
+    }
+
+    /* Badges */
+    .source-badge, .badge, .group-label {
+      display: inline-block; border-radius: 4px;
+      padding: .15rem .5rem; font-size: .72rem; font-weight: 600;
+      color: #fff;
+    }
+    .badge-critical { background: #dc2626; }
+    .badge-warn     { background: #d97706; }
+    .badge-ok       { background: #16a34a; }
+    .badge-closed   { background: #6b7280; }
+    .badge-none     { background: #94a3b8; }
+    .group-label    { background: #64748b; font-weight: 500; }
+
+    .empty { padding: 3rem 2rem; color: #94a3b8; text-align: center; }
+    footer {
+      text-align: center; padding: 1.5rem; font-size: .78rem;
+      color: #94a3b8; border-top: 1px solid #e2e8f0;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Open Funding Opportunities</h1>
+  <p></p>
+</header>
+<div class="meta-bar">
+  <span>Last updated: <strong>2026-03-28 15:31 UTC</strong></span>
+  <span>Total opportunities: <strong>38</strong></span>
+  <span>Sources: grants.gov (legacy &amp; simpler) · SAM.gov</span>
+</div>
+
+<div class="controls">
+  <input type="search" id="search-box" placeholder="Search title, agency, keyword…" autocomplete="off">
+  <select id="filter-group">
+    <option value="">All groups</option>
+    <option value="ASP and ICP">ASP and ICP</option>
+<option value="Emerging and Vector-Borne Diseases">Emerging and Vector-Borne Diseases</option>
+<option value="HIV">HIV</option>
+<option value="Vaccines and Therapeutics">Vaccines and Therapeutics</option>
+  </select>
+  <select id="filter-source">
+    <option value="">All sources</option>
+    <option value="legacy">Legacy</option>
+  </select>
+  <select id="sort-by">
+    <option value="deadline">Sort: soonest deadline</option>
+    <option value="posted">Sort: most recent</option>
+    <option value="title">Sort: title A–Z</option>
+  </select>
+  <span id="result-count"></span>
+</div>
+
+<div id="card-grid">
+
+      <div class="card"
+           data-group="Emerging and Vector-Borne Diseases"
+           data-source="legacy"
+           data-title="Small R01s for Clinical Trials Targeting Diseases within the Mission of NIDDK (R01 Clinical Trial Required)"
+           data-agency=""
+           data-keywords="disease">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-ok">Due in 40d</span>
+          <span class="group-label">Emerging and Vector-Borne Diseases</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/358089" target="_blank" rel="noopener">
+            Small R01s for Clinical Trials Targeting Diseases within the Mission of NIDDK (R01 Clinical Trial Required)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 01/08/2025</span>
+          <span class="meta-item">Closes: 05/07/2026</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">disease</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV"
+           data-source="legacy"
+           data-title="HIV Prevention and Alcohol (R34 Clinical Trials Optional)"
+           data-agency=""
+           data-keywords="HIV">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-ok">Due in 40d</span>
+          <span class="group-label">HIV</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/357390" target="_blank" rel="noopener">
+            HIV Prevention and Alcohol (R34 Clinical Trials Optional)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 11/25/2024</span>
+          <span class="meta-item">Closes: 05/07/2026</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV"
+           data-source="legacy"
+           data-title="HIV Prevention and Alcohol (R01 Clinical Trials Optional)"
+           data-agency=""
+           data-keywords="HIV">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-ok">Due in 40d</span>
+          <span class="group-label">HIV</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/357391" target="_blank" rel="noopener">
+            HIV Prevention and Alcohol (R01 Clinical Trials Optional)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 11/25/2024</span>
+          <span class="meta-item">Closes: 05/07/2026</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span></div>
+      </div>
+      <div class="card"
+           data-group="Vaccines and Therapeutics"
+           data-source="legacy"
+           data-title="Translational Research in Maternal and Pediatric Pharmacology and Therapeutics (R01 Clinical Trial Optional)"
+           data-agency=""
+           data-keywords="therapeutics">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-ok">Due in 40d</span>
+          <span class="group-label">Vaccines and Therapeutics</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/357184" target="_blank" rel="noopener">
+            Translational Research in Maternal and Pediatric Pharmacology and Therapeutics (R01 Clinical Trial Optional)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 11/18/2024</span>
+          <span class="meta-item">Closes: 05/07/2026</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">therapeutics</span></div>
+      </div>
+      <div class="card"
+           data-group="Vaccines and Therapeutics"
+           data-source="legacy"
+           data-title="Translational Research in Maternal and Pediatric Pharmacology and Therapeutics (R21 Clinical Trial Optional)"
+           data-agency=""
+           data-keywords="therapeutics">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-ok">Due in 40d</span>
+          <span class="group-label">Vaccines and Therapeutics</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/357185" target="_blank" rel="noopener">
+            Translational Research in Maternal and Pediatric Pharmacology and Therapeutics (R21 Clinical Trial Optional)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 11/18/2024</span>
+          <span class="meta-item">Closes: 05/07/2026</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">therapeutics</span></div>
+      </div>
+      <div class="card"
+           data-group="ASP and ICP"
+           data-source="legacy"
+           data-title="Collections Stewardship"
+           data-agency=""
+           data-keywords="Stewardship">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-ok">Due in 44d</span>
+          <span class="group-label">ASP and ICP</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/361480" target="_blank" rel="noopener">
+            Collections Stewardship
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 03/11/2026</span>
+          <span class="meta-item">Closes: 05/11/2026</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">Stewardship</span></div>
+      </div>
+      <div class="card"
+           data-group="ASP and ICP"
+           data-source="legacy"
+           data-title="FY2026 Research Opportunities in Accelerator Stewardship and Accelerator Development"
+           data-agency=""
+           data-keywords="Stewardship">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-ok">Due in 54d</span>
+          <span class="group-label">ASP and ICP</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/361458" target="_blank" rel="noopener">
+            FY2026 Research Opportunities in Accelerator Stewardship and Accelerator Development
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 03/12/2026</span>
+          <span class="meta-item">Closes: 05/21/2026</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">Stewardship</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV"
+           data-source="legacy"
+           data-title="NIMH Research Education Mentoring Program for HIV Researchers (R25 Clinical Trial Not Allowed)"
+           data-agency=""
+           data-keywords="HIV">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-ok">Due in 58d</span>
+          <span class="group-label">HIV</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/355177" target="_blank" rel="noopener">
+            NIMH Research Education Mentoring Program for HIV Researchers (R25 Clinical Trial Not Allowed)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 06/27/2024</span>
+          <span class="meta-item">Closes: 05/25/2026</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span></div>
+      </div>
+      <div class="card"
+           data-group="Emerging and Vector-Borne Diseases"
+           data-source="legacy"
+           data-title="Preclinical Proof of Concept Studies for Rare Diseases (R21 Clinical Trial Not Allowed)"
+           data-agency=""
+           data-keywords="disease">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-ok">Due in 66d</span>
+          <span class="group-label">Emerging and Vector-Borne Diseases</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/357570" target="_blank" rel="noopener">
+            Preclinical Proof of Concept Studies for Rare Diseases (R21 Clinical Trial Not Allowed)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 12/06/2024</span>
+          <span class="meta-item">Closes: 06/02/2026</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">disease</span></div>
+      </div>
+      <div class="card"
+           data-group="Emerging and Vector-Borne Diseases"
+           data-source="legacy"
+           data-title="Center for Inherited Disease Research (CIDR) High Throughput Sequencing and Genotyping Resource Access (X01 Clinical Trial Not Allowed)"
+           data-agency=""
+           data-keywords="disease">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-ok">Due in 102d</span>
+          <span class="group-label">Emerging and Vector-Borne Diseases</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/348409" target="_blank" rel="noopener">
+            Center for Inherited Disease Research (CIDR) High Throughput Sequencing and Genotyping Resource Access (X01 Clinical Trial Not Allowed)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 05/26/2023</span>
+          <span class="meta-item">Closes: 07/08/2026</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">disease</span></div>
+      </div>
+      <div class="card"
+           data-group="Emerging and Vector-Borne Diseases"
+           data-source="legacy"
+           data-title="Global Infectious Disease Research Training Program (D43 Clinical Trial Optional)"
+           data-agency=""
+           data-keywords="disease">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-ok">Due in 131d</span>
+          <span class="group-label">Emerging and Vector-Borne Diseases</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/353590" target="_blank" rel="noopener">
+            Global Infectious Disease Research Training Program (D43 Clinical Trial Optional)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 04/17/2024</span>
+          <span class="meta-item">Closes: 08/06/2026</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">disease</span></div>
+      </div>
+      <div class="card"
+           data-group="Emerging and Vector-Borne Diseases"
+           data-source="legacy"
+           data-title="Institutional Training Programs to Advance Translational Research on Alzheimer&#x27;s Disease (AD) and AD-Related Dementias (ADRD) (T32 Clinical Trial Not Allowed)"
+           data-agency=""
+           data-keywords="disease">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-ok">Due in 181d</span>
+          <span class="group-label">Emerging and Vector-Borne Diseases</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/357710" target="_blank" rel="noopener">
+            Institutional Training Programs to Advance Translational Research on Alzheimer&#x27;s Disease (AD) and AD-Related Dementias (ADRD) (T32 Clinical Trial Not Allowed)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 12/13/2024</span>
+          <span class="meta-item">Closes: 09/25/2026</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">disease</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV"
+           data-source="legacy"
+           data-title="Limited Competition: Specific Pathogen Free Macaque Colonies to Support HIV/AIDS Research (U42 Clinical Trial Not Allowed)"
+           data-agency=""
+           data-keywords="HIV">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-ok">Due in 181d</span>
+          <span class="group-label">HIV</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/351920" target="_blank" rel="noopener">
+            Limited Competition: Specific Pathogen Free Macaque Colonies to Support HIV/AIDS Research (U42 Clinical Trial Not Allowed)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 01/22/2024</span>
+          <span class="meta-item">Closes: 09/25/2026</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span></div>
+      </div>
+      <div class="card"
+           data-group="Emerging and Vector-Borne Diseases"
+           data-source="legacy"
+           data-title="Clinical Observational (CO) Studies in Musculoskeletal, Rheumatic, and Skin Diseases (R01 Clinical Trial Not Allowed)"
+           data-agency=""
+           data-keywords="disease">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-ok">Due in 219d</span>
+          <span class="group-label">Emerging and Vector-Borne Diseases</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/357604" target="_blank" rel="noopener">
+            Clinical Observational (CO) Studies in Musculoskeletal, Rheumatic, and Skin Diseases (R01 Clinical Trial Not Allowed)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 12/09/2024</span>
+          <span class="meta-item">Closes: 11/02/2026</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">disease</span></div>
+      </div>
+      <div class="card"
+           data-group="Emerging and Vector-Borne Diseases"
+           data-source="legacy"
+           data-title="Exploratory Clinical Trial Grants in Arthritis and Musculoskeletal and Skin Diseases (R61 Clinical Trial Required)"
+           data-agency=""
+           data-keywords="disease">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-ok">Due in 219d</span>
+          <span class="group-label">Emerging and Vector-Borne Diseases</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/357602" target="_blank" rel="noopener">
+            Exploratory Clinical Trial Grants in Arthritis and Musculoskeletal and Skin Diseases (R61 Clinical Trial Required)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 12/09/2024</span>
+          <span class="meta-item">Closes: 11/02/2026</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">disease</span></div>
+      </div>
+      <div class="card"
+           data-group="Emerging and Vector-Borne Diseases"
+           data-source="legacy"
+           data-title="Seamless Early-Stage Clinical Drug Development (Phase 1 to 2a) for Novel therapeutic Agents for the Spectrum of Alzheimer&#x27;s Disease (AD) and AD-related Dementias (ADRD) (UG3/UH3 Clinical Trial Required)"
+           data-agency=""
+           data-keywords="disease">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-ok">Due in 236d</span>
+          <span class="group-label">Emerging and Vector-Borne Diseases</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/357343" target="_blank" rel="noopener">
+            Seamless Early-Stage Clinical Drug Development (Phase 1 to 2a) for Novel therapeutic Agents for the Spectrum of Alzheimer&#x27;s Disease (AD) and AD-related Dementias (ADRD) (UG3/UH3 Clinical Trial Required)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 11/22/2024</span>
+          <span class="meta-item">Closes: 11/19/2026</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">disease</span></div>
+      </div>
+      <div class="card"
+           data-group="Emerging and Vector-Borne Diseases"
+           data-source="legacy"
+           data-title="Emerging Global Leader Award (K43 Independent Clinical Trial Required)"
+           data-agency=""
+           data-keywords="emerging">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-ok">Due in 250d</span>
+          <span class="group-label">Emerging and Vector-Borne Diseases</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/356724" target="_blank" rel="noopener">
+            Emerging Global Leader Award (K43 Independent Clinical Trial Required)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 10/15/2024</span>
+          <span class="meta-item">Closes: 12/03/2026</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">emerging</span></div>
+      </div>
+      <div class="card"
+           data-group="Emerging and Vector-Borne Diseases"
+           data-source="legacy"
+           data-title="Emerging Global Leader Award (K43 Independent Clinical Trial Not Allowed)"
+           data-agency=""
+           data-keywords="emerging">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-ok">Due in 250d</span>
+          <span class="group-label">Emerging and Vector-Borne Diseases</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/356723" target="_blank" rel="noopener">
+            Emerging Global Leader Award (K43 Independent Clinical Trial Not Allowed)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 10/15/2024</span>
+          <span class="meta-item">Closes: 12/03/2026</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">emerging</span></div>
+      </div>
+      <div class="card"
+           data-group="Emerging and Vector-Borne Diseases"
+           data-source="legacy"
+           data-title="Unveiling Health and Healthcare Disparities in Non-Communicable and Chronic Diseases in Latin America: Setting the Stage for Better Health Outcomes Across the Hemisphere (R01 - Clinical Trials Not Allowed)"
+           data-agency=""
+           data-keywords="disease">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-ok">Due in 285d</span>
+          <span class="group-label">Emerging and Vector-Borne Diseases</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/358087" target="_blank" rel="noopener">
+            Unveiling Health and Healthcare Disparities in Non-Communicable and Chronic Diseases in Latin America: Setting the Stage for Better Health Outcomes Across the Hemisphere (R01 - Clinical Trials Not Allowed)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 01/08/2025</span>
+          <span class="meta-item">Closes: 01/07/2027</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">disease</span></div>
+      </div>
+      <div class="card"
+           data-group="Vaccines and Therapeutics"
+           data-source="legacy"
+           data-title="NHLBI Early Phase Clinical Trials for Therapeutics and/or Diagnostics for HLBS Disorders (R33 CT Required)"
+           data-agency=""
+           data-keywords="therapeutics">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-ok">Due in 285d</span>
+          <span class="group-label">Vaccines and Therapeutics</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/357542" target="_blank" rel="noopener">
+            NHLBI Early Phase Clinical Trials for Therapeutics and/or Diagnostics for HLBS Disorders (R33 CT Required)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 12/05/2024</span>
+          <span class="meta-item">Closes: 01/07/2027</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">therapeutics</span></div>
+      </div>
+      <div class="card"
+           data-group="Vaccines and Therapeutics"
+           data-source="legacy"
+           data-title="NHLBI Early Phase Clinical Trials for Therapeutics and/or Diagnostics for HLBS Disorders (R61/R33 Clinical Trial Required)"
+           data-agency=""
+           data-keywords="therapeutics">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-ok">Due in 285d</span>
+          <span class="group-label">Vaccines and Therapeutics</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/357543" target="_blank" rel="noopener">
+            NHLBI Early Phase Clinical Trials for Therapeutics and/or Diagnostics for HLBS Disorders (R61/R33 Clinical Trial Required)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 12/05/2024</span>
+          <span class="meta-item">Closes: 01/07/2027</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">therapeutics</span></div>
+      </div>
+      <div class="card"
+           data-group="Emerging and Vector-Borne Diseases"
+           data-source="legacy"
+           data-title="Advancing Global Health"
+           data-agency=""
+           data-keywords="global health">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-ok">Due in 323d</span>
+          <span class="group-label">Emerging and Vector-Borne Diseases</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/361416" target="_blank" rel="noopener">
+            Advancing Global Health
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 03/05/2026</span>
+          <span class="meta-item">Closes: 02/14/2027</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">global health</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV"
+           data-source="legacy"
+           data-title="High Priority HIV and Substance Use Research (RM1 Clinical Trial Optional)"
+           data-agency=""
+           data-keywords="HIV">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-ok">Due in 342d</span>
+          <span class="group-label">HIV</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/351847" target="_blank" rel="noopener">
+            High Priority HIV and Substance Use Research (RM1 Clinical Trial Optional)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 01/17/2024</span>
+          <span class="meta-item">Closes: 03/05/2027</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV"
+           data-source="legacy"
+           data-title="High Priority HIV and Substance Use Research (R01 Clinical Trial Optional)"
+           data-agency=""
+           data-keywords="HIV">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-ok">Due in 343d</span>
+          <span class="group-label">HIV</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/355867" target="_blank" rel="noopener">
+            High Priority HIV and Substance Use Research (R01 Clinical Trial Optional)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 08/02/2024</span>
+          <span class="meta-item">Closes: 03/06/2027</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV"
+           data-source="legacy"
+           data-title="Development and Testing of Novel Interventions to Improve HIV Prevention, Treatment, and Program Implementation for People Who Use Substances (R34 Clinical Trial Required)"
+           data-agency=""
+           data-keywords="HIV">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-ok">Due in 353d</span>
+          <span class="group-label">HIV</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/358093" target="_blank" rel="noopener">
+            Development and Testing of Novel Interventions to Improve HIV Prevention, Treatment, and Program Implementation for People Who Use Substances (R34 Clinical Trial Required)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 01/08/2025</span>
+          <span class="meta-item">Closes: 03/16/2027</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span></div>
+      </div>
+      <div class="card"
+           data-group="Emerging and Vector-Borne Diseases"
+           data-source="legacy"
+           data-title="NHLBI Emerging Investigator Award (EIA) (R35 Clinical Trial Optional)"
+           data-agency=""
+           data-keywords="emerging">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-ok">Due in 396d</span>
+          <span class="group-label">Emerging and Vector-Borne Diseases</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/353822" target="_blank" rel="noopener">
+            NHLBI Emerging Investigator Award (EIA) (R35 Clinical Trial Optional)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 04/26/2024</span>
+          <span class="meta-item">Closes: 04/28/2027</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">emerging</span></div>
+      </div>
+      <div class="card"
+           data-group="Emerging and Vector-Borne Diseases"
+           data-source="legacy"
+           data-title="Interventions on Health and Healthcare Disparities on Non-Communicable and Chronic Diseases in Latin America: Improving Health Outcomes Across the Hemisphere (R01 - Clinical Trial Required)"
+           data-agency=""
+           data-keywords="disease">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-ok">Due in 405d</span>
+          <span class="group-label">Emerging and Vector-Borne Diseases</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/358157" target="_blank" rel="noopener">
+            Interventions on Health and Healthcare Disparities on Non-Communicable and Chronic Diseases in Latin America: Improving Health Outcomes Across the Hemisphere (R01 - Clinical Trial Required)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 01/13/2025</span>
+          <span class="meta-item">Closes: 05/07/2027</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">disease</span></div>
+      </div>
+      <div class="card"
+           data-group="Vaccines and Therapeutics"
+           data-source="legacy"
+           data-title="Blueprint Neurotherapeutics Network (BPN): Biologic-based Drug Discovery and Development for Disorders of the Nervous System (UG3/UH3 Clinical Trial Optional)"
+           data-agency=""
+           data-keywords="therapeutics">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-ok">Due in 508d</span>
+          <span class="group-label">Vaccines and Therapeutics</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/356610" target="_blank" rel="noopener">
+            Blueprint Neurotherapeutics Network (BPN): Biologic-based Drug Discovery and Development for Disorders of the Nervous System (UG3/UH3 Clinical Trial Optional)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 10/01/2024</span>
+          <span class="meta-item">Closes: 08/18/2027</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">therapeutics</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV"
+           data-source="legacy"
+           data-title="Department of Defense HIV/AIDS Prevention Program"
+           data-agency=""
+           data-keywords="HIV">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-ok">Due in 539d</span>
+          <span class="group-label">HIV</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/343653" target="_blank" rel="noopener">
+            Department of Defense HIV/AIDS Prevention Program
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 09/19/2022</span>
+          <span class="meta-item">Closes: 09/18/2027</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span></div>
+      </div>
+      <div class="card"
+           data-group="Emerging and Vector-Borne Diseases"
+           data-source="legacy"
+           data-title="Pilot Projects Investigating Understudied Proteins Associated with Rare Diseases (R03 Clinical Trial Not Allowed)"
+           data-agency=""
+           data-keywords="disease">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-ok">Due in 598d</span>
+          <span class="group-label">Emerging and Vector-Borne Diseases</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/356879" target="_blank" rel="noopener">
+            Pilot Projects Investigating Understudied Proteins Associated with Rare Diseases (R03 Clinical Trial Not Allowed)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 10/28/2024</span>
+          <span class="meta-item">Closes: 11/16/2027</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">disease</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV"
+           data-source="legacy"
+           data-title="Pilot Studies of Biological, Behavioral and Social Mechanisms Contributing to HIV Pathogenesis Within the Mission of NIDDK (R21 Clinical Trial Not Allowed)"
+           data-agency=""
+           data-keywords="HIV">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-ok">Due in 598d</span>
+          <span class="group-label">HIV</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/358082" target="_blank" rel="noopener">
+            Pilot Studies of Biological, Behavioral and Social Mechanisms Contributing to HIV Pathogenesis Within the Mission of NIDDK (R21 Clinical Trial Not Allowed)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 01/08/2025</span>
+          <span class="meta-item">Closes: 11/16/2027</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span></div>
+      </div>
+      <div class="card"
+           data-group="Emerging and Vector-Borne Diseases"
+           data-source="legacy"
+           data-title="Catalyze Product Definition  Medical Device prototype design/testing and disease target identification and assay development (R61/R33 - Clinical Trial Not Allowed)"
+           data-agency=""
+           data-keywords="disease">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-ok">Due in 635d</span>
+          <span class="group-label">Emerging and Vector-Borne Diseases</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/357339" target="_blank" rel="noopener">
+            Catalyze Product Definition  Medical Device prototype design/testing and disease target identification and assay development (R61/R33 - Clinical Trial Not Allowed)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 11/22/2024</span>
+          <span class="meta-item">Closes: 12/23/2027</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">disease</span></div>
+      </div>
+      <div class="card"
+           data-group="Emerging and Vector-Borne Diseases"
+           data-source="legacy"
+           data-title="Interventions to Address Disparities in Liver Diseases and Liver Cancer (R01 - Clinical Trials Optional)"
+           data-agency=""
+           data-keywords="disease">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-ok">Due in 650d</span>
+          <span class="group-label">Emerging and Vector-Borne Diseases</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/357550" target="_blank" rel="noopener">
+            Interventions to Address Disparities in Liver Diseases and Liver Cancer (R01 - Clinical Trials Optional)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 12/05/2024</span>
+          <span class="meta-item">Closes: 01/07/2028</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">disease</span></div>
+      </div>
+      <div class="card"
+           data-group="Emerging and Vector-Borne Diseases"
+           data-source="legacy"
+           data-title="Reissue of RFA-FD-22-001 - Efficient and Innovative Natural History Studies Addressing Unmet Needs in Rare Diseases (R01 Clinical Trials Optional)"
+           data-agency=""
+           data-keywords="disease">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-ok">Due in 682d</span>
+          <span class="group-label">Emerging and Vector-Borne Diseases</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/360007" target="_blank" rel="noopener">
+            Reissue of RFA-FD-22-001 - Efficient and Innovative Natural History Studies Addressing Unmet Needs in Rare Diseases (R01 Clinical Trials Optional)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 07/11/2025</span>
+          <span class="meta-item">Closes: 02/08/2028</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">disease</span></div>
+      </div>
+      <div class="card"
+           data-group="Emerging and Vector-Borne Diseases"
+           data-source="legacy"
+           data-title="Translational Bioinformatics and Experimental Approaches to Advance Drug Repositioning and Combination Therapy Development for Alzheimers Disease and Related Dementias (R01 Clinical Trial Not Allowed)"
+           data-agency=""
+           data-keywords="disease">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-ok">Due in 771d</span>
+          <span class="group-label">Emerging and Vector-Borne Diseases</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/357943" target="_blank" rel="noopener">
+            Translational Bioinformatics and Experimental Approaches to Advance Drug Repositioning and Combination Therapy Development for Alzheimers Disease and Related Dementias (R01 Clinical Trial Not Allowed)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 12/30/2024</span>
+          <span class="meta-item">Closes: 05/07/2028</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">disease</span></div>
+      </div>
+      <div class="card"
+           data-group="Emerging and Vector-Borne Diseases"
+           data-source="legacy"
+           data-title="Reissue of RFA-FD-23-001- Clinical Studies of Orphan Products Addressing Unmet Needs of Rare Diseases (R01 Clinical Trials Required)"
+           data-agency=""
+           data-keywords="disease">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-ok">Due in 780d</span>
+          <span class="group-label">Emerging and Vector-Borne Diseases</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/360008" target="_blank" rel="noopener">
+            Reissue of RFA-FD-23-001- Clinical Studies of Orphan Products Addressing Unmet Needs of Rare Diseases (R01 Clinical Trials Required)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 07/11/2025</span>
+          <span class="meta-item">Closes: 05/16/2028</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">disease</span></div>
+      </div>
+      <div class="card"
+           data-group="Emerging and Vector-Borne Diseases"
+           data-source="legacy"
+           data-title="Clinical Trial Readiness for Rare Diseases, Disorders, and Syndromes (R21 Clinical Trial Not Allowed)"
+           data-agency=""
+           data-keywords="disease">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-ok">Due in 845d</span>
+          <span class="group-label">Emerging and Vector-Borne Diseases</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/359645" target="_blank" rel="noopener">
+            Clinical Trial Readiness for Rare Diseases, Disorders, and Syndromes (R21 Clinical Trial Not Allowed)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 09/22/2025</span>
+          <span class="meta-item">Closes: 07/20/2028</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">disease</span></div>
+      </div>
+      <div class="card"
+           data-group="Emerging and Vector-Borne Diseases"
+           data-source="legacy"
+           data-title="Resource-Related Research Projects for Development of Models and Related Materials for Studying Human Health and Diseases (R24 Clinical Trials Not Allowed)"
+           data-agency=""
+           data-keywords="disease">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-ok">Due in 915d</span>
+          <span class="group-label">Emerging and Vector-Borne Diseases</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/359648" target="_blank" rel="noopener">
+            Resource-Related Research Projects for Development of Models and Related Materials for Studying Human Health and Diseases (R24 Clinical Trials Not Allowed)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 12/05/2025</span>
+          <span class="meta-item">Closes: 09/28/2028</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">disease</span></div>
+      </div>
+</div>
+
+<footer>
+  Generated automatically by
+  <a href="https://github.com" target="_blank">GitHub Actions</a> ·
+  Data from grants.gov and SAM.gov (public APIs) ·
+  Not affiliated with any government agency.
+</footer>
+
+<script>
+const RAW = [{"source": "legacy", "opportunity_id": "358089", "opportunity_number": "PAS-25-102", "opportunity_title": "Small R01s for Clinical Trials Targeting Diseases within the Mission of NIDDK (R01 Clinical Trial Required)", "agency_name": "", "post_date": "01/08/2025", "close_date": "05/07/2026", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/358089", "matched_keywords": "disease", "keyword_group": "Emerging and Vector-Borne Diseases"}, {"source": "legacy", "opportunity_id": "357390", "opportunity_number": "PAS-25-161", "opportunity_title": "HIV Prevention and Alcohol (R34 Clinical Trials Optional)", "agency_name": "", "post_date": "11/25/2024", "close_date": "05/07/2026", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/357390", "matched_keywords": "HIV", "keyword_group": "HIV"}, {"source": "legacy", "opportunity_id": "357391", "opportunity_number": "PAS-25-208", "opportunity_title": "HIV Prevention and Alcohol (R01 Clinical Trials Optional)", "agency_name": "", "post_date": "11/25/2024", "close_date": "05/07/2026", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/357391", "matched_keywords": "HIV", "keyword_group": "HIV"}, {"source": "legacy", "opportunity_id": "357184", "opportunity_number": "PAR-25-110", "opportunity_title": "Translational Research in Maternal and Pediatric Pharmacology and Therapeutics (R01 Clinical Trial Optional)", "agency_name": "", "post_date": "11/18/2024", "close_date": "05/07/2026", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/357184", "matched_keywords": "therapeutics", "keyword_group": "Vaccines and Therapeutics"}, {"source": "legacy", "opportunity_id": "357185", "opportunity_number": "PAR-25-111", "opportunity_title": "Translational Research in Maternal and Pediatric Pharmacology and Therapeutics (R21 Clinical Trial Optional)", "agency_name": "", "post_date": "11/18/2024", "close_date": "05/07/2026", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/357185", "matched_keywords": "therapeutics", "keyword_group": "Vaccines and Therapeutics"}, {"source": "legacy", "opportunity_id": "361480", "opportunity_number": "20260511-PCS", "opportunity_title": "Collections Stewardship", "agency_name": "", "post_date": "03/11/2026", "close_date": "05/11/2026", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/361480", "matched_keywords": "Stewardship", "keyword_group": "ASP and ICP"}, {"source": "legacy", "opportunity_id": "361458", "opportunity_number": "DE-FOA-0003620", "opportunity_title": "FY2026 Research Opportunities in Accelerator Stewardship and Accelerator Development", "agency_name": "", "post_date": "03/12/2026", "close_date": "05/21/2026", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/361458", "matched_keywords": "Stewardship", "keyword_group": "ASP and ICP"}, {"source": "legacy", "opportunity_id": "355177", "opportunity_number": "PAR-24-233", "opportunity_title": "NIMH Research Education Mentoring Program for HIV Researchers (R25 Clinical Trial Not Allowed)", "agency_name": "", "post_date": "06/27/2024", "close_date": "05/25/2026", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/355177", "matched_keywords": "HIV", "keyword_group": "HIV"}, {"source": "legacy", "opportunity_id": "357570", "opportunity_number": "RFA-TR-25-002", "opportunity_title": "Preclinical Proof of Concept Studies for Rare Diseases (R21 Clinical Trial Not Allowed)", "agency_name": "", "post_date": "12/06/2024", "close_date": "06/02/2026", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/357570", "matched_keywords": "disease", "keyword_group": "Emerging and Vector-Borne Diseases"}, {"source": "legacy", "opportunity_id": "348409", "opportunity_number": "PAR-23-184", "opportunity_title": "Center for Inherited Disease Research (CIDR) High Throughput Sequencing and Genotyping Resource Access (X01 Clinical Trial Not Allowed)", "agency_name": "", "post_date": "05/26/2023", "close_date": "07/08/2026", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/348409", "matched_keywords": "disease", "keyword_group": "Emerging and Vector-Borne Diseases"}, {"source": "legacy", "opportunity_id": "353590", "opportunity_number": "PAR-24-174", "opportunity_title": "Global Infectious Disease Research Training Program (D43 Clinical Trial Optional)", "agency_name": "", "post_date": "04/17/2024", "close_date": "08/06/2026", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/353590", "matched_keywords": "disease", "keyword_group": "Emerging and Vector-Borne Diseases"}, {"source": "legacy", "opportunity_id": "357710", "opportunity_number": "PAR-25-247", "opportunity_title": "Institutional Training Programs to Advance Translational Research on Alzheimer's Disease (AD) and AD-Related Dementias (ADRD) (T32 Clinical Trial Not Allowed)", "agency_name": "", "post_date": "12/13/2024", "close_date": "09/25/2026", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/357710", "matched_keywords": "disease", "keyword_group": "Emerging and Vector-Borne Diseases"}, {"source": "legacy", "opportunity_id": "351920", "opportunity_number": "PAR-24-129", "opportunity_title": "Limited Competition: Specific Pathogen Free Macaque Colonies to Support HIV/AIDS Research (U42 Clinical Trial Not Allowed)", "agency_name": "", "post_date": "01/22/2024", "close_date": "09/25/2026", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/351920", "matched_keywords": "HIV", "keyword_group": "HIV"}, {"source": "legacy", "opportunity_id": "357604", "opportunity_number": "PAR-24-280", "opportunity_title": "Clinical Observational (CO) Studies in Musculoskeletal, Rheumatic, and Skin Diseases (R01 Clinical Trial Not Allowed)", "agency_name": "", "post_date": "12/09/2024", "close_date": "11/02/2026", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/357604", "matched_keywords": "disease", "keyword_group": "Emerging and Vector-Borne Diseases"}, {"source": "legacy", "opportunity_id": "357602", "opportunity_number": "PAR-24-279", "opportunity_title": "Exploratory Clinical Trial Grants in Arthritis and Musculoskeletal and Skin Diseases (R61 Clinical Trial Required)", "agency_name": "", "post_date": "12/09/2024", "close_date": "11/02/2026", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/357602", "matched_keywords": "disease", "keyword_group": "Emerging and Vector-Borne Diseases"}, {"source": "legacy", "opportunity_id": "357343", "opportunity_number": "PAR-25-226", "opportunity_title": "Seamless Early-Stage Clinical Drug Development (Phase 1 to 2a) for Novel therapeutic Agents for the Spectrum of Alzheimer's Disease (AD) and AD-related Dementias (ADRD) (UG3/UH3 Clinical Trial Required)", "agency_name": "", "post_date": "11/22/2024", "close_date": "11/19/2026", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/357343", "matched_keywords": "disease", "keyword_group": "Emerging and Vector-Borne Diseases"}, {"source": "legacy", "opportunity_id": "356724", "opportunity_number": "PAR-24-295", "opportunity_title": "Emerging Global Leader Award (K43 Independent Clinical Trial Required)", "agency_name": "", "post_date": "10/15/2024", "close_date": "12/03/2026", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/356724", "matched_keywords": "emerging", "keyword_group": "Emerging and Vector-Borne Diseases"}, {"source": "legacy", "opportunity_id": "356723", "opportunity_number": "PAR-24-296", "opportunity_title": "Emerging Global Leader Award (K43 Independent Clinical Trial Not Allowed)", "agency_name": "", "post_date": "10/15/2024", "close_date": "12/03/2026", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/356723", "matched_keywords": "emerging", "keyword_group": "Emerging and Vector-Borne Diseases"}, {"source": "legacy", "opportunity_id": "358087", "opportunity_number": "PAR-25-377", "opportunity_title": "Unveiling Health and Healthcare Disparities in Non-Communicable and Chronic Diseases in Latin America: Setting the Stage for Better Health Outcomes Across the Hemisphere (R01 - Clinical Trials Not Allowed)", "agency_name": "", "post_date": "01/08/2025", "close_date": "01/07/2027", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/358087", "matched_keywords": "disease", "keyword_group": "Emerging and Vector-Borne Diseases"}, {"source": "legacy", "opportunity_id": "357542", "opportunity_number": "PAR-25-025", "opportunity_title": "NHLBI Early Phase Clinical Trials for Therapeutics and/or Diagnostics for HLBS Disorders (R33 CT Required)", "agency_name": "", "post_date": "12/05/2024", "close_date": "01/07/2027", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/357542", "matched_keywords": "therapeutics", "keyword_group": "Vaccines and Therapeutics"}, {"source": "legacy", "opportunity_id": "357543", "opportunity_number": "PAR-25-026", "opportunity_title": "NHLBI Early Phase Clinical Trials for Therapeutics and/or Diagnostics for HLBS Disorders (R61/R33 Clinical Trial Required)", "agency_name": "", "post_date": "12/05/2024", "close_date": "01/07/2027", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/357543", "matched_keywords": "therapeutics", "keyword_group": "Vaccines and Therapeutics"}, {"source": "legacy", "opportunity_id": "361416", "opportunity_number": "DFOP0017890", "opportunity_title": "Advancing Global Health", "agency_name": "", "post_date": "03/05/2026", "close_date": "02/14/2027", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/361416", "matched_keywords": "global health", "keyword_group": "Emerging and Vector-Borne Diseases"}, {"source": "legacy", "opportunity_id": "351847", "opportunity_number": "RFA-DA-25-060", "opportunity_title": "High Priority HIV and Substance Use Research (RM1 Clinical Trial Optional)", "agency_name": "", "post_date": "01/17/2024", "close_date": "03/05/2027", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/351847", "matched_keywords": "HIV", "keyword_group": "HIV"}, {"source": "legacy", "opportunity_id": "355867", "opportunity_number": "RFA-DA-25-024", "opportunity_title": "High Priority HIV and Substance Use Research (R01 Clinical Trial Optional)", "agency_name": "", "post_date": "08/02/2024", "close_date": "03/06/2027", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/355867", "matched_keywords": "HIV", "keyword_group": "HIV"}, {"source": "legacy", "opportunity_id": "358093", "opportunity_number": "PAR-24-329", "opportunity_title": "Development and Testing of Novel Interventions to Improve HIV Prevention, Treatment, and Program Implementation for People Who Use Substances (R34 Clinical Trial Required)", "agency_name": "", "post_date": "01/08/2025", "close_date": "03/16/2027", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/358093", "matched_keywords": "HIV", "keyword_group": "HIV"}, {"source": "legacy", "opportunity_id": "353822", "opportunity_number": "RFA-HL-26-003", "opportunity_title": "NHLBI Emerging Investigator Award (EIA) (R35 Clinical Trial Optional)", "agency_name": "", "post_date": "04/26/2024", "close_date": "04/28/2027", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/353822", "matched_keywords": "emerging", "keyword_group": "Emerging and Vector-Borne Diseases"}, {"source": "legacy", "opportunity_id": "358157", "opportunity_number": "PAR-25-342", "opportunity_title": "Interventions on Health and Healthcare Disparities on Non-Communicable and Chronic Diseases in Latin America: Improving Health Outcomes Across the Hemisphere (R01 - Clinical Trial Required)", "agency_name": "", "post_date": "01/13/2025", "close_date": "05/07/2027", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/358157", "matched_keywords": "disease", "keyword_group": "Emerging and Vector-Borne Diseases"}, {"source": "legacy", "opportunity_id": "356610", "opportunity_number": "PAR-24-293", "opportunity_title": "Blueprint Neurotherapeutics Network (BPN): Biologic-based Drug Discovery and Development for Disorders of the Nervous System (UG3/UH3 Clinical Trial Optional)", "agency_name": "", "post_date": "10/01/2024", "close_date": "08/18/2027", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/356610", "matched_keywords": "therapeutics", "keyword_group": "Vaccines and Therapeutics"}, {"source": "legacy", "opportunity_id": "343653", "opportunity_number": "W81XWH-22-DHAPP", "opportunity_title": "Department of Defense HIV/AIDS Prevention Program", "agency_name": "", "post_date": "09/19/2022", "close_date": "09/18/2027", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/343653", "matched_keywords": "HIV", "keyword_group": "HIV"}, {"source": "legacy", "opportunity_id": "356879", "opportunity_number": "PAR-25-122", "opportunity_title": "Pilot Projects Investigating Understudied Proteins Associated with Rare Diseases (R03 Clinical Trial Not Allowed)", "agency_name": "", "post_date": "10/28/2024", "close_date": "11/16/2027", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/356879", "matched_keywords": "disease", "keyword_group": "Emerging and Vector-Borne Diseases"}, {"source": "legacy", "opportunity_id": "358082", "opportunity_number": "PAR-25-068", "opportunity_title": "Pilot Studies of Biological, Behavioral and Social Mechanisms Contributing to HIV Pathogenesis Within the Mission of NIDDK (R21 Clinical Trial Not Allowed)", "agency_name": "", "post_date": "01/08/2025", "close_date": "11/16/2027", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/358082", "matched_keywords": "HIV", "keyword_group": "HIV"}, {"source": "legacy", "opportunity_id": "357339", "opportunity_number": "RFA-HL-26-019", "opportunity_title": "Catalyze Product Definition  Medical Device prototype design/testing and disease target identification and assay development (R61/R33 - Clinical Trial Not Allowed)", "agency_name": "", "post_date": "11/22/2024", "close_date": "12/23/2027", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/357339", "matched_keywords": "disease", "keyword_group": "Emerging and Vector-Borne Diseases"}, {"source": "legacy", "opportunity_id": "357550", "opportunity_number": "PAR-25-299", "opportunity_title": "Interventions to Address Disparities in Liver Diseases and Liver Cancer (R01 - Clinical Trials Optional)", "agency_name": "", "post_date": "12/05/2024", "close_date": "01/07/2028", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/357550", "matched_keywords": "disease", "keyword_group": "Emerging and Vector-Borne Diseases"}, {"source": "legacy", "opportunity_id": "360007", "opportunity_number": "RFA-FD-25-017", "opportunity_title": "Reissue of RFA-FD-22-001 - Efficient and Innovative Natural History Studies Addressing Unmet Needs in Rare Diseases (R01 Clinical Trials Optional)", "agency_name": "", "post_date": "07/11/2025", "close_date": "02/08/2028", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/360007", "matched_keywords": "disease", "keyword_group": "Emerging and Vector-Borne Diseases"}, {"source": "legacy", "opportunity_id": "357943", "opportunity_number": "PAR-25-374", "opportunity_title": "Translational Bioinformatics and Experimental Approaches to Advance Drug Repositioning and Combination Therapy Development for Alzheimers Disease and Related Dementias (R01 Clinical Trial Not Allowed)", "agency_name": "", "post_date": "12/30/2024", "close_date": "05/07/2028", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/357943", "matched_keywords": "disease", "keyword_group": "Emerging and Vector-Borne Diseases"}, {"source": "legacy", "opportunity_id": "360008", "opportunity_number": "RFA-FD-25-020", "opportunity_title": "Reissue of RFA-FD-23-001- Clinical Studies of Orphan Products Addressing Unmet Needs of Rare Diseases (R01 Clinical Trials Required)", "agency_name": "", "post_date": "07/11/2025", "close_date": "05/16/2028", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/360008", "matched_keywords": "disease", "keyword_group": "Emerging and Vector-Borne Diseases"}, {"source": "legacy", "opportunity_id": "359645", "opportunity_number": "PAR-25-450", "opportunity_title": "Clinical Trial Readiness for Rare Diseases, Disorders, and Syndromes (R21 Clinical Trial Not Allowed)", "agency_name": "", "post_date": "09/22/2025", "close_date": "07/20/2028", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/359645", "matched_keywords": "disease", "keyword_group": "Emerging and Vector-Borne Diseases"}, {"source": "legacy", "opportunity_id": "359648", "opportunity_number": "RFA-OD-25-010", "opportunity_title": "Resource-Related Research Projects for Development of Models and Related Materials for Studying Human Health and Diseases (R24 Clinical Trials Not Allowed)", "agency_name": "", "post_date": "12/05/2025", "close_date": "09/28/2028", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/359648", "matched_keywords": "disease", "keyword_group": "Emerging and Vector-Borne Diseases"}];
+
+// Parse and store deadline days for sorting
+const data = RAW.map(r => ({
+  ...r,
+  _days: (() => {
+    const s = r.close_date || "";
+    if (!s) return 99999;
+    const d = new Date(s);
+    if (isNaN(d)) return 99999;
+    return Math.round((d - Date.now()) / 86400000);
+  })()
+}));
+
+const grid    = document.getElementById("card-grid");
+const cards   = Array.from(grid.querySelectorAll(".card"));
+const counter = document.getElementById("result-count");
+
+function normalize(s) {
+  return (s || "").toLowerCase();
+}
+
+function render() {
+  const q      = normalize(document.getElementById("search-box").value);
+  const group  = document.getElementById("filter-group").value;
+  const source = document.getElementById("filter-source").value;
+  const sortBy = document.getElementById("sort-by").value;
+
+  // Filter
+  let visible = cards.filter(card => {
+    if (group  && card.dataset.group  !== group)  return false;
+    if (source && card.dataset.source !== source) return false;
+    if (q) {
+      const hay = [card.dataset.title, card.dataset.agency,
+                   card.dataset.keywords].map(normalize).join(" ");
+      if (!hay.includes(q)) return false;
+    }
+    return true;
+  });
+
+  // Sort
+  const idxMap = new Map(data.map((r, i) => [
+    (r.opportunity_title || "") + "|" + (r.agency_name || ""), i
+  ]));
+
+  visible.sort((a, b) => {
+    const ai = idxMap.get(a.dataset.title + "|" + a.dataset.agency) ?? 0;
+    const bi = idxMap.get(b.dataset.title + "|" + b.dataset.agency) ?? 0;
+    const ad = data[ai], bd = data[bi];
+    if (sortBy === "deadline") return (ad._days ?? 99999) - (bd._days ?? 99999);
+    if (sortBy === "posted")   return (bd.post_date || "").localeCompare(ad.post_date || "");
+    if (sortBy === "title")    return (ad.opportunity_title || "").localeCompare(bd.opportunity_title || "");
+    return 0;
+  });
+
+  // Show/hide
+  const hiddenSet = new Set(cards);
+  visible.forEach(c => hiddenSet.delete(c));
+  hiddenSet.forEach(c => { c.style.display = "none"; });
+  visible.forEach(c  => { c.style.display = "";      grid.appendChild(c); });
+
+  counter.textContent = `${visible.length} of ${cards.length} shown`;
+}
+
+["search-box","filter-group","filter-source","sort-by"].forEach(id => {
+  document.getElementById(id).addEventListener("input", render);
+});
+
+render();
+</script>
+</body>
+</html>

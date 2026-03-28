@@ -1,0 +1,99 @@
+# .github/workflows/daily_search.yml
+# ---------------------------------------------------------------
+# Runs daily at 06:00 UTC, queries grants.gov and SAM.gov, and
+# uploads index.html + opportunities.csv as a downloadable
+# GitHub Actions artifact.
+#
+# Required repository secrets:
+#   SIMPLER_API_KEY  — from simpler.grants.gov/developer
+#   SAM_API_KEY      — from sam.gov profile → Request API Key
+#
+# Keywords and API settings: edit search_config.yaml in the repo
+# root. Pushing a change to that file triggers an immediate
+# re-run.
+#
+# To download the report:
+#   Actions tab → select a run → Artifacts section →
+#   "opportunity-report-N"
+# ---------------------------------------------------------------
+
+name: Daily Opportunity Search
+
+on:
+  schedule:
+    - cron: "0 6 * * *"       # 06:00 UTC daily
+  workflow_dispatch:            # manual trigger from Actions tab
+  push:
+    paths:
+      - "search_config.yaml"   # re-run when keywords change
+
+permissions:
+  contents: read               # read-only; no repo writes needed
+
+jobs:
+  search-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      # ── 1. Checkout ────────────────────────────────────────
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # ── 2. Set up uv ──────────────────────────────────────
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+
+      # ── 3. Run search & build report ──────────────────────
+      - name: Run grants/contracts search
+        env:
+          SIMPLER_API_KEY: ${{ secrets.SIMPLER_API_KEY }}
+          SAM_API_KEY:     ${{ secrets.SAM_API_KEY }}
+        run: |
+          uv run scripts/build_report.py \
+            --config search_config.yaml \
+            --out-dir _report
+
+      # ── 4. Upload HTML + CSV as a downloadable artifact ───
+      - name: Upload opportunity report
+        uses: actions/upload-artifact@v4
+        with:
+          name: opportunity-report-${{ github.run_number }}
+          path: |
+            _report/index.html
+            _report/opportunities.csv
+          retention-days: 90
+          if-no-files-found: warn
+
+      # ── 5. Job summary (visible in Actions UI) ────────────
+      - name: Write job summary
+        run: |
+          COUNT=$(uv run python - <<'EOF'
+          import csv, pathlib
+          p = pathlib.Path("_report/opportunities.csv")
+          print(max(0, len(list(csv.reader(p.open()))) - 1) if p.exists() else 0)
+          EOF
+          )
+          SOURCES=$(uv run python - <<'EOF'
+          import csv, pathlib, collections
+          p = pathlib.Path("_report/opportunities.csv")
+          if p.exists():
+              rows = list(csv.DictReader(p.open()))
+              c = collections.Counter(r.get("source","?") for r in rows)
+              print(", ".join(f"{v} from {k}" for k,v in sorted(c.items())))
+          else:
+              print("none")
+          EOF
+          )
+          {
+            echo "## Opportunity search complete"
+            echo ""
+            echo "| | |"
+            echo "|---|---|"
+            echo "| **Total opportunities** | ${COUNT} |"
+            echo "| **Breakdown** | ${SOURCES} |"
+            echo "| **Run time** | $(date -u +'%Y-%m-%d %H:%M UTC') |"
+            echo "| **Download** | See Artifacts below this summary |"
+          } >> "$GITHUB_STEP_SUMMARY"

@@ -1,0 +1,94 @@
+# search_config.yaml
+# ───────────────────
+# Edit this file to control what gets searched.
+# Push a change here → GitHub Action re-runs immediately.
+# No changes to the workflow or Python scripts are needed.
+
+# ── Keyword groups ────────────────────────────────────────────────────────────
+# Each group is searched independently. Results are merged and deduplicated
+# across groups. Within a group, 'logic' controls client-side matching:
+#   OR     — any keyword present in title/description/agency
+#   AND    — all keywords must be present
+#   PHRASE — keywords joined as an exact phrase
+
+keyword_groups:
+
+  - label: "Vaccines and Therapeutics"
+    logic: OR
+    keywords:
+      - "wound infection"
+      - "Acinetobacter"
+      - "biofilm"
+      - "therapeutics"
+      - "vaccines"
+      - "vaccine"
+
+  - label: "HIV"
+    logic: OR
+    keywords:
+      - "HIV"
+
+  - label: "Emerging and Vector-Borne Diseases"
+    logic: OR
+    keywords:
+      - "emerging"
+      - "vector-borne"
+      - "global health"
+      - "global health security"
+      - "biosecurity"
+      - "disease"
+      - "diseases"
+      - "vector"
+      - "vectors"
+      - "vectorborne"
+      - "vector-borne"
+      - "vectorborne"
+      - "Lyme"
+      - "Rickettsia"
+      - "Hantavirus"
+      - "SARS-CoV-2"
+      - "West Nile"
+
+  - label: "ASP and ICP"
+    logic: OR
+    keywords:
+      - "ASP"
+      - "ICP"
+      - "Intensive Care"
+      - "Intensive Care Unit"
+      - "Intensive Care Unit"
+      - "Infection control"
+      - "Infection prevention"
+      - "Stewardship"
+      - "Antimicrobial Stewardship"
+      - "Antimicrobial Resistance"
+      - "Antimicrobial Resistance Management"
+      - "Antimicrobial Resistance Program"
+      - "Antimicrobial Resistance Prevention"
+      - "Antimicrobial Resistance Treatment"
+      - "Antimicrobial Resistance Surveillance"
+      - "Antimicrobial Resistance Surveillance Program"
+
+
+# ── API settings ─────────────────────────────────────────────────────────────
+api:
+  use_legacy:  true    # grants.gov legacy — no key required
+  use_simpler: true    # simpler.grants.gov — needs SIMPLER_API_KEY secret
+  use_sam:     true    # sam.gov contracts/STTR/SBIR — needs SAM_API_KEY secret
+  max_results: 200     # records to fetch per keyword per API
+
+  # grants.gov status filter: posted | forecasted | closed | archived
+  grants_status: posted
+
+  # SAM.gov procurement type codes (comma-separated):
+  #   o = solicitation   k = SBIR/STTR   p = pre-solicitation
+  #   a = award notice   s = special     r = sources sought
+  sam_ptype: "o,k,p"
+  sam_posted_from: "01/01/2026"   # MM/DD/YYYY
+
+# ── Report appearance ─────────────────────────────────────────────────────────
+page:
+  title: "Open Funding Opportunities"
+  subtitle: ""
+  deadline_warn_days:     30   # amber badge
+  deadline_critical_days: 14   # red badge

@@ -1,0 +1,41 @@
+# Taskfile for funding opportunity scraper
+# https://taskfile.dev
+version: "3"
+
+vars:
+  CONFIG: search_config.yaml
+  OUTDIR: _report
+
+tasks:
+  default:
+    desc: Build the opportunity report
+    deps: [build]
+
+  build:
+    desc: Run the report builder
+    cmds:
+      - >-
+        uv run scripts/build_report.py
+        --config {{.CONFIG}}
+        --out-dir {{.OUTDIR}}
+
+  sync:
+    desc: Install/sync dependencies
+    cmds:
+      - uv sync
+
+  clean:
+    desc: Remove report output directory
+    cmds:
+      - rm -rf {{.OUTDIR}}
+
+  lint:
+    desc: Lint Python scripts with ruff
+    cmds:
+      - uv run ruff check scripts/
+
+  open:
+    desc: Open the generated report in browser
+    deps: [build]
+    cmds:
+      - open {{.OUTDIR}}/index.html

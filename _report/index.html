@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open Funding Opportunities</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f8fafc; color: #1e293b; line-height: 1.5;
+    }
+    header {
+      background: #0f172a; color: #f1f5f9; padding: 1.5rem 2rem;
+      border-bottom: 3px solid #2563eb;
+    }
+    header h1 { font-size: 1.5rem; font-weight: 700; }
+    header p  { font-size: 0.9rem; color: #94a3b8; margin-top: .25rem; }
+    .meta-bar {
+      background: #1e293b; color: #94a3b8; padding: .5rem 2rem;
+      font-size: .8rem; display: flex; gap: 1.5rem; align-items: center;
+    }
+    .meta-bar strong { color: #f1f5f9; }
+
+    /* Controls */
+    .controls {
+      display: flex; flex-wrap: wrap; gap: .75rem;
+      padding: 1rem 2rem; background: #fff;
+      border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; z-index: 10;
+      box-shadow: 0 1px 4px rgba(0,0,0,.06);
+    }
+    .controls input, .controls select {
+      padding: .45rem .75rem; border: 1px solid #cbd5e1;
+      border-radius: 6px; font-size: .875rem; background: #f8fafc;
+      color: #1e293b;
+    }
+    .controls input { flex: 1; min-width: 220px; }
+    #result-count { font-size: .85rem; color: #64748b; align-self: center; }
+
+    /* Cards */
+    #card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 1rem; padding: 1.25rem 2rem;
+    }
+    .card {
+      background: #fff; border: 1px solid #e2e8f0; border-radius: 10px;
+      padding: 1rem 1.1rem; display: flex; flex-direction: column; gap: .5rem;
+      transition: box-shadow .15s;
+    }
+    .card:hover { box-shadow: 0 4px 16px rgba(0,0,0,.09); }
+    .card-header { display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; }
+    .card-title { font-size: .95rem; font-weight: 600; }
+    .card-title a { color: #1d4ed8; text-decoration: none; }
+    .card-title a:hover { text-decoration: underline; }
+    .card-agency { font-size: .8rem; color: #64748b; }
+    .card-meta {
+      display: flex; flex-wrap: wrap; gap: .4rem;
+      font-size: .75rem; color: #475569;
+    }
+    .meta-item {
+      background: #f1f5f9; border-radius: 4px; padding: .15rem .45rem;
+    }
+    .card-desc { font-size: .8rem; color: #475569; }
+    .kw-tags { display: flex; flex-wrap: wrap; gap: .3rem; margin-top: .2rem; }
+    .kw-tag {
+      background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe;
+      border-radius: 4px; padding: .1rem .4rem; font-size: .72rem;
+    }
+
+    /* Badges */
+    .source-badge, .badge, .group-label {
+      display: inline-block; border-radius: 4px;
+      padding: .15rem .5rem; font-size: .72rem; font-weight: 600;
+      color: #fff;
+    }
+    .badge-critical { background: #dc2626; }
+    .badge-warn     { background: #d97706; }
+    .badge-ok       { background: #16a34a; }
+    .badge-closed   { background: #6b7280; }
+    .badge-none     { background: #94a3b8; }
+    .group-label    { background: #64748b; font-weight: 500; }
+
+    .empty { padding: 3rem 2rem; color: #94a3b8; text-align: center; }
+    footer {
+      text-align: center; padding: 1.5rem; font-size: .78rem;
+      color: #94a3b8; border-top: 1px solid #e2e8f0;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Open Funding Opportunities</h1>
+  <p></p>
+</header>
+<div class="meta-bar">
+  <span>Last updated: <strong>2026-03-28 00:32 UTC</strong></span>
+  <span>Total opportunities: <strong>18</strong></span>
+  <span>Sources: grants.gov (legacy &amp; simpler) · SAM.gov</span>
+</div>
+
+<div class="controls">
+  <input type="search" id="search-box" placeholder="Search title, agency, keyword…" autocomplete="off">
+  <select id="filter-group">
+    <option value="">All groups</option>
+    <option value="Group 2">Group 2</option>
+<option value="Group 3">Group 3</option>
+  </select>
+  <select id="filter-source">
+    <option value="">All sources</option>
+    <option value="legacy">Legacy</option>
+  </select>
+  <select id="sort-by">
+    <option value="deadline">Sort: soonest deadline</option>
+    <option value="posted">Sort: most recent</option>
+    <option value="title">Sort: title A–Z</option>
+  </select>
+  <span id="result-count"></span>
+</div>
+
+<div id="card-grid">
+
+      <div class="card"
+           data-group="Group 3"
+           data-source="legacy"
+           data-title="New Jail Planning Initiative"
+           data-agency=""
+           data-keywords="Jail">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-critical">Due in 0d</span>
+          <span class="group-label">Group 3</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/361468" target="_blank" rel="noopener">
+            New Jail Planning Initiative
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 03/12/2026</span>
+          <span class="meta-item">Closes: 03/27/2026</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">Jail</span></div>
+      </div>
+      <div class="card"
+           data-group="Group 3"
+           data-source="legacy"
+           data-title="Veterans Legacy Grants Program"
+           data-agency=""
+           data-keywords="Veterans">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-critical">Due in 0d</span>
+          <span class="group-label">Group 3</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/360057" target="_blank" rel="noopener">
+            Veterans Legacy Grants Program
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 02/25/2026</span>
+          <span class="meta-item">Closes: 03/27/2026</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">Veterans</span></div>
+      </div>
+      <div class="card"
+           data-group="Group 3"
+           data-source="legacy"
+           data-title="Nursing Home Staffing Campaign"
+           data-agency=""
+           data-keywords="Nursing">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-critical">Due in 0d</span>
+          <span class="group-label">Group 3</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/361025" target="_blank" rel="noopener">
+            Nursing Home Staffing Campaign
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 02/09/2026</span>
+          <span class="meta-item">Closes: 03/27/2026</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">Nursing</span></div>
+      </div>
+      <div class="card"
+           data-group="Group 3"
+           data-source="legacy"
+           data-title="BJA FY25 Veterans Treatment Court Program"
+           data-agency=""
+           data-keywords="Veterans">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-ok">Due in 31d</span>
+          <span class="group-label">Group 3</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/361535" target="_blank" rel="noopener">
+            BJA FY25 Veterans Treatment Court Program
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 03/18/2026</span>
+          <span class="meta-item">Closes: 04/27/2026</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">Veterans</span></div>
+      </div>
+      <div class="card"
+           data-group="Group 2"
+           data-source="legacy"
+           data-title="HIV Prevention and Alcohol (R01 Clinical Trials Optional)"
+           data-agency=""
+           data-keywords="HIV">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-ok">Due in 41d</span>
+          <span class="group-label">Group 2</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/357391" target="_blank" rel="noopener">
+            HIV Prevention and Alcohol (R01 Clinical Trials Optional)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 11/25/2024</span>
+          <span class="meta-item">Closes: 05/07/2026</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span></div>
+      </div>
+      <div class="card"
+           data-group="Group 2"
+           data-source="legacy"
+           data-title="HIV Prevention and Alcohol (R34 Clinical Trials Optional)"
+           data-agency=""
+           data-keywords="HIV">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-ok">Due in 41d</span>
+          <span class="group-label">Group 2</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/357390" target="_blank" rel="noopener">
+            HIV Prevention and Alcohol (R34 Clinical Trials Optional)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 11/25/2024</span>
+          <span class="meta-item">Closes: 05/07/2026</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span></div>
+      </div>
+      <div class="card"
+           data-group="Group 3"
+           data-source="legacy"
+           data-title="Grants for Adaptive Sports Programs for Disabled Veterans and Disabled Members of the Armed Forces"
+           data-agency=""
+           data-keywords="Veterans">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-ok">Due in 47d</span>
+          <span class="group-label">Group 3</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/360391" target="_blank" rel="noopener">
+            Grants for Adaptive Sports Programs for Disabled Veterans and Disabled Members of the Armed Forces
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 03/27/2026</span>
+          <span class="meta-item">Closes: 05/13/2026</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">Veterans</span></div>
+      </div>
+      <div class="card"
+           data-group="Group 2"
+           data-source="legacy"
+           data-title="NIMH Research Education Mentoring Program for HIV Researchers (R25 Clinical Trial Not Allowed)"
+           data-agency=""
+           data-keywords="HIV">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-ok">Due in 59d</span>
+          <span class="group-label">Group 2</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/355177" target="_blank" rel="noopener">
+            NIMH Research Education Mentoring Program for HIV Researchers (R25 Clinical Trial Not Allowed)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 06/27/2024</span>
+          <span class="meta-item">Closes: 05/25/2026</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span></div>
+      </div>
+      <div class="card"
+           data-group="Group 3"
+           data-source="legacy"
+           data-title="Veterans Cemetery Grants"
+           data-agency=""
+           data-keywords="Veterans">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-ok">Due in 96d</span>
+          <span class="group-label">Group 3</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/361262" target="_blank" rel="noopener">
+            Veterans Cemetery Grants
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 02/09/2026</span>
+          <span class="meta-item">Closes: 07/01/2026</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">Veterans</span></div>
+      </div>
+      <div class="card"
+           data-group="Group 2"
+           data-source="legacy"
+           data-title="Global Infectious Disease Research Training Program (D43 Clinical Trial Optional)"
+           data-agency=""
+           data-keywords="infectious">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-ok">Due in 132d</span>
+          <span class="group-label">Group 2</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/353590" target="_blank" rel="noopener">
+            Global Infectious Disease Research Training Program (D43 Clinical Trial Optional)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 04/17/2024</span>
+          <span class="meta-item">Closes: 08/06/2026</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">infectious</span></div>
+      </div>
+      <div class="card"
+           data-group="Group 2"
+           data-source="legacy"
+           data-title="Limited Competition: Specific Pathogen Free Macaque Colonies to Support HIV/AIDS Research (U42 Clinical Trial Not Allowed)"
+           data-agency=""
+           data-keywords="HIV">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-ok">Due in 182d</span>
+          <span class="group-label">Group 2</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/351920" target="_blank" rel="noopener">
+            Limited Competition: Specific Pathogen Free Macaque Colonies to Support HIV/AIDS Research (U42 Clinical Trial Not Allowed)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 01/22/2024</span>
+          <span class="meta-item">Closes: 09/25/2026</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span></div>
+      </div>
+      <div class="card"
+           data-group="Group 2"
+           data-source="legacy"
+           data-title="High Priority HIV and Substance Use Research (RM1 Clinical Trial Optional)"
+           data-agency=""
+           data-keywords="HIV">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-ok">Due in 343d</span>
+          <span class="group-label">Group 2</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/351847" target="_blank" rel="noopener">
+            High Priority HIV and Substance Use Research (RM1 Clinical Trial Optional)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 01/17/2024</span>
+          <span class="meta-item">Closes: 03/05/2027</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span></div>
+      </div>
+      <div class="card"
+           data-group="Group 2"
+           data-source="legacy"
+           data-title="High Priority HIV and Substance Use Research (R01 Clinical Trial Optional)"
+           data-agency=""
+           data-keywords="HIV">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-ok">Due in 344d</span>
+          <span class="group-label">Group 2</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/355867" target="_blank" rel="noopener">
+            High Priority HIV and Substance Use Research (R01 Clinical Trial Optional)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 08/02/2024</span>
+          <span class="meta-item">Closes: 03/06/2027</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span></div>
+      </div>
+      <div class="card"
+           data-group="Group 2"
+           data-source="legacy"
+           data-title="Development and Testing of Novel Interventions to Improve HIV Prevention, Treatment, and Program Implementation for People Who Use Substances (R34 Clinical Trial Required)"
+           data-agency=""
+           data-keywords="HIV">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-ok">Due in 354d</span>
+          <span class="group-label">Group 2</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/358093" target="_blank" rel="noopener">
+            Development and Testing of Novel Interventions to Improve HIV Prevention, Treatment, and Program Implementation for People Who Use Substances (R34 Clinical Trial Required)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 01/08/2025</span>
+          <span class="meta-item">Closes: 03/16/2027</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span></div>
+      </div>
+      <div class="card"
+           data-group="Group 2"
+           data-source="legacy"
+           data-title="Department of Defense HIV/AIDS Prevention Program"
+           data-agency=""
+           data-keywords="HIV">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-ok">Due in 540d</span>
+          <span class="group-label">Group 2</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/343653" target="_blank" rel="noopener">
+            Department of Defense HIV/AIDS Prevention Program
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 09/19/2022</span>
+          <span class="meta-item">Closes: 09/18/2027</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span></div>
+      </div>
+      <div class="card"
+           data-group="Group 2"
+           data-source="legacy"
+           data-title="Pilot Studies of Biological, Behavioral and Social Mechanisms Contributing to HIV Pathogenesis Within the Mission of NIDDK (R21 Clinical Trial Not Allowed)"
+           data-agency=""
+           data-keywords="HIV">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-ok">Due in 599d</span>
+          <span class="group-label">Group 2</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/358082" target="_blank" rel="noopener">
+            Pilot Studies of Biological, Behavioral and Social Mechanisms Contributing to HIV Pathogenesis Within the Mission of NIDDK (R21 Clinical Trial Not Allowed)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 01/08/2025</span>
+          <span class="meta-item">Closes: 11/16/2027</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span></div>
+      </div>
+      <div class="card"
+           data-group="Group 3"
+           data-source="legacy"
+           data-title="Community-Partnered Nursing Research Centers (P20 Clinical Trial Optional)"
+           data-agency=""
+           data-keywords="Nursing">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-ok">Due in 772d</span>
+          <span class="group-label">Group 3</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/358816" target="_blank" rel="noopener">
+            Community-Partnered Nursing Research Centers (P20 Clinical Trial Optional)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 09/17/2025</span>
+          <span class="meta-item">Closes: 05/07/2028</span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">Nursing</span></div>
+      </div>
+      <div class="card"
+           data-group="Group 3"
+           data-source="legacy"
+           data-title="State Veterans Home Construction Grant Program"
+           data-agency=""
+           data-keywords="Veterans">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">Group 3</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/58617" target="_blank" rel="noopener">
+            State Veterans Home Construction Grant Program
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 11/01/2010</span>
+          <span class="meta-item">Closes: </span>
+          
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">Veterans</span></div>
+      </div>
+</div>
+
+<footer>
+  Generated automatically by
+  <a href="https://github.com" target="_blank">GitHub Actions</a> ·
+  Data from grants.gov and SAM.gov (public APIs) ·
+  Not affiliated with any government agency.
+</footer>
+
+<script>
+const RAW = [{"source": "legacy", "opportunity_id": "361468", "opportunity_number": "26JD06", "opportunity_title": "New Jail Planning Initiative", "agency_name": "", "post_date": "03/12/2026", "close_date": "03/27/2026", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/361468", "matched_keywords": "Jail", "keyword_group": "Group 3"}, {"source": "legacy", "opportunity_id": "360057", "opportunity_number": "VA-NCA-VLGP-FY2026", "opportunity_title": "Veterans Legacy Grants Program", "agency_name": "", "post_date": "02/25/2026", "close_date": "03/27/2026", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/360057", "matched_keywords": "Veterans", "keyword_group": "Group 3"}, {"source": "legacy", "opportunity_id": "361025", "opportunity_number": "CMS-2V2-26-001", "opportunity_title": "Nursing Home Staffing Campaign", "agency_name": "", "post_date": "02/09/2026", "close_date": "03/27/2026", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/361025", "matched_keywords": "Nursing", "keyword_group": "Group 3"}, {"source": "legacy", "opportunity_id": "361535", "opportunity_number": "O-BJA-2025-172484", "opportunity_title": "BJA FY25 Veterans Treatment Court Program", "agency_name": "", "post_date": "03/18/2026", "close_date": "04/27/2026", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/361535", "matched_keywords": "Veterans", "keyword_group": "Group 3"}, {"source": "legacy", "opportunity_id": "357391", "opportunity_number": "PAS-25-208", "opportunity_title": "HIV Prevention and Alcohol (R01 Clinical Trials Optional)", "agency_name": "", "post_date": "11/25/2024", "close_date": "05/07/2026", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/357391", "matched_keywords": "HIV", "keyword_group": "Group 2"}, {"source": "legacy", "opportunity_id": "357390", "opportunity_number": "PAS-25-161", "opportunity_title": "HIV Prevention and Alcohol (R34 Clinical Trials Optional)", "agency_name": "", "post_date": "11/25/2024", "close_date": "05/07/2026", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/357390", "matched_keywords": "HIV", "keyword_group": "Group 2"}, {"source": "legacy", "opportunity_id": "360391", "opportunity_number": "VA-SPORTS-26", "opportunity_title": "Grants for Adaptive Sports Programs for Disabled Veterans and Disabled Members of the Armed Forces", "agency_name": "", "post_date": "03/27/2026", "close_date": "05/13/2026", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/360391", "matched_keywords": "Veterans", "keyword_group": "Group 3"}, {"source": "legacy", "opportunity_id": "355177", "opportunity_number": "PAR-24-233", "opportunity_title": "NIMH Research Education Mentoring Program for HIV Researchers (R25 Clinical Trial Not Allowed)", "agency_name": "", "post_date": "06/27/2024", "close_date": "05/25/2026", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/355177", "matched_keywords": "HIV", "keyword_group": "Group 2"}, {"source": "legacy", "opportunity_id": "361262", "opportunity_number": "VA-NCA-VCGP-2026", "opportunity_title": "Veterans Cemetery Grants", "agency_name": "", "post_date": "02/09/2026", "close_date": "07/01/2026", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/361262", "matched_keywords": "Veterans", "keyword_group": "Group 3"}, {"source": "legacy", "opportunity_id": "353590", "opportunity_number": "PAR-24-174", "opportunity_title": "Global Infectious Disease Research Training Program (D43 Clinical Trial Optional)", "agency_name": "", "post_date": "04/17/2024", "close_date": "08/06/2026", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/353590", "matched_keywords": "infectious", "keyword_group": "Group 2"}, {"source": "legacy", "opportunity_id": "351920", "opportunity_number": "PAR-24-129", "opportunity_title": "Limited Competition: Specific Pathogen Free Macaque Colonies to Support HIV/AIDS Research (U42 Clinical Trial Not Allowed)", "agency_name": "", "post_date": "01/22/2024", "close_date": "09/25/2026", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/351920", "matched_keywords": "HIV", "keyword_group": "Group 2"}, {"source": "legacy", "opportunity_id": "351847", "opportunity_number": "RFA-DA-25-060", "opportunity_title": "High Priority HIV and Substance Use Research (RM1 Clinical Trial Optional)", "agency_name": "", "post_date": "01/17/2024", "close_date": "03/05/2027", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/351847", "matched_keywords": "HIV", "keyword_group": "Group 2"}, {"source": "legacy", "opportunity_id": "355867", "opportunity_number": "RFA-DA-25-024", "opportunity_title": "High Priority HIV and Substance Use Research (R01 Clinical Trial Optional)", "agency_name": "", "post_date": "08/02/2024", "close_date": "03/06/2027", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/355867", "matched_keywords": "HIV", "keyword_group": "Group 2"}, {"source": "legacy", "opportunity_id": "358093", "opportunity_number": "PAR-24-329", "opportunity_title": "Development and Testing of Novel Interventions to Improve HIV Prevention, Treatment, and Program Implementation for People Who Use Substances (R34 Clinical Trial Required)", "agency_name": "", "post_date": "01/08/2025", "close_date": "03/16/2027", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/358093", "matched_keywords": "HIV", "keyword_group": "Group 2"}, {"source": "legacy", "opportunity_id": "343653", "opportunity_number": "W81XWH-22-DHAPP", "opportunity_title": "Department of Defense HIV/AIDS Prevention Program", "agency_name": "", "post_date": "09/19/2022", "close_date": "09/18/2027", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/343653", "matched_keywords": "HIV", "keyword_group": "Group 2"}, {"source": "legacy", "opportunity_id": "358082", "opportunity_number": "PAR-25-068", "opportunity_title": "Pilot Studies of Biological, Behavioral and Social Mechanisms Contributing to HIV Pathogenesis Within the Mission of NIDDK (R21 Clinical Trial Not Allowed)", "agency_name": "", "post_date": "01/08/2025", "close_date": "11/16/2027", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/358082", "matched_keywords": "HIV", "keyword_group": "Group 2"}, {"source": "legacy", "opportunity_id": "358816", "opportunity_number": "PAR-25-439", "opportunity_title": "Community-Partnered Nursing Research Centers (P20 Clinical Trial Optional)", "agency_name": "", "post_date": "09/17/2025", "close_date": "05/07/2028", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/358816", "matched_keywords": "Nursing", "keyword_group": "Group 3"}, {"source": "legacy", "opportunity_id": "58617", "opportunity_number": "VA-GRANTS-112508-002", "opportunity_title": "State Veterans Home Construction Grant Program", "agency_name": "", "post_date": "11/01/2010", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "url": "https://www.grants.gov/search-results-detail/58617", "matched_keywords": "Veterans", "keyword_group": "Group 3"}];
+
+// Parse and store deadline days for sorting
+const data = RAW.map(r => ({
+  ...r,
+  _days: (() => {
+    const s = r.close_date || "";
+    if (!s) return 99999;
+    const d = new Date(s);
+    if (isNaN(d)) return 99999;
+    return Math.round((d - Date.now()) / 86400000);
+  })()
+}));
+
+const grid    = document.getElementById("card-grid");
+const cards   = Array.from(grid.querySelectorAll(".card"));
+const counter = document.getElementById("result-count");
+
+function normalize(s) {
+  return (s || "").toLowerCase();
+}
+
+function render() {
+  const q      = normalize(document.getElementById("search-box").value);
+  const group  = document.getElementById("filter-group").value;
+  const source = document.getElementById("filter-source").value;
+  const sortBy = document.getElementById("sort-by").value;
+
+  // Filter
+  let visible = cards.filter(card => {
+    if (group  && card.dataset.group  !== group)  return false;
+    if (source && card.dataset.source !== source) return false;
+    if (q) {
+      const hay = [card.dataset.title, card.dataset.agency,
+                   card.dataset.keywords].map(normalize).join(" ");
+      if (!hay.includes(q)) return false;
+    }
+    return true;
+  });
+
+  // Sort
+  const idxMap = new Map(data.map((r, i) => [
+    (r.opportunity_title || "") + "|" + (r.agency_name || ""), i
+  ]));
+
+  visible.sort((a, b) => {
+    const ai = idxMap.get(a.dataset.title + "|" + a.dataset.agency) ?? 0;
+    const bi = idxMap.get(b.dataset.title + "|" + b.dataset.agency) ?? 0;
+    const ad = data[ai], bd = data[bi];
+    if (sortBy === "deadline") return (ad._days ?? 99999) - (bd._days ?? 99999);
+    if (sortBy === "posted")   return (bd.post_date || "").localeCompare(ad.post_date || "");
+    if (sortBy === "title")    return (ad.opportunity_title || "").localeCompare(bd.opportunity_title || "");
+    return 0;
+  });
+
+  // Show/hide
+  const hiddenSet = new Set(cards);
+  visible.forEach(c => hiddenSet.delete(c));
+  hiddenSet.forEach(c => { c.style.display = "none"; });
+  visible.forEach(c  => { c.style.display = "";      grid.appendChild(c); });
+
+  counter.textContent = `${visible.length} of ${cards.length} shown`;
+}
+
+["search-box","filter-group","filter-source","sort-by"].forEach(id => {
+  document.getElementById(id).addEventListener("input", render);
+});
+
+render();
+</script>
+</body>
+</html>

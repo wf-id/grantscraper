@@ -58,8 +58,10 @@ jobs:
       # ── 4. Publish to orphan docs branch ────────────────
       - name: Deploy report to docs branch
         run: |
-          # Save built files outside the worktree
+          # Save built files outside the worktree, then remove
+          # local copies so they don't block the branch switch
           cp -r _report /tmp/_report
+          rm -rf _report
 
           # Configure git identity
           git config user.name "github-actions[bot]"

@@ -76,6 +76,18 @@ def source_badge(src: str) -> str:
             f'style="background:{color}">{label}</span>')
 
 
+def status_badge(status: str) -> str:
+    s = (status or "").strip().lower()
+    if s == "forecasted":
+        return ('<span class="status-badge status-forecast">'
+                'Forecasted</span>')
+    if s == "posted":
+        return ('<span class="status-badge status-posted">'
+                'Posted</span>')
+    return (f'<span class="status-badge status-other">'
+            f'{html.escape(status or "Unknown")}</span>')
+
+
 def esc(s) -> str:
     return html.escape(str(s or ""), quote=True)
 
@@ -188,8 +200,12 @@ def build_html(df: pd.DataFrame, cfg: dict) -> str:
     n_total = len(df)
 
     # Collect filter options
-    groups  = sorted(df["keyword_group"].unique().tolist()) if not df.empty else []
-    sources = sorted(df["source"].unique().tolist())        if not df.empty else []
+    groups   = sorted(df["keyword_group"].unique().tolist()) if not df.empty else []
+    sources  = sorted(df["source"].unique().tolist())       if not df.empty else []
+    statuses = sorted(
+        df["opportunity_status"].str.strip().str.lower()
+        .unique().tolist()
+    ) if not df.empty else []
 
     # Serialise rows to JSON for client-side search
     rows_json = json.dumps(df.fillna("").to_dict(orient="records"),
@@ -227,11 +243,13 @@ def build_html(df: pd.DataFrame, cfg: dict) -> str:
       <div class="card"
            data-group="{esc(row.get('keyword_group',''))}"
            data-source="{esc(row.get('source',''))}"
+           data-status="{esc(str(row.get('opportunity_status','')).strip().lower())}"
            data-title="{esc(row.get('opportunity_title',''))}"
            data-agency="{esc(row.get('agency_name',''))}"
            data-keywords="{esc(row.get('matched_keywords',''))}">
         <div class="card-header">
           {source_badge(str(row.get('source','')))}
+          {status_badge(str(row.get('opportunity_status','')))}
           {deadline_badge(str(row.get('close_date','')), warn, crit)}
           <span class="group-label">{esc(row.get('keyword_group',''))}</span>
         </div>
@@ -255,6 +273,9 @@ def build_html(df: pd.DataFrame, cfg: dict) -> str:
     source_opts = "\n".join(
         f'<option value="{esc(s)}">{esc(s).capitalize()}</option>'
         for s in sources)
+    status_opts = "\n".join(
+        f'<option value="{esc(s)}">{esc(s).capitalize()}</option>'
+        for s in statuses)
 
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -338,6 +359,10 @@ def build_html(df: pd.DataFrame, cfg: dict) -> str:
     .badge-closed   {{ background: #6b7280; }}
     .badge-none     {{ background: #94a3b8; }}
     .group-label    {{ background: #64748b; font-weight: 500; }}
+    .status-badge   {{ display: inline-block; border-radius: 4px; padding: .15rem .5rem; font-size: .72rem; font-weight: 600; color: #fff; }}
+    .status-forecast {{ background: #8b5cf6; }}
+    .status-posted   {{ background: #059669; }}
+    .status-other    {{ background: #6b7280; }}
 
     .empty {{ padding: 3rem 2rem; color: #94a3b8; text-align: center; }}
     footer {{
@@ -366,6 +391,10 @@ def build_html(df: pd.DataFrame, cfg: dict) -> str:
   <select id="filter-source">
     <option value="">All sources</option>
     {source_opts}
+  </select>
+  <select id="filter-status">
+    <option value="">All statuses</option>
+    {status_opts}
   </select>
   <select id="sort-by">
     <option value="deadline">Sort: soonest deadline</option>
@@ -413,12 +442,14 @@ function render() {{
   const q      = normalize(document.getElementById("search-box").value);
   const group  = document.getElementById("filter-group").value;
   const source = document.getElementById("filter-source").value;
+  const status = document.getElementById("filter-status").value;
   const sortBy = document.getElementById("sort-by").value;
 
   // Filter
   let visible = cards.filter(card => {{
     if (group  && card.dataset.group  !== group)  return false;
     if (source && card.dataset.source !== source) return false;
+    if (status && card.dataset.status !== status) return false;
     if (q) {{
       const hay = [card.dataset.title, card.dataset.agency,
                    card.dataset.keywords].map(normalize).join(" ");
@@ -451,7 +482,7 @@ function render() {{
   counter.textContent = `${{visible.length}} of ${{cards.length}} shown`;
 }}
 
-["search-box","filter-group","filter-source","sort-by"].forEach(id => {{
+["search-box","filter-group","filter-source","filter-status","sort-by"].forEach(id => {{
   document.getElementById(id).addEventListener("input", render);
 }});
 

@@ -51,60 +51,79 @@ SEARCH_FIELDS = ["opportunity_title", "agency_name", "summary_description",
 
 # ── Legacy grants.gov (no auth) ───────────────────────────────────────────────
 
-def fetch_legacy(keywords: list[str], status: str = "posted",
+def fetch_legacy(keywords: list[str],
+                 status: str | list[str] = "posted",
                  max_results: int = 500) -> list[dict]:
     """
     Pull from api.grants.gov/v1/api/search2.
     The API accepts a single keyword string and paginates via startRecordNum.
     We issue one query per keyword and deduplicate by opportunityId.
+
+    status can be a single string or a list of strings.
+    When a comma-separated string is passed it is split automatically.
     """
+    if isinstance(status, str):
+        statuses = [s.strip() for s in status.split(",")]
+    else:
+        statuses = list(status)
+
     seen, records = set(), []
     page_size = 25  # API max per call
 
     for kw in keywords:
-        start = 0
-        while True:
-            payload = {
-                "keyword":        kw,
-                "oppStatuses":    status,
-                "startRecordNum": start,
-                "rows":           page_size,
-            }
-            try:
-                r = requests.post(LEGACY_URL, json=payload, timeout=30)
-                r.raise_for_status()
-            except requests.RequestException as e:
-                print(f"[legacy] Request error for keyword '{kw}': {e}",
-                      file=sys.stderr)
-                break
+        for st in statuses:
+            start = 0
+            while True:
+                payload = {
+                    "keyword":        kw,
+                    "oppStatuses":    st,
+                    "startRecordNum": start,
+                    "rows":           page_size,
+                }
+                try:
+                    r = requests.post(
+                        LEGACY_URL, json=payload, timeout=30,
+                    )
+                    r.raise_for_status()
+                except requests.RequestException as e:
+                    print(
+                        f"[legacy] Request error "
+                        f"for '{kw}' ({st}): {e}",
+                        file=sys.stderr,
+                    )
+                    break
 
-            data  = r.json()
-            hits  = data.get("data", {}).get("oppHits", [])
-            total = data.get("data", {}).get("hitCount", 0)
+                data  = r.json()
+                hits  = (
+                    data.get("data", {}).get("oppHits", [])
+                )
+                total = (
+                    data.get("data", {}).get("hitCount", 0)
+                )
 
-            for h in hits:
-                oid = h.get("id")
-                if oid and oid not in seen:
-                    seen.add(oid)
-                    records.append({
-                        "source":              "legacy",
-                        "opportunity_id":      oid,
-                        "opportunity_number":  h.get("number", ""),
-                        "opportunity_title":   h.get("title", ""),
-                        "agency_name":         h.get("agencyName", ""),
-                        "post_date":           h.get("openDate", ""),
-                        "close_date":          h.get("closeDate", ""),
-                        "award_floor":         h.get("awardFloor", ""),
-                        "award_ceiling":       h.get("awardCeiling", ""),
-                        "summary_description": h.get("synopsis", ""),
-                        "opportunity_status":  h.get("oppStatus", ""),
-                        "url": f"https://www.grants.gov/search-results-detail/{oid}",
-                    })
+                for h in hits:
+                    oid = h.get("id")
+                    if oid and oid not in seen:
+                        seen.add(oid)
+                        records.append({
+                            "source":              "legacy",
+                            "opportunity_id":      oid,
+                            "opportunity_number":  h.get("number", ""),
+                            "opportunity_title":   h.get("title", ""),
+                            "agency_name":         h.get("agencyName", ""),
+                            "post_date":           h.get("openDate", ""),
+                            "close_date":          h.get("closeDate", ""),
+                            "award_floor":         h.get("awardFloor", ""),
+                            "award_ceiling":       h.get("awardCeiling", ""),
+                            "summary_description": h.get("synopsis", ""),
+                            "opportunity_status":  h.get("oppStatus", ""),
+                            "url": f"https://www.grants.gov/search-results-detail/{oid}",
+                        })
 
-            start += page_size
-            if start >= min(total, max_results):
-                break
-            time.sleep(0.2)   # polite rate-limit
+                start += page_size
+                if start >= min(total, max_results):
+                    break
+                time.sleep(0.2)
 
     return records
 
@@ -112,13 +131,21 @@ def fetch_legacy(keywords: list[str], status: str = "posted",
 # ── Simpler grants.gov (API key required) ────────────────────────────────────
 
 def fetch_simpler(keywords: list[str], api_key: str,
-                  status: str = "posted",
+                  status: str | list[str] = "posted",
                   max_results: int = 500) -> list[dict]:
     """
     Pull from api.simpler.grants.gov/v1/opportunities/search.
     Sends each keyword as a separate query; deduplicates by opportunity_id.
     Rate limit: 60 req/min, 10 000 req/day.
+
+    status can be a single string or a list of strings.
+    When a comma-separated string is passed it is split automatically.
     """
+    if isinstance(status, str):
+        statuses = [s.strip() for s in status.split(",")]
+    else:
+        statuses = list(status)
+
     headers = {"X-API-Key": api_key, "Content-Type": "application/json"}
     seen, records = set(), []
     page_size = min(25, max_results)
@@ -128,7 +155,7 @@ def fetch_simpler(keywords: list[str], api_key: str,
         while True:
             payload = {
                 "query": kw,
-                "filters": {"opportunity_status": {"one_of": [status]}},
+                "filters": {"opportunity_status": {"one_of": statuses}},
                 "pagination": {
                     "page_offset": page,
                     "page_size":   page_size,

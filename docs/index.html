@@ -80,6 +80,10 @@
     .badge-closed   { background: #6b7280; }
     .badge-none     { background: #94a3b8; }
     .group-label    { background: #64748b; font-weight: 500; }
+    .status-badge   { display: inline-block; border-radius: 4px; padding: .15rem .5rem; font-size: .72rem; font-weight: 600; color: #fff; }
+    .status-forecast { background: #8b5cf6; }
+    .status-posted   { background: #059669; }
+    .status-other    { background: #6b7280; }
 
     .empty { padding: 3rem 2rem; color: #94a3b8; text-align: center; }
     footer {
@@ -94,8 +98,8 @@
   <p></p>
 </header>
 <div class="meta-bar">
-  <span>Last updated: <strong>2026-04-14 06:30 UTC</strong></span>
-  <span>Total opportunities: <strong>1</strong></span>
+  <span>Last updated: <strong>2026-04-16 14:20 UTC</strong></span>
+  <span>Total opportunities: <strong>99</strong></span>
   <span>Sources: grants.gov (legacy &amp; simpler) · SAM.gov</span>
 </div>
 
@@ -103,11 +107,22 @@
   <input type="search" id="search-box" placeholder="Search title, agency, keyword…" autocomplete="off">
   <select id="filter-group">
     <option value="">All groups</option>
-    <option value="SAM.gov">SAM.gov</option>
+    <option value="ASP and ICP">ASP and ICP</option>
+<option value="Emerging and Vector-Borne Diseases">Emerging and Vector-Borne Diseases</option>
+<option value="HIV &amp; STIs">HIV &amp; STIs</option>
+<option value="SAM.gov">SAM.gov</option>
+<option value="Vaccines and Therapeutics">Vaccines and Therapeutics</option>
   </select>
   <select id="filter-source">
     <option value="">All sources</option>
-    <option value="sam">Sam</option>
+    <option value="legacy">Legacy</option>
+<option value="sam">Sam</option>
+  </select>
+  <select id="filter-status">
+    <option value="">All statuses</option>
+    <option value="forecasted">Forecasted</option>
+<option value="posted">Posted</option>
+<option value="yes">Yes</option>
   </select>
   <select id="sort-by">
     <option value="deadline">Sort: soonest deadline</option>
@@ -120,13 +135,2391 @@
 <div id="card-grid">
 
       <div class="card"
+           data-group="HIV &amp; STIs"
+           data-source="legacy"
+           data-status="posted"
+           data-title="HIV Prevention and Alcohol (R34 Clinical Trials Optional)"
+           data-agency=""
+           data-keywords="HIV">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-posted">Posted</span>
+          <span class="badge badge-warn">Due in 21d</span>
+          <span class="group-label">HIV &amp; STIs</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/357390" target="_blank" rel="noopener">
+            HIV Prevention and Alcohol (R34 Clinical Trials Optional)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 11/25/2024</span>
+          <span class="meta-item">Closes: 05/07/2026</span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV &amp; STIs"
+           data-source="legacy"
+           data-status="posted"
+           data-title="HIV Prevention and Alcohol (R01 Clinical Trials Optional)"
+           data-agency=""
+           data-keywords="HIV">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-posted">Posted</span>
+          <span class="badge badge-warn">Due in 21d</span>
+          <span class="group-label">HIV &amp; STIs</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/357391" target="_blank" rel="noopener">
+            HIV Prevention and Alcohol (R01 Clinical Trials Optional)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 11/25/2024</span>
+          <span class="meta-item">Closes: 05/07/2026</span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span></div>
+      </div>
+      <div class="card"
+           data-group="Vaccines and Therapeutics"
+           data-source="legacy"
+           data-status="posted"
+           data-title="Translational Research in Maternal and Pediatric Pharmacology and Therapeutics (R01 Clinical Trial Optional)"
+           data-agency=""
+           data-keywords="therapeutics">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-posted">Posted</span>
+          <span class="badge badge-warn">Due in 21d</span>
+          <span class="group-label">Vaccines and Therapeutics</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/357184" target="_blank" rel="noopener">
+            Translational Research in Maternal and Pediatric Pharmacology and Therapeutics (R01 Clinical Trial Optional)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 11/18/2024</span>
+          <span class="meta-item">Closes: 05/07/2026</span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">therapeutics</span></div>
+      </div>
+      <div class="card"
+           data-group="Vaccines and Therapeutics"
+           data-source="legacy"
+           data-status="posted"
+           data-title="Translational Research in Maternal and Pediatric Pharmacology and Therapeutics (R21 Clinical Trial Optional)"
+           data-agency=""
+           data-keywords="therapeutics">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-posted">Posted</span>
+          <span class="badge badge-warn">Due in 21d</span>
+          <span class="group-label">Vaccines and Therapeutics</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/357185" target="_blank" rel="noopener">
+            Translational Research in Maternal and Pediatric Pharmacology and Therapeutics (R21 Clinical Trial Optional)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 11/18/2024</span>
+          <span class="meta-item">Closes: 05/07/2026</span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">therapeutics</span></div>
+      </div>
+      <div class="card"
+           data-group="ASP and ICP"
+           data-source="legacy"
+           data-status="posted"
+           data-title="Collections Stewardship"
+           data-agency=""
+           data-keywords="Stewardship">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-posted">Posted</span>
+          <span class="badge badge-warn">Due in 25d</span>
+          <span class="group-label">ASP and ICP</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/361480" target="_blank" rel="noopener">
+            Collections Stewardship
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 03/11/2026</span>
+          <span class="meta-item">Closes: 05/11/2026</span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">Stewardship</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV &amp; STIs"
+           data-source="legacy"
+           data-status="posted"
+           data-title="FY 2026 John McCain Study of the U.S. Institute for Student Leaders on the Rule of Law and Public Service"
+           data-agency=""
+           data-keywords="STI">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-posted">Posted</span>
+          <span class="badge badge-warn">Due in 25d</span>
+          <span class="group-label">HIV &amp; STIs</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/361460" target="_blank" rel="noopener">
+            FY 2026 John McCain Study of the U.S. Institute for Student Leaders on the Rule of Law and Public Service
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 03/12/2026</span>
+          <span class="meta-item">Closes: 05/11/2026</span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">STI</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV &amp; STIs"
+           data-source="legacy"
+           data-status="posted"
+           data-title="FY 2026 Study of the U.S. Institutes for Scholars"
+           data-agency=""
+           data-keywords="STI">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-posted">Posted</span>
+          <span class="badge badge-warn">Due in 25d</span>
+          <span class="group-label">HIV &amp; STIs</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/361459" target="_blank" rel="noopener">
+            FY 2026 Study of the U.S. Institutes for Scholars
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 03/12/2026</span>
+          <span class="meta-item">Closes: 05/11/2026</span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">STI</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV &amp; STIs"
+           data-source="legacy"
+           data-status="posted"
+           data-title="Coordinating Agricultural Development &amp;amp; Innovation (CADI) Uzbekistan Exchanges: Promotion of U.S. Distilled Spirits"
+           data-agency=""
+           data-keywords="STI">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-posted">Posted</span>
+          <span class="badge badge-warn">Due in 28d</span>
+          <span class="group-label">HIV &amp; STIs</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/361510" target="_blank" rel="noopener">
+            Coordinating Agricultural Development &amp;amp; Innovation (CADI) Uzbekistan Exchanges: Promotion of U.S. Distilled Spirits
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 03/16/2026</span>
+          <span class="meta-item">Closes: 05/14/2026</span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">STI</span></div>
+      </div>
+      <div class="card"
+           data-group="ASP and ICP"
+           data-source="legacy"
+           data-status="posted"
+           data-title="FY2026 Research Opportunities in Accelerator Stewardship and Accelerator Development"
+           data-agency=""
+           data-keywords="Stewardship">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-posted">Posted</span>
+          <span class="badge badge-ok">Due in 35d</span>
+          <span class="group-label">ASP and ICP</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/361458" target="_blank" rel="noopener">
+            FY2026 Research Opportunities in Accelerator Stewardship and Accelerator Development
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 03/12/2026</span>
+          <span class="meta-item">Closes: 05/21/2026</span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">Stewardship</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV &amp; STIs"
+           data-source="legacy"
+           data-status="posted"
+           data-title="NIMH Research Education Mentoring Program for HIV Researchers (R25 Clinical Trial Not Allowed)"
+           data-agency=""
+           data-keywords="HIV">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-posted">Posted</span>
+          <span class="badge badge-ok">Due in 39d</span>
+          <span class="group-label">HIV &amp; STIs</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/355177" target="_blank" rel="noopener">
+            NIMH Research Education Mentoring Program for HIV Researchers (R25 Clinical Trial Not Allowed)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 06/27/2024</span>
+          <span class="meta-item">Closes: 05/25/2026</span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span></div>
+      </div>
+      <div class="card"
+           data-group="Emerging and Vector-Borne Diseases"
+           data-source="legacy"
+           data-status="posted"
+           data-title="Impact of Initial Influenza Exposure on Immunity in Infants (U01 Clinical Trial Not Allowed)"
+           data-agency=""
+           data-keywords="Influenza">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-posted">Posted</span>
+          <span class="badge badge-ok">Due in 49d</span>
+          <span class="group-label">Emerging and Vector-Borne Diseases</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/359939" target="_blank" rel="noopener">
+            Impact of Initial Influenza Exposure on Immunity in Infants (U01 Clinical Trial Not Allowed)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 02/10/2026</span>
+          <span class="meta-item">Closes: 06/04/2026</span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">Influenza</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV &amp; STIs"
+           data-source="legacy"
+           data-status="posted"
+           data-title="Defense Production Act Title III Expansion of Domestic Production Capability and Capacity"
+           data-agency=""
+           data-keywords="STI">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-posted">Posted</span>
+          <span class="badge badge-ok">Due in 87d</span>
+          <span class="group-label">HIV &amp; STIs</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/318351" target="_blank" rel="noopener">
+            Defense Production Act Title III Expansion of Domestic Production Capability and Capacity
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 07/12/2019</span>
+          <span class="meta-item">Closes: 07/12/2026</span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">STI</span></div>
+      </div>
+      <div class="card"
+           data-group="Emerging and Vector-Borne Diseases"
+           data-source="legacy"
+           data-status="posted"
+           data-title="Global Infectious Disease Research Training Program (D43 Clinical Trial Optional)"
+           data-agency=""
+           data-keywords="infectious disease">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-posted">Posted</span>
+          <span class="badge badge-ok">Due in 112d</span>
+          <span class="group-label">Emerging and Vector-Borne Diseases</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/353590" target="_blank" rel="noopener">
+            Global Infectious Disease Research Training Program (D43 Clinical Trial Optional)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 04/17/2024</span>
+          <span class="meta-item">Closes: 08/06/2026</span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">infectious disease</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV &amp; STIs"
+           data-source="legacy"
+           data-status="posted"
+           data-title="Limited Competition: Specific Pathogen Free Macaque Colonies to Support HIV/AIDS Research (U42 Clinical Trial Not Allowed)"
+           data-agency=""
+           data-keywords="HIV">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-posted">Posted</span>
+          <span class="badge badge-ok">Due in 162d</span>
+          <span class="group-label">HIV &amp; STIs</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/351920" target="_blank" rel="noopener">
+            Limited Competition: Specific Pathogen Free Macaque Colonies to Support HIV/AIDS Research (U42 Clinical Trial Not Allowed)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 01/22/2024</span>
+          <span class="meta-item">Closes: 09/25/2026</span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span></div>
+      </div>
+      <div class="card"
+           data-group="Emerging and Vector-Borne Diseases"
+           data-source="legacy"
+           data-status="posted"
+           data-title="Emerging Global Leader Award (K43 Independent Clinical Trial Required)"
+           data-agency=""
+           data-keywords="emerging">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-posted">Posted</span>
+          <span class="badge badge-ok">Due in 231d</span>
+          <span class="group-label">Emerging and Vector-Borne Diseases</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/356724" target="_blank" rel="noopener">
+            Emerging Global Leader Award (K43 Independent Clinical Trial Required)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 10/15/2024</span>
+          <span class="meta-item">Closes: 12/03/2026</span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">emerging</span></div>
+      </div>
+      <div class="card"
+           data-group="Emerging and Vector-Borne Diseases"
+           data-source="legacy"
+           data-status="posted"
+           data-title="Emerging Global Leader Award (K43 Independent Clinical Trial Not Allowed)"
+           data-agency=""
+           data-keywords="emerging">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-posted">Posted</span>
+          <span class="badge badge-ok">Due in 231d</span>
+          <span class="group-label">Emerging and Vector-Borne Diseases</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/356723" target="_blank" rel="noopener">
+            Emerging Global Leader Award (K43 Independent Clinical Trial Not Allowed)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 10/15/2024</span>
+          <span class="meta-item">Closes: 12/03/2026</span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">emerging</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV &amp; STIs"
+           data-source="legacy"
+           data-status="posted"
+           data-title="Boosting Innovative GEOINT - Science &amp;amp; Technology  Broad Agency Announcement (BIG-ST BAA)"
+           data-agency=""
+           data-keywords="STI">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-posted">Posted</span>
+          <span class="badge badge-ok">Due in 242d</span>
+          <span class="group-label">HIV &amp; STIs</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/351404" target="_blank" rel="noopener">
+            Boosting Innovative GEOINT - Science &amp;amp; Technology  Broad Agency Announcement (BIG-ST BAA)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 12/15/2023</span>
+          <span class="meta-item">Closes: 12/14/2026</span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">STI</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV &amp; STIs"
+           data-source="legacy"
+           data-status="posted"
+           data-title="National Cancer Institute&#x27;s Investigator-Initiated Early Phase Clinical Trials for Cancer Treatment and Diagnosis (R01 Clinical Trial Required)"
+           data-agency=""
+           data-keywords="STI">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-posted">Posted</span>
+          <span class="badge badge-ok">Due in 266d</span>
+          <span class="group-label">HIV &amp; STIs</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/357075" target="_blank" rel="noopener">
+            National Cancer Institute&#x27;s Investigator-Initiated Early Phase Clinical Trials for Cancer Treatment and Diagnosis (R01 Clinical Trial Required)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 11/12/2024</span>
+          <span class="meta-item">Closes: 01/07/2027</span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">STI</span></div>
+      </div>
+      <div class="card"
+           data-group="Vaccines and Therapeutics"
+           data-source="legacy"
+           data-status="posted"
+           data-title="NHLBI Early Phase Clinical Trials for Therapeutics and/or Diagnostics for HLBS Disorders (R33 CT Required)"
+           data-agency=""
+           data-keywords="therapeutics">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-posted">Posted</span>
+          <span class="badge badge-ok">Due in 266d</span>
+          <span class="group-label">Vaccines and Therapeutics</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/357542" target="_blank" rel="noopener">
+            NHLBI Early Phase Clinical Trials for Therapeutics and/or Diagnostics for HLBS Disorders (R33 CT Required)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 12/05/2024</span>
+          <span class="meta-item">Closes: 01/07/2027</span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">therapeutics</span></div>
+      </div>
+      <div class="card"
+           data-group="Vaccines and Therapeutics"
+           data-source="legacy"
+           data-status="posted"
+           data-title="NHLBI Early Phase Clinical Trials for Therapeutics and/or Diagnostics for HLBS Disorders (R61/R33 Clinical Trial Required)"
+           data-agency=""
+           data-keywords="therapeutics">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-posted">Posted</span>
+          <span class="badge badge-ok">Due in 266d</span>
+          <span class="group-label">Vaccines and Therapeutics</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/357543" target="_blank" rel="noopener">
+            NHLBI Early Phase Clinical Trials for Therapeutics and/or Diagnostics for HLBS Disorders (R61/R33 Clinical Trial Required)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 12/05/2024</span>
+          <span class="meta-item">Closes: 01/07/2027</span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">therapeutics</span></div>
+      </div>
+      <div class="card"
+           data-group="Emerging and Vector-Borne Diseases"
+           data-source="legacy"
+           data-status="posted"
+           data-title="Advancing Global Health"
+           data-agency=""
+           data-keywords="global health">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-posted">Posted</span>
+          <span class="badge badge-ok">Due in 304d</span>
+          <span class="group-label">Emerging and Vector-Borne Diseases</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/361895" target="_blank" rel="noopener">
+            Advancing Global Health
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 04/14/2026</span>
+          <span class="meta-item">Closes: 02/14/2027</span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">global health</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV &amp; STIs"
+           data-source="legacy"
+           data-status="posted"
+           data-title="High Priority HIV and Substance Use Research (RM1 Clinical Trial Optional)"
+           data-agency=""
+           data-keywords="HIV">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-posted">Posted</span>
+          <span class="badge badge-ok">Due in 323d</span>
+          <span class="group-label">HIV &amp; STIs</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/351847" target="_blank" rel="noopener">
+            High Priority HIV and Substance Use Research (RM1 Clinical Trial Optional)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 01/17/2024</span>
+          <span class="meta-item">Closes: 03/05/2027</span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV &amp; STIs"
+           data-source="legacy"
+           data-status="posted"
+           data-title="High Priority HIV and Substance Use Research (R01 Clinical Trial Optional)"
+           data-agency=""
+           data-keywords="HIV">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-posted">Posted</span>
+          <span class="badge badge-ok">Due in 324d</span>
+          <span class="group-label">HIV &amp; STIs</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/355867" target="_blank" rel="noopener">
+            High Priority HIV and Substance Use Research (R01 Clinical Trial Optional)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 08/02/2024</span>
+          <span class="meta-item">Closes: 03/06/2027</span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV &amp; STIs"
+           data-source="legacy"
+           data-status="posted"
+           data-title="Development and Testing of Novel Interventions to Improve HIV Prevention, Treatment, and Program Implementation for People Who Use Substances (R34 Clinical Trial Required)"
+           data-agency=""
+           data-keywords="HIV; STI">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-posted">Posted</span>
+          <span class="badge badge-ok">Due in 334d</span>
+          <span class="group-label">HIV &amp; STIs</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/358093" target="_blank" rel="noopener">
+            Development and Testing of Novel Interventions to Improve HIV Prevention, Treatment, and Program Implementation for People Who Use Substances (R34 Clinical Trial Required)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 01/08/2025</span>
+          <span class="meta-item">Closes: 03/16/2027</span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span> <span class="kw-tag">STI</span></div>
+      </div>
+      <div class="card"
+           data-group="Emerging and Vector-Borne Diseases"
+           data-source="legacy"
+           data-status="posted"
+           data-title="NHLBI Emerging Investigator Award (EIA) (R35 Clinical Trial Optional)"
+           data-agency=""
+           data-keywords="emerging">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-posted">Posted</span>
+          <span class="badge badge-ok">Due in 377d</span>
+          <span class="group-label">Emerging and Vector-Borne Diseases</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/353822" target="_blank" rel="noopener">
+            NHLBI Emerging Investigator Award (EIA) (R35 Clinical Trial Optional)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 04/26/2024</span>
+          <span class="meta-item">Closes: 04/28/2027</span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">emerging</span></div>
+      </div>
+      <div class="card"
+           data-group="Vaccines and Therapeutics"
+           data-source="legacy"
+           data-status="posted"
+           data-title="Blueprint Neurotherapeutics Network (BPN): Biologic-based Drug Discovery and Development for Disorders of the Nervous System (UG3/UH3 Clinical Trial Optional)"
+           data-agency=""
+           data-keywords="therapeutics">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-posted">Posted</span>
+          <span class="badge badge-ok">Due in 489d</span>
+          <span class="group-label">Vaccines and Therapeutics</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/356610" target="_blank" rel="noopener">
+            Blueprint Neurotherapeutics Network (BPN): Biologic-based Drug Discovery and Development for Disorders of the Nervous System (UG3/UH3 Clinical Trial Optional)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 10/01/2024</span>
+          <span class="meta-item">Closes: 08/18/2027</span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">therapeutics</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV &amp; STIs"
+           data-source="legacy"
+           data-status="posted"
+           data-title="Department of Defense HIV/AIDS Prevention Program"
+           data-agency=""
+           data-keywords="HIV">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-posted">Posted</span>
+          <span class="badge badge-ok">Due in 520d</span>
+          <span class="group-label">HIV &amp; STIs</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/343653" target="_blank" rel="noopener">
+            Department of Defense HIV/AIDS Prevention Program
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 09/19/2022</span>
+          <span class="meta-item">Closes: 09/18/2027</span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV &amp; STIs"
+           data-source="legacy"
+           data-status="posted"
+           data-title="Pilot Studies of Biological, Behavioral and Social Mechanisms Contributing to HIV Pathogenesis Within the Mission of NIDDK (R21 Clinical Trial Not Allowed)"
+           data-agency=""
+           data-keywords="HIV">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-posted">Posted</span>
+          <span class="badge badge-ok">Due in 579d</span>
+          <span class="group-label">HIV &amp; STIs</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/358082" target="_blank" rel="noopener">
+            Pilot Studies of Biological, Behavioral and Social Mechanisms Contributing to HIV Pathogenesis Within the Mission of NIDDK (R21 Clinical Trial Not Allowed)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 01/08/2025</span>
+          <span class="meta-item">Closes: 11/16/2027</span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV &amp; STIs"
+           data-source="legacy"
+           data-status="posted"
+           data-title="Accelerating the Pace of Substance Use Research Using Existing Data (R01 Clinical Trial Not Allowed)"
+           data-agency=""
+           data-keywords="STI">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-posted">Posted</span>
+          <span class="badge badge-ok">Due in 596d</span>
+          <span class="group-label">HIV &amp; STIs</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/357544" target="_blank" rel="noopener">
+            Accelerating the Pace of Substance Use Research Using Existing Data (R01 Clinical Trial Not Allowed)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 12/05/2024</span>
+          <span class="meta-item">Closes: 12/03/2027</span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">STI</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV &amp; STIs"
+           data-source="legacy"
+           data-status="posted"
+           data-title="Accelerating the Pace of Substance Use Research Using Existing Data (R21 Clinical Trial Not Allowed)"
+           data-agency=""
+           data-keywords="STI">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-posted">Posted</span>
+          <span class="badge badge-ok">Due in 596d</span>
+          <span class="group-label">HIV &amp; STIs</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/357545" target="_blank" rel="noopener">
+            Accelerating the Pace of Substance Use Research Using Existing Data (R21 Clinical Trial Not Allowed)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 12/05/2024</span>
+          <span class="meta-item">Closes: 12/03/2027</span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">STI</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV &amp; STIs"
+           data-source="legacy"
+           data-status="posted"
+           data-title="UNITED STATES ARMY RESEARCH INSTITUTE FOR THE BEHAVIORAL AND SOCIAL SCIENCES (ARI) BROAD AGENCY ANNOUNCEMENT FOR BASIC, APPLIED, AND ADVANCED SCIENTIFIC RESEARCH"
+           data-agency=""
+           data-keywords="STI">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-posted">Posted</span>
+          <span class="badge badge-ok">Due in 745d</span>
+          <span class="group-label">HIV &amp; STIs</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/347858" target="_blank" rel="noopener">
+            UNITED STATES ARMY RESEARCH INSTITUTE FOR THE BEHAVIORAL AND SOCIAL SCIENCES (ARI) BROAD AGENCY ANNOUNCEMENT FOR BASIC, APPLIED, AND ADVANCED SCIENTIFIC RESEARCH
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 05/01/2023</span>
+          <span class="meta-item">Closes: 04/30/2028</span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">STI</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV &amp; STIs"
+           data-source="legacy"
+           data-status="posted"
+           data-title="Data Coordinating Center for Multi-Site Investigator-Initiated Clinical Trials (Collaborative U24 Clinical Trial Required)"
+           data-agency=""
+           data-keywords="STI">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-posted">Posted</span>
+          <span class="badge badge-ok">Due in 931d</span>
+          <span class="group-label">HIV &amp; STIs</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/358938" target="_blank" rel="noopener">
+            Data Coordinating Center for Multi-Site Investigator-Initiated Clinical Trials (Collaborative U24 Clinical Trial Required)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 03/18/2026</span>
+          <span class="meta-item">Closes: 11/02/2028</span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">STI</span></div>
+      </div>
+      <div class="card"
+           data-group="ASP and ICP"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Clinical Research Network on Antimicrobial Resistance"
+           data-agency=""
+           data-keywords="Antimicrobial">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">ASP and ICP</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/361065" target="_blank" rel="noopener">
+            Clinical Research Network on Antimicrobial Resistance
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 12/29/2025</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">Antimicrobial</span></div>
+      </div>
+      <div class="card"
+           data-group="ASP and ICP"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Cooperative Agreement for Long Term Data Collection on Antimicrobial Use in Animals (U01) Clinical Trial Not Allowed"
+           data-agency=""
+           data-keywords="Antimicrobial">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">ASP and ICP</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/351204" target="_blank" rel="noopener">
+            Cooperative Agreement for Long Term Data Collection on Antimicrobial Use in Animals (U01) Clinical Trial Not Allowed
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 11/29/2023</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">Antimicrobial</span></div>
+      </div>
+      <div class="card"
+           data-group="Emerging and Vector-Borne Diseases"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Paul B. Beeson Emerging Leaders Career Development Award in Aging"
+           data-agency=""
+           data-keywords="emerging">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">Emerging and Vector-Borne Diseases</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/360909" target="_blank" rel="noopener">
+            Paul B. Beeson Emerging Leaders Career Development Award in Aging
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 11/24/2025</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">emerging</span></div>
+      </div>
+      <div class="card"
+           data-group="Emerging and Vector-Borne Diseases"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="2023 Emerging Voices Small Grants Program"
+           data-agency=""
+           data-keywords="emerging">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">Emerging and Vector-Borne Diseases</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/347707" target="_blank" rel="noopener">
+            2023 Emerging Voices Small Grants Program
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 04/24/2023</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">emerging</span></div>
+      </div>
+      <div class="card"
+           data-group="Emerging and Vector-Borne Diseases"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Building National Partnerships for the Prevention of Emerging and Reemerging Infectious Diseases"
+           data-agency=""
+           data-keywords="emerging; infectious disease">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">Emerging and Vector-Borne Diseases</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/360691" target="_blank" rel="noopener">
+            Building National Partnerships for the Prevention of Emerging and Reemerging Infectious Diseases
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 09/30/2025</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">emerging</span> <span class="kw-tag">infectious disease</span></div>
+      </div>
+      <div class="card"
+           data-group="Emerging and Vector-Borne Diseases"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Advanced Development and Validation of Emerging Technologies for Basic and Clinical Cancer Research (R33 Clinical Trial Not Allowed)"
+           data-agency=""
+           data-keywords="emerging">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">Emerging and Vector-Borne Diseases</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/360534" target="_blank" rel="noopener">
+            Advanced Development and Validation of Emerging Technologies for Basic and Clinical Cancer Research (R33 Clinical Trial Not Allowed)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 09/08/2025</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">emerging</span></div>
+      </div>
+      <div class="card"
+           data-group="Emerging and Vector-Borne Diseases"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Infectious Diseases Clinical Trials Network (IDCTN)"
+           data-agency=""
+           data-keywords="infectious disease">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">Emerging and Vector-Borne Diseases</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/360875" target="_blank" rel="noopener">
+            Infectious Diseases Clinical Trials Network (IDCTN)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 11/18/2025</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">infectious disease</span></div>
+      </div>
+      <div class="card"
+           data-group="Emerging and Vector-Borne Diseases"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Improving global health security in C&amp;ocirc;te d&#x27;Ivoire through collaboration with local partners"
+           data-agency=""
+           data-keywords="global health">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">Emerging and Vector-Borne Diseases</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/360324" target="_blank" rel="noopener">
+            Improving global health security in C&amp;ocirc;te d&#x27;Ivoire through collaboration with local partners
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 08/21/2025</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">global health</span></div>
+      </div>
+      <div class="card"
+           data-group="Emerging and Vector-Borne Diseases"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Strengthening Global Health Security through local partnerships in&amp;nbsp;Sierra Leone"
+           data-agency=""
+           data-keywords="global health">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">Emerging and Vector-Borne Diseases</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/360335" target="_blank" rel="noopener">
+            Strengthening Global Health Security through local partnerships in&amp;nbsp;Sierra Leone
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 08/22/2025</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">global health</span></div>
+      </div>
+      <div class="card"
+           data-group="Emerging and Vector-Borne Diseases"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Sustaining Global Health Security to protect and improve public health in Kenya"
+           data-agency=""
+           data-keywords="global health">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">Emerging and Vector-Borne Diseases</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/360341" target="_blank" rel="noopener">
+            Sustaining Global Health Security to protect and improve public health in Kenya
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 08/22/2025</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">global health</span></div>
+      </div>
+      <div class="card"
+           data-group="Emerging and Vector-Borne Diseases"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Strengthening Global Health Security by improving public health capacity to detect, notify, and respond to disease outbreaks globally"
+           data-agency=""
+           data-keywords="global health">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">Emerging and Vector-Borne Diseases</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/360342" target="_blank" rel="noopener">
+            Strengthening Global Health Security by improving public health capacity to detect, notify, and respond to disease outbreaks globally
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 08/22/2025</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">global health</span></div>
+      </div>
+      <div class="card"
+           data-group="Emerging and Vector-Borne Diseases"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Preventing global health threats by strengthening surveillance systems to accelerate outbreak detection, notification, and response"
+           data-agency=""
+           data-keywords="global health">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">Emerging and Vector-Borne Diseases</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/360617" target="_blank" rel="noopener">
+            Preventing global health threats by strengthening surveillance systems to accelerate outbreak detection, notification, and response
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 09/18/2025</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">global health</span></div>
+      </div>
+      <div class="card"
+           data-group="Emerging and Vector-Borne Diseases"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Expanding global health security though local partnerships in Tanzania"
+           data-agency=""
+           data-keywords="global health">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">Emerging and Vector-Borne Diseases</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/360337" target="_blank" rel="noopener">
+            Expanding global health security though local partnerships in Tanzania
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 08/22/2025</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">global health</span></div>
+      </div>
+      <div class="card"
+           data-group="Emerging and Vector-Borne Diseases"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Expanding global health security through local partnerships in Ethiopia"
+           data-agency=""
+           data-keywords="global health">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">Emerging and Vector-Borne Diseases</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/360333" target="_blank" rel="noopener">
+            Expanding global health security through local partnerships in Ethiopia
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 08/22/2025</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">global health</span></div>
+      </div>
+      <div class="card"
+           data-group="Emerging and Vector-Borne Diseases"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Expanding global health security through local partnerships in Indonesia"
+           data-agency=""
+           data-keywords="global health">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">Emerging and Vector-Borne Diseases</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/360338" target="_blank" rel="noopener">
+            Expanding global health security through local partnerships in Indonesia
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 08/22/2025</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">global health</span></div>
+      </div>
+      <div class="card"
+           data-group="Emerging and Vector-Borne Diseases"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Strengthening global health security through local partnerships in Uganda"
+           data-agency=""
+           data-keywords="global health">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">Emerging and Vector-Borne Diseases</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/360339" target="_blank" rel="noopener">
+            Strengthening global health security through local partnerships in Uganda
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 08/22/2025</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">global health</span></div>
+      </div>
+      <div class="card"
+           data-group="Emerging and Vector-Borne Diseases"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Protecting and Improving Global Health Security by Engaging Local Partners: Strengthening and Sustaining Public Health Systems in Ghana"
+           data-agency=""
+           data-keywords="global health">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">Emerging and Vector-Borne Diseases</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/360455" target="_blank" rel="noopener">
+            Protecting and Improving Global Health Security by Engaging Local Partners: Strengthening and Sustaining Public Health Systems in Ghana
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 09/03/2025</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">global health</span></div>
+      </div>
+      <div class="card"
+           data-group="Emerging and Vector-Borne Diseases"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="LAUNCHing Leaders for Future U.S. Investments in Global Health Research (D43 Clinical Trial Optional)"
+           data-agency=""
+           data-keywords="global health">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">Emerging and Vector-Borne Diseases</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/360638" target="_blank" rel="noopener">
+            LAUNCHing Leaders for Future U.S. Investments in Global Health Research (D43 Clinical Trial Optional)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 09/22/2025</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">global health</span></div>
+      </div>
+      <div class="card"
+           data-group="Emerging and Vector-Borne Diseases"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Expanding Global Health Security through local partnerships in Senegal"
+           data-agency=""
+           data-keywords="global health">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">Emerging and Vector-Borne Diseases</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/360334" target="_blank" rel="noopener">
+            Expanding Global Health Security through local partnerships in Senegal
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 08/22/2025</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">global health</span></div>
+      </div>
+      <div class="card"
+           data-group="Emerging and Vector-Borne Diseases"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Enhancing global laboratory systems to safely manage biological risks, deploy diagnostics, and sequence pathogens to improve capacities for global health threat response and detection"
+           data-agency=""
+           data-keywords="global health">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">Emerging and Vector-Borne Diseases</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/360343" target="_blank" rel="noopener">
+            Enhancing global laboratory systems to safely manage biological risks, deploy diagnostics, and sequence pathogens to improve capacities for global health threat response and detection
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 08/22/2025</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">global health</span></div>
+      </div>
+      <div class="card"
+           data-group="Emerging and Vector-Borne Diseases"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Strengthening global health security in India to contain public health threats and accelerate outbreak response"
+           data-agency=""
+           data-keywords="global health">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">Emerging and Vector-Borne Diseases</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/360336" target="_blank" rel="noopener">
+            Strengthening global health security in India to contain public health threats and accelerate outbreak response
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 08/22/2025</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">global health</span></div>
+      </div>
+      <div class="card"
+           data-group="Emerging and Vector-Borne Diseases"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Expanding global health security through local partnerships in Nigeria"
+           data-agency=""
+           data-keywords="global health">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">Emerging and Vector-Borne Diseases</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/360332" target="_blank" rel="noopener">
+            Expanding global health security through local partnerships in Nigeria
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 08/22/2025</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">global health</span></div>
+      </div>
+      <div class="card"
+           data-group="Emerging and Vector-Borne Diseases"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Global Infectious Diseases Research Training Program (D43 Clinical Trial Optional)"
+           data-agency=""
+           data-keywords="infectious disease">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">Emerging and Vector-Borne Diseases</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/361252" target="_blank" rel="noopener">
+            Global Infectious Diseases Research Training Program (D43 Clinical Trial Optional)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 02/06/2026</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">infectious disease</span></div>
+      </div>
+      <div class="card"
+           data-group="Emerging and Vector-Borne Diseases"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Influenza Modeling and Forecasting"
+           data-agency=""
+           data-keywords="Influenza">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">Emerging and Vector-Borne Diseases</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/360210" target="_blank" rel="noopener">
+            Influenza Modeling and Forecasting
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 08/01/2025</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">Influenza</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV &amp; STIs"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Engaging faith-based organizations to sustain lifesaving HIV and TB services in Ethiopia"
+           data-agency=""
+           data-keywords="HIV">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">HIV &amp; STIs</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/360707" target="_blank" rel="noopener">
+            Engaging faith-based organizations to sustain lifesaving HIV and TB services in Ethiopia
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 10/01/2025</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV &amp; STIs"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Sustaining life-saving HIV services in Ukraine by strengthening resilient health systems under the Ukraine Ministry of Health, Public Health Center"
+           data-agency=""
+           data-keywords="HIV">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">HIV &amp; STIs</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/360755" target="_blank" rel="noopener">
+            Sustaining life-saving HIV services in Ukraine by strengthening resilient health systems under the Ukraine Ministry of Health, Public Health Center
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 10/16/2025</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV &amp; STIs"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Ryan White HIV/AIDS Program Part D - Women, Infants, Children and Youth Grant Supplemental Funding"
+           data-agency=""
+           data-keywords="HIV">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">HIV &amp; STIs</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/361045" target="_blank" rel="noopener">
+            Ryan White HIV/AIDS Program Part D - Women, Infants, Children and Youth Grant Supplemental Funding
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 12/19/2025</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV &amp; STIs"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Ryan White HIV/AIDS Program Part D Coordinated HIV Services and Access to Research for Women, Infants, Children, and Youth (WICY) Existing Geographic Service Areas"
+           data-agency=""
+           data-keywords="HIV; STI">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">HIV &amp; STIs</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/361044" target="_blank" rel="noopener">
+            Ryan White HIV/AIDS Program Part D Coordinated HIV Services and Access to Research for Women, Infants, Children, and Youth (WICY) Existing Geographic Service Areas
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 12/19/2025</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span> <span class="kw-tag">STI</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV &amp; STIs"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Improving regional capacity to respond to HIV, TB, and other global health priorities in Central America"
+           data-agency=""
+           data-keywords="HIV">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">HIV &amp; STIs</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/360704" target="_blank" rel="noopener">
+            Improving regional capacity to respond to HIV, TB, and other global health priorities in Central America
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 10/01/2025</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV &amp; STIs"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="National HIV Behavioral Surveillance"
+           data-agency=""
+           data-keywords="HIV">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">HIV &amp; STIs</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/361918" target="_blank" rel="noopener">
+            National HIV Behavioral Surveillance
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 04/16/2026</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV &amp; STIs"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="HIV/AIDS Clinical Trials Network Leadership and Operations Centers"
+           data-agency=""
+           data-keywords="HIV">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">HIV &amp; STIs</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/361815" target="_blank" rel="noopener">
+            HIV/AIDS Clinical Trials Network Leadership and Operations Centers
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 04/08/2026</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV &amp; STIs"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Impact of Immunotherapies on CNS Outcomes in People with HIV: Potential Benefits, Challenges and Risks"
+           data-agency=""
+           data-keywords="HIV">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">HIV &amp; STIs</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/361519" target="_blank" rel="noopener">
+            Impact of Immunotherapies on CNS Outcomes in People with HIV: Potential Benefits, Challenges and Risks
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 03/16/2026</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV &amp; STIs"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Implementation Science to End the HIV Epidemic"
+           data-agency=""
+           data-keywords="HIV">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">HIV &amp; STIs</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/360873" target="_blank" rel="noopener">
+            Implementation Science to End the HIV Epidemic
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 11/18/2025</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV &amp; STIs"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Ryan White HIV/AIDs Program Part B States/Territories Supplemental Grant Program"
+           data-agency=""
+           data-keywords="HIV">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">HIV &amp; STIs</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/361616" target="_blank" rel="noopener">
+            Ryan White HIV/AIDs Program Part B States/Territories Supplemental Grant Program
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 03/25/2026</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV &amp; STIs"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Martin Delaney Collaboratories for HIV Cure Research"
+           data-agency=""
+           data-keywords="HIV">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">HIV &amp; STIs</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/359663" target="_blank" rel="noopener">
+            Martin Delaney Collaboratories for HIV Cure Research
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 06/10/2025</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV &amp; STIs"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Notice of Intent to Publish a Funding Opportunity Announcement for HIV Pediatric, Adolescent and Maternal Clinical Trials"
+           data-agency=""
+           data-keywords="HIV">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">HIV &amp; STIs</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/358992" target="_blank" rel="noopener">
+            Notice of Intent to Publish a Funding Opportunity Announcement for HIV Pediatric, Adolescent and Maternal Clinical Trials
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 06/25/2025</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV &amp; STIs"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Consortia for Structure-based Immunogen Design for HIV (CSID-HIV)"
+           data-agency=""
+           data-keywords="HIV">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">HIV &amp; STIs</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/360591" target="_blank" rel="noopener">
+            Consortia for Structure-based Immunogen Design for HIV (CSID-HIV)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 09/15/2025</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV &amp; STIs"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Ending HIV and TB as public health threats through an accelerated and sustained comprehensive response in India"
+           data-agency=""
+           data-keywords="HIV">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">HIV &amp; STIs</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/360710" target="_blank" rel="noopener">
+            Ending HIV and TB as public health threats through an accelerated and sustained comprehensive response in India
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 10/01/2025</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV &amp; STIs"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Enhancing sustainable health information and laboratory systems and networks for quality detection, management, and monitoring to end HIV and TB as public health threats in India"
+           data-agency=""
+           data-keywords="HIV">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">HIV &amp; STIs</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/360711" target="_blank" rel="noopener">
+            Enhancing sustainable health information and laboratory systems and networks for quality detection, management, and monitoring to end HIV and TB as public health threats in India
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 10/01/2025</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV &amp; STIs"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Ryan White HIV/AIDS Program Part F Dental Reimbursement Program"
+           data-agency=""
+           data-keywords="HIV">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">HIV &amp; STIs</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/361525" target="_blank" rel="noopener">
+            Ryan White HIV/AIDS Program Part F Dental Reimbursement Program
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 03/17/2026</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV &amp; STIs"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Avant Garde/Avenir award for Investigators conducting high risk/high reward research on HIV and Substance Use (or Substance Use Disorders)"
+           data-agency=""
+           data-keywords="HIV; STI">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">HIV &amp; STIs</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/358991" target="_blank" rel="noopener">
+            Avant Garde/Avenir award for Investigators conducting high risk/high reward research on HIV and Substance Use (or Substance Use Disorders)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 05/28/2025</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span> <span class="kw-tag">STI</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV &amp; STIs"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="ORACLE 3C: Chronic Conditions, Coinfections, and Comorbidities in HIV"
+           data-agency=""
+           data-keywords="HIV">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">HIV &amp; STIs</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/361255" target="_blank" rel="noopener">
+            ORACLE 3C: Chronic Conditions, Coinfections, and Comorbidities in HIV
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 02/06/2026</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV &amp; STIs"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Strengthening Ghana Health Service laboratory services, diagnostic networks, and systems for a more effective, efficient, and sustainable response to HIV, TB, and other priority health threats"
+           data-agency=""
+           data-keywords="HIV; STI">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">HIV &amp; STIs</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/360759" target="_blank" rel="noopener">
+            Strengthening Ghana Health Service laboratory services, diagnostic networks, and systems for a more effective, efficient, and sustainable response to HIV, TB, and other priority health threats
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 10/16/2025</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span> <span class="kw-tag">STI</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV &amp; STIs"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Ending the HIV/HCV Epidemics in Indian Country"
+           data-agency=""
+           data-keywords="HIV">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">HIV &amp; STIs</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/360295" target="_blank" rel="noopener">
+            Ending the HIV/HCV Epidemics in Indian Country
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 08/14/2025</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV &amp; STIs"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Ryan White HIV/AIDS Program Part C Capacity Development Program&amp;#8239;"
+           data-agency=""
+           data-keywords="HIV">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">HIV &amp; STIs</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/361220" target="_blank" rel="noopener">
+            Ryan White HIV/AIDS Program Part C Capacity Development Program&amp;#8239;
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 01/30/2026</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV &amp; STIs"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="HIV/AIDS Clinical Trials Network Clinical Trials Units"
+           data-agency=""
+           data-keywords="HIV">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">HIV &amp; STIs</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/361821" target="_blank" rel="noopener">
+            HIV/AIDS Clinical Trials Network Clinical Trials Units
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 04/08/2026</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV &amp; STIs"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Strategies to Link, Engage, and Retain Men with HIV in Care: Evaluation Provider"
+           data-agency=""
+           data-keywords="HIV">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">HIV &amp; STIs</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/361376" target="_blank" rel="noopener">
+            Strategies to Link, Engage, and Retain Men with HIV in Care: Evaluation Provider
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 02/26/2026</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV &amp; STIs"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Strategies to Link, Engage, and Retain Men with HIV in Care: Implementation Technical Assistance Provider"
+           data-agency=""
+           data-keywords="HIV">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">HIV &amp; STIs</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/361377" target="_blank" rel="noopener">
+            Strategies to Link, Engage, and Retain Men with HIV in Care: Implementation Technical Assistance Provider
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 02/26/2026</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV &amp; STIs"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="HIV/AIDS Clinical Trials Network Laboratory Centers"
+           data-agency=""
+           data-keywords="HIV">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">HIV &amp; STIs</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/361820" target="_blank" rel="noopener">
+            HIV/AIDS Clinical Trials Network Laboratory Centers
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 04/08/2026</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV &amp; STIs"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="HIV/AIDS Clinical Trials Network Statistical and Data Management Centers"
+           data-agency=""
+           data-keywords="HIV; STI">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">HIV &amp; STIs</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/361816" target="_blank" rel="noopener">
+            HIV/AIDS Clinical Trials Network Statistical and Data Management Centers
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 04/08/2026</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span> <span class="kw-tag">STI</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV &amp; STIs"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Mechanistic Exploration of Therapeutic Targets and Treatable Traits to Improve CNS Outcomes in People with HIV"
+           data-agency=""
+           data-keywords="HIV; STI">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">HIV &amp; STIs</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/359657" target="_blank" rel="noopener">
+            Mechanistic Exploration of Therapeutic Targets and Treatable Traits to Improve CNS Outcomes in People with HIV
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 06/09/2025</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span> <span class="kw-tag">STI</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV &amp; STIs"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Multidisciplinary Research to Accelerate Hepatitis B Cure in Persons Living with HIV and HBV (MRA-HBV)"
+           data-agency=""
+           data-keywords="HIV">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">HIV &amp; STIs</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/359860" target="_blank" rel="noopener">
+            Multidisciplinary Research to Accelerate Hepatitis B Cure in Persons Living with HIV and HBV (MRA-HBV)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 06/27/2025</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV &amp; STIs"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Centers for Structural Biology of HIV and other Infectious Diseases"
+           data-agency=""
+           data-keywords="HIV">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">HIV &amp; STIs</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/361050" target="_blank" rel="noopener">
+            Centers for Structural Biology of HIV and other Infectious Diseases
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 12/22/2025</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV &amp; STIs"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Pilot and Feasibility Studies in Preparation for Substance Use and HIV Prevention Intervention and Services Research Trials"
+           data-agency=""
+           data-keywords="HIV">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">HIV &amp; STIs</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/361204" target="_blank" rel="noopener">
+            Pilot and Feasibility Studies in Preparation for Substance Use and HIV Prevention Intervention and Services Research Trials
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 01/26/2026</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV &amp; STIs"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Strengthening Botswana&#x27;s national data, performance management, and surveillance systems for a sustainable and government-led HIV, TB, and related public health response"
+           data-agency=""
+           data-keywords="HIV">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">HIV &amp; STIs</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/360701" target="_blank" rel="noopener">
+            Strengthening Botswana&#x27;s national data, performance management, and surveillance systems for a sustainable and government-led HIV, TB, and related public health response
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 10/01/2025</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span></div>
+      </div>
+      <div class="card"
+           data-group="HIV &amp; STIs"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Using Archived Data and Specimen Collections to Advance Maternal and Pediatric HIV/AIDS Research"
+           data-agency=""
+           data-keywords="HIV">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">HIV &amp; STIs</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/359945" target="_blank" rel="noopener">
+            Using Archived Data and Specimen Collections to Advance Maternal and Pediatric HIV/AIDS Research
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 07/08/2025</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">HIV</span></div>
+      </div>
+      <div class="card"
            data-group="SAM.gov"
            data-source="sam"
+           data-status="yes"
            data-title="Gallup Service Unit: Non-Personal Healthcare Services – General Internist Outpatient Physician Services and Infectious Disease Physician Services"
            data-agency="HEALTH AND HUMAN SERVICES, DEPARTMENT OF.INDIAN HEALTH SERVICE.NAVAJO AREA INDIAN HEALTH SVC"
            data-keywords="infectious">
         <div class="card-header">
           <span class="source-badge" style="background:#b45309">SAM.gov</span>
+          <span class="status-badge status-other">Yes</span>
           <span class="badge badge-none">No deadline</span>
           <span class="group-label">SAM.gov</span>
         </div>
@@ -144,6 +2537,276 @@
         <p class="card-desc">https://api.sam.gov/prod/opportunities/v1/noticedesc?noticeid=4606d720400045dbb2dd8cc811fbd3e6</p>
         <div class="kw-tags"><span class="kw-tag">infectious</span></div>
       </div>
+      <div class="card"
+           data-group="Vaccines and Therapeutics"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Accelerating Research and Development of Next Generation Malaria Vaccines Against Malaria &amp;ndash; A Model for Mosquito-Borne Diseases"
+           data-agency=""
+           data-keywords="vaccines; vaccine">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">Vaccines and Therapeutics</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/361832" target="_blank" rel="noopener">
+            Accelerating Research and Development of Next Generation Malaria Vaccines Against Malaria &amp;ndash; A Model for Mosquito-Borne Diseases
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 04/09/2026</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">vaccines</span> <span class="kw-tag">vaccine</span></div>
+      </div>
+      <div class="card"
+           data-group="Vaccines and Therapeutics"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Forecast for HEAL Initiative: Non-addictive Analgesic Therapeutics Development [Small Molecules and Biologics] to Treat Pain (UG3/UH3 Clinical Trial Optional"
+           data-agency=""
+           data-keywords="therapeutics">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">Vaccines and Therapeutics</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/359161" target="_blank" rel="noopener">
+            Forecast for HEAL Initiative: Non-addictive Analgesic Therapeutics Development [Small Molecules and Biologics] to Treat Pain (UG3/UH3 Clinical Trial Optional
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 05/28/2025</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">therapeutics</span></div>
+      </div>
+      <div class="card"
+           data-group="Vaccines and Therapeutics"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Extracellular Vesicle Therapeutics for Regenerative Medicine (ExTReMe)"
+           data-agency=""
+           data-keywords="therapeutics">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">Vaccines and Therapeutics</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/359866" target="_blank" rel="noopener">
+            Extracellular Vesicle Therapeutics for Regenerative Medicine (ExTReMe)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 06/27/2025</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">therapeutics</span></div>
+      </div>
+      <div class="card"
+           data-group="Vaccines and Therapeutics"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Applied regulatory science research to evaluate and treat cardiotoxicity of oncology therapeutics"
+           data-agency=""
+           data-keywords="therapeutics">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">Vaccines and Therapeutics</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/357261" target="_blank" rel="noopener">
+            Applied regulatory science research to evaluate and treat cardiotoxicity of oncology therapeutics
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 11/20/2024</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">therapeutics</span></div>
+      </div>
+      <div class="card"
+           data-group="Vaccines and Therapeutics"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Glioblastoma Therapeutics Network (GTN; U19 Clinical Trial Required)"
+           data-agency=""
+           data-keywords="therapeutics">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">Vaccines and Therapeutics</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/360606" target="_blank" rel="noopener">
+            Glioblastoma Therapeutics Network (GTN; U19 Clinical Trial Required)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 09/17/2025</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">therapeutics</span></div>
+      </div>
+      <div class="card"
+           data-group="Vaccines and Therapeutics"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Forecast to Publish a Notice of Funding Opportunity for The Experimental Therapeutics Clinical Trials Network (ETCTN) Lead Academic Organizations (UM1 Clinical Trial Required)"
+           data-agency=""
+           data-keywords="therapeutics">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">Vaccines and Therapeutics</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/359133" target="_blank" rel="noopener">
+            Forecast to Publish a Notice of Funding Opportunity for The Experimental Therapeutics Clinical Trials Network (ETCTN) Lead Academic Organizations (UM1 Clinical Trial Required)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 05/27/2025</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">therapeutics</span></div>
+      </div>
+      <div class="card"
+           data-group="Vaccines and Therapeutics"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="NEI Translational Research Program for Therapeutics (R61/R33 Clinical Trial Not Allowed)"
+           data-agency=""
+           data-keywords="therapeutics">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">Vaccines and Therapeutics</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/360545" target="_blank" rel="noopener">
+            NEI Translational Research Program for Therapeutics (R61/R33 Clinical Trial Not Allowed)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 09/09/2025</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">therapeutics</span></div>
+      </div>
+      <div class="card"
+           data-group="Vaccines and Therapeutics"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Maternal and Pediatric Precision in Therapeutics (MPRINT) Knowledge and Research Coordination Center"
+           data-agency=""
+           data-keywords="therapeutics">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">Vaccines and Therapeutics</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/360584" target="_blank" rel="noopener">
+            Maternal and Pediatric Precision in Therapeutics (MPRINT) Knowledge and Research Coordination Center
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 09/15/2025</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">therapeutics</span></div>
+      </div>
+      <div class="card"
+           data-group="Vaccines and Therapeutics"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Forecast to Publish a Notice of Funding Opportunity for The Experimental Therapeutics Clinical Trials Network (ETCTN) Pharmacokinetic Resource Laboratory (U24 Clinical Trial Not Allowed)"
+           data-agency=""
+           data-keywords="therapeutics">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">Vaccines and Therapeutics</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/359854" target="_blank" rel="noopener">
+            Forecast to Publish a Notice of Funding Opportunity for The Experimental Therapeutics Clinical Trials Network (ETCTN) Pharmacokinetic Resource Laboratory (U24 Clinical Trial Not Allowed)
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 06/27/2025</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">therapeutics</span></div>
+      </div>
+      <div class="card"
+           data-group="Vaccines and Therapeutics"
+           data-source="legacy"
+           data-status="forecasted"
+           data-title="Collaborative Surveys to Provide Inputs into Vaccine-Related Economic Evaluations"
+           data-agency=""
+           data-keywords="vaccine">
+        <div class="card-header">
+          <span class="source-badge" style="background:#2563eb">Grants.gov</span>
+          <span class="status-badge status-forecast">Forecasted</span>
+          <span class="badge badge-none">No deadline</span>
+          <span class="group-label">Vaccines and Therapeutics</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.grants.gov/search-results-detail/360201" target="_blank" rel="noopener">
+            Collaborative Surveys to Provide Inputs into Vaccine-Related Economic Evaluations
+          </a>
+        </h3>
+        <div class="card-agency"></div>
+        <div class="card-meta">
+          <span class="meta-item">Posted: 08/01/2025</span>
+          <span class="meta-item">Closes: </span>
+          <span class="meta-item">NAICS nan</span><span class="meta-item">nan</span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="kw-tags"><span class="kw-tag">vaccine</span></div>
+      </div>
 </div>
 
 <footer>
@@ -154,7 +2817,7 @@
 </footer>
 
 <script>
-const RAW = [{"source": "sam", "opportunity_id": "4606d720400045dbb2dd8cc811fbd3e6", "opportunity_number": "75H71026Q00122", "opportunity_title": "Gallup Service Unit: Non-Personal Healthcare Services \u2013 General Internist Outpatient Physician Services and Infectious Disease Physician Services", "agency_name": "HEALTH AND HUMAN SERVICES, DEPARTMENT OF.INDIAN HEALTH SERVICE.NAVAJO AREA INDIAN HEALTH SVC", "post_date": "2026-03-26", "close_date": "2026-04-09T10:00:00-06:00", "award_floor": "", "award_ceiling": "", "summary_description": "https://api.sam.gov/prod/opportunities/v1/noticedesc?noticeid=4606d720400045dbb2dd8cc811fbd3e6", "opportunity_status": "Yes", "naics_code": "621111", "set_aside": "Indian Small Business Economic Enterprise (ISBEE) Set-Aside (specific to Department of Interior and Indian Health Services)", "notice_type": "Combined Synopsis/Solicitation", "contact_email": "Adrian.Segay@ihs.gov", "url": "https://sam.gov/opp/4606d720400045dbb2dd8cc811fbd3e6/view", "matched_keywords": "infectious", "keyword_group": "SAM.gov"}];
+const RAW = [{"source": "legacy", "opportunity_id": "357390", "opportunity_number": "PAS-25-161", "opportunity_title": "HIV Prevention and Alcohol (R34 Clinical Trials Optional)", "agency_name": "", "post_date": "11/25/2024", "close_date": "05/07/2026", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/357390", "matched_keywords": "HIV", "keyword_group": "HIV & STIs"}, {"source": "legacy", "opportunity_id": "357391", "opportunity_number": "PAS-25-208", "opportunity_title": "HIV Prevention and Alcohol (R01 Clinical Trials Optional)", "agency_name": "", "post_date": "11/25/2024", "close_date": "05/07/2026", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/357391", "matched_keywords": "HIV", "keyword_group": "HIV & STIs"}, {"source": "legacy", "opportunity_id": "357184", "opportunity_number": "PAR-25-110", "opportunity_title": "Translational Research in Maternal and Pediatric Pharmacology and Therapeutics (R01 Clinical Trial Optional)", "agency_name": "", "post_date": "11/18/2024", "close_date": "05/07/2026", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/357184", "matched_keywords": "therapeutics", "keyword_group": "Vaccines and Therapeutics"}, {"source": "legacy", "opportunity_id": "357185", "opportunity_number": "PAR-25-111", "opportunity_title": "Translational Research in Maternal and Pediatric Pharmacology and Therapeutics (R21 Clinical Trial Optional)", "agency_name": "", "post_date": "11/18/2024", "close_date": "05/07/2026", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/357185", "matched_keywords": "therapeutics", "keyword_group": "Vaccines and Therapeutics"}, {"source": "legacy", "opportunity_id": "361480", "opportunity_number": "20260511-PCS", "opportunity_title": "Collections Stewardship", "agency_name": "", "post_date": "03/11/2026", "close_date": "05/11/2026", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/361480", "matched_keywords": "Stewardship", "keyword_group": "ASP and ICP"}, {"source": "legacy", "opportunity_id": "361460", "opportunity_number": "DFOP0017914", "opportunity_title": "FY 2026 John McCain Study of the U.S. Institute for Student Leaders on the Rule of Law and Public Service", "agency_name": "", "post_date": "03/12/2026", "close_date": "05/11/2026", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/361460", "matched_keywords": "STI", "keyword_group": "HIV & STIs"}, {"source": "legacy", "opportunity_id": "361459", "opportunity_number": "DFOP0017918", "opportunity_title": "FY 2026 Study of the U.S. Institutes for Scholars", "agency_name": "", "post_date": "03/12/2026", "close_date": "05/11/2026", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/361459", "matched_keywords": "STI", "keyword_group": "HIV & STIs"}, {"source": "legacy", "opportunity_id": "361510", "opportunity_number": "USDA-FAS-10960-0700-10-25-0009", "opportunity_title": "Coordinating Agricultural Development &amp; Innovation (CADI) Uzbekistan Exchanges: Promotion of U.S. Distilled Spirits", "agency_name": "", "post_date": "03/16/2026", "close_date": "05/14/2026", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/361510", "matched_keywords": "STI", "keyword_group": "HIV & STIs"}, {"source": "legacy", "opportunity_id": "361458", "opportunity_number": "DE-FOA-0003620", "opportunity_title": "FY2026 Research Opportunities in Accelerator Stewardship and Accelerator Development", "agency_name": "", "post_date": "03/12/2026", "close_date": "05/21/2026", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/361458", "matched_keywords": "Stewardship", "keyword_group": "ASP and ICP"}, {"source": "legacy", "opportunity_id": "355177", "opportunity_number": "PAR-24-233", "opportunity_title": "NIMH Research Education Mentoring Program for HIV Researchers (R25 Clinical Trial Not Allowed)", "agency_name": "", "post_date": "06/27/2024", "close_date": "05/25/2026", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/355177", "matched_keywords": "HIV", "keyword_group": "HIV & STIs"}, {"source": "legacy", "opportunity_id": "359939", "opportunity_number": "RFA-AI-27-019", "opportunity_title": "Impact of Initial Influenza Exposure on Immunity in Infants (U01 Clinical Trial Not Allowed)", "agency_name": "", "post_date": "02/10/2026", "close_date": "06/04/2026", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/359939", "matched_keywords": "Influenza", "keyword_group": "Emerging and Vector-Borne Diseases"}, {"source": "legacy", "opportunity_id": "318351", "opportunity_number": "FA8650-19-S-5010", "opportunity_title": "Defense Production Act Title III Expansion of Domestic Production Capability and Capacity", "agency_name": "", "post_date": "07/12/2019", "close_date": "07/12/2026", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/318351", "matched_keywords": "STI", "keyword_group": "HIV & STIs"}, {"source": "legacy", "opportunity_id": "353590", "opportunity_number": "PAR-24-174", "opportunity_title": "Global Infectious Disease Research Training Program (D43 Clinical Trial Optional)", "agency_name": "", "post_date": "04/17/2024", "close_date": "08/06/2026", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/353590", "matched_keywords": "infectious disease", "keyword_group": "Emerging and Vector-Borne Diseases"}, {"source": "legacy", "opportunity_id": "351920", "opportunity_number": "PAR-24-129", "opportunity_title": "Limited Competition: Specific Pathogen Free Macaque Colonies to Support HIV/AIDS Research (U42 Clinical Trial Not Allowed)", "agency_name": "", "post_date": "01/22/2024", "close_date": "09/25/2026", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/351920", "matched_keywords": "HIV", "keyword_group": "HIV & STIs"}, {"source": "legacy", "opportunity_id": "356724", "opportunity_number": "PAR-24-295", "opportunity_title": "Emerging Global Leader Award (K43 Independent Clinical Trial Required)", "agency_name": "", "post_date": "10/15/2024", "close_date": "12/03/2026", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/356724", "matched_keywords": "emerging", "keyword_group": "Emerging and Vector-Borne Diseases"}, {"source": "legacy", "opportunity_id": "356723", "opportunity_number": "PAR-24-296", "opportunity_title": "Emerging Global Leader Award (K43 Independent Clinical Trial Not Allowed)", "agency_name": "", "post_date": "10/15/2024", "close_date": "12/03/2026", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/356723", "matched_keywords": "emerging", "keyword_group": "Emerging and Vector-Borne Diseases"}, {"source": "legacy", "opportunity_id": "351404", "opportunity_number": "HM047623BAA0001", "opportunity_title": "Boosting Innovative GEOINT - Science &amp; Technology  Broad Agency Announcement (BIG-ST BAA)", "agency_name": "", "post_date": "12/15/2023", "close_date": "12/14/2026", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/351404", "matched_keywords": "STI", "keyword_group": "HIV & STIs"}, {"source": "legacy", "opportunity_id": "357075", "opportunity_number": "PAR-25-081", "opportunity_title": "National Cancer Institute's Investigator-Initiated Early Phase Clinical Trials for Cancer Treatment and Diagnosis (R01 Clinical Trial Required)", "agency_name": "", "post_date": "11/12/2024", "close_date": "01/07/2027", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/357075", "matched_keywords": "STI", "keyword_group": "HIV & STIs"}, {"source": "legacy", "opportunity_id": "357542", "opportunity_number": "PAR-25-025", "opportunity_title": "NHLBI Early Phase Clinical Trials for Therapeutics and/or Diagnostics for HLBS Disorders (R33 CT Required)", "agency_name": "", "post_date": "12/05/2024", "close_date": "01/07/2027", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/357542", "matched_keywords": "therapeutics", "keyword_group": "Vaccines and Therapeutics"}, {"source": "legacy", "opportunity_id": "357543", "opportunity_number": "PAR-25-026", "opportunity_title": "NHLBI Early Phase Clinical Trials for Therapeutics and/or Diagnostics for HLBS Disorders (R61/R33 Clinical Trial Required)", "agency_name": "", "post_date": "12/05/2024", "close_date": "01/07/2027", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/357543", "matched_keywords": "therapeutics", "keyword_group": "Vaccines and Therapeutics"}, {"source": "legacy", "opportunity_id": "361895", "opportunity_number": "DFOP0017890", "opportunity_title": "Advancing Global Health", "agency_name": "", "post_date": "04/14/2026", "close_date": "02/14/2027", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/361895", "matched_keywords": "global health", "keyword_group": "Emerging and Vector-Borne Diseases"}, {"source": "legacy", "opportunity_id": "351847", "opportunity_number": "RFA-DA-25-060", "opportunity_title": "High Priority HIV and Substance Use Research (RM1 Clinical Trial Optional)", "agency_name": "", "post_date": "01/17/2024", "close_date": "03/05/2027", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/351847", "matched_keywords": "HIV", "keyword_group": "HIV & STIs"}, {"source": "legacy", "opportunity_id": "355867", "opportunity_number": "RFA-DA-25-024", "opportunity_title": "High Priority HIV and Substance Use Research (R01 Clinical Trial Optional)", "agency_name": "", "post_date": "08/02/2024", "close_date": "03/06/2027", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/355867", "matched_keywords": "HIV", "keyword_group": "HIV & STIs"}, {"source": "legacy", "opportunity_id": "358093", "opportunity_number": "PAR-24-329", "opportunity_title": "Development and Testing of Novel Interventions to Improve HIV Prevention, Treatment, and Program Implementation for People Who Use Substances (R34 Clinical Trial Required)", "agency_name": "", "post_date": "01/08/2025", "close_date": "03/16/2027", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/358093", "matched_keywords": "HIV; STI", "keyword_group": "HIV & STIs"}, {"source": "legacy", "opportunity_id": "353822", "opportunity_number": "RFA-HL-26-003", "opportunity_title": "NHLBI Emerging Investigator Award (EIA) (R35 Clinical Trial Optional)", "agency_name": "", "post_date": "04/26/2024", "close_date": "04/28/2027", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/353822", "matched_keywords": "emerging", "keyword_group": "Emerging and Vector-Borne Diseases"}, {"source": "legacy", "opportunity_id": "356610", "opportunity_number": "PAR-24-293", "opportunity_title": "Blueprint Neurotherapeutics Network (BPN): Biologic-based Drug Discovery and Development for Disorders of the Nervous System (UG3/UH3 Clinical Trial Optional)", "agency_name": "", "post_date": "10/01/2024", "close_date": "08/18/2027", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/356610", "matched_keywords": "therapeutics", "keyword_group": "Vaccines and Therapeutics"}, {"source": "legacy", "opportunity_id": "343653", "opportunity_number": "W81XWH-22-DHAPP", "opportunity_title": "Department of Defense HIV/AIDS Prevention Program", "agency_name": "", "post_date": "09/19/2022", "close_date": "09/18/2027", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/343653", "matched_keywords": "HIV", "keyword_group": "HIV & STIs"}, {"source": "legacy", "opportunity_id": "358082", "opportunity_number": "PAR-25-068", "opportunity_title": "Pilot Studies of Biological, Behavioral and Social Mechanisms Contributing to HIV Pathogenesis Within the Mission of NIDDK (R21 Clinical Trial Not Allowed)", "agency_name": "", "post_date": "01/08/2025", "close_date": "11/16/2027", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/358082", "matched_keywords": "HIV", "keyword_group": "HIV & STIs"}, {"source": "legacy", "opportunity_id": "357544", "opportunity_number": "RFA-DA-26-055", "opportunity_title": "Accelerating the Pace of Substance Use Research Using Existing Data (R01 Clinical Trial Not Allowed)", "agency_name": "", "post_date": "12/05/2024", "close_date": "12/03/2027", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/357544", "matched_keywords": "STI", "keyword_group": "HIV & STIs"}, {"source": "legacy", "opportunity_id": "357545", "opportunity_number": "RFA-DA-26-056", "opportunity_title": "Accelerating the Pace of Substance Use Research Using Existing Data (R21 Clinical Trial Not Allowed)", "agency_name": "", "post_date": "12/05/2024", "close_date": "12/03/2027", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/357545", "matched_keywords": "STI", "keyword_group": "HIV & STIs"}, {"source": "legacy", "opportunity_id": "347858", "opportunity_number": "W911NF-23-S-0010", "opportunity_title": "UNITED STATES ARMY RESEARCH INSTITUTE FOR THE BEHAVIORAL AND SOCIAL SCIENCES (ARI) BROAD AGENCY ANNOUNCEMENT FOR BASIC, APPLIED, AND ADVANCED SCIENTIFIC RESEARCH", "agency_name": "", "post_date": "05/01/2023", "close_date": "04/30/2028", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/347858", "matched_keywords": "STI", "keyword_group": "HIV & STIs"}, {"source": "legacy", "opportunity_id": "358938", "opportunity_number": "PAR-27-013", "opportunity_title": "Data Coordinating Center for Multi-Site Investigator-Initiated Clinical Trials (Collaborative U24 Clinical Trial Required)", "agency_name": "", "post_date": "03/18/2026", "close_date": "11/02/2028", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "posted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/358938", "matched_keywords": "STI", "keyword_group": "HIV & STIs"}, {"source": "legacy", "opportunity_id": "361065", "opportunity_number": "RFA-AI-27-005", "opportunity_title": "Clinical Research Network on Antimicrobial Resistance", "agency_name": "", "post_date": "12/29/2025", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/361065", "matched_keywords": "Antimicrobial", "keyword_group": "ASP and ICP"}, {"source": "legacy", "opportunity_id": "351204", "opportunity_number": "FOR-FD-24-011", "opportunity_title": "Cooperative Agreement for Long Term Data Collection on Antimicrobial Use in Animals (U01) Clinical Trial Not Allowed", "agency_name": "", "post_date": "11/29/2023", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/351204", "matched_keywords": "Antimicrobial", "keyword_group": "ASP and ICP"}, {"source": "legacy", "opportunity_id": "360909", "opportunity_number": "PAR-26-104", "opportunity_title": "Paul B. Beeson Emerging Leaders Career Development Award in Aging", "agency_name": "", "post_date": "11/24/2025", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/360909", "matched_keywords": "emerging", "keyword_group": "Emerging and Vector-Borne Diseases"}, {"source": "legacy", "opportunity_id": "347707", "opportunity_number": "23-PHL-NOFO-EV", "opportunity_title": "2023 Emerging Voices Small Grants Program", "agency_name": "", "post_date": "04/24/2023", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/347707", "matched_keywords": "emerging", "keyword_group": "Emerging and Vector-Borne Diseases"}, {"source": "legacy", "opportunity_id": "360691", "opportunity_number": "CDC-RFA-CK-26-0107", "opportunity_title": "Building National Partnerships for the Prevention of Emerging and Reemerging Infectious Diseases", "agency_name": "", "post_date": "09/30/2025", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/360691", "matched_keywords": "emerging; infectious disease", "keyword_group": "Emerging and Vector-Borne Diseases"}, {"source": "legacy", "opportunity_id": "360534", "opportunity_number": "RFA-CA-26-002", "opportunity_title": "Advanced Development and Validation of Emerging Technologies for Basic and Clinical Cancer Research (R33 Clinical Trial Not Allowed)", "agency_name": "", "post_date": "09/08/2025", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/360534", "matched_keywords": "emerging", "keyword_group": "Emerging and Vector-Borne Diseases"}, {"source": "legacy", "opportunity_id": "360875", "opportunity_number": "RFA-AI-27-002", "opportunity_title": "Infectious Diseases Clinical Trials Network (IDCTN)", "agency_name": "", "post_date": "11/18/2025", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/360875", "matched_keywords": "infectious disease", "keyword_group": "Emerging and Vector-Borne Diseases"}, {"source": "legacy", "opportunity_id": "360324", "opportunity_number": "CDC-RFA-JG-26-0042", "opportunity_title": "Improving global health security in C&ocirc;te d'Ivoire through collaboration with local partners", "agency_name": "", "post_date": "08/21/2025", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/360324", "matched_keywords": "global health", "keyword_group": "Emerging and Vector-Borne Diseases"}, {"source": "legacy", "opportunity_id": "360335", "opportunity_number": "CDC-RFA-JG-26-0050", "opportunity_title": "Strengthening Global Health Security through local partnerships in&nbsp;Sierra Leone", "agency_name": "", "post_date": "08/22/2025", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/360335", "matched_keywords": "global health", "keyword_group": "Emerging and Vector-Borne Diseases"}, {"source": "legacy", "opportunity_id": "360341", "opportunity_number": "CDC-RFA-JG-26-0055", "opportunity_title": "Sustaining Global Health Security to protect and improve public health in Kenya", "agency_name": "", "post_date": "08/22/2025", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/360341", "matched_keywords": "global health", "keyword_group": "Emerging and Vector-Borne Diseases"}, {"source": "legacy", "opportunity_id": "360342", "opportunity_number": "CDC-RFA-JG-26-0056", "opportunity_title": "Strengthening Global Health Security by improving public health capacity to detect, notify, and respond to disease outbreaks globally", "agency_name": "", "post_date": "08/22/2025", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/360342", "matched_keywords": "global health", "keyword_group": "Emerging and Vector-Borne Diseases"}, {"source": "legacy", "opportunity_id": "360617", "opportunity_number": "CDC-RFA-JG-26-0113", "opportunity_title": "Preventing global health threats by strengthening surveillance systems to accelerate outbreak detection, notification, and response", "agency_name": "", "post_date": "09/18/2025", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/360617", "matched_keywords": "global health", "keyword_group": "Emerging and Vector-Borne Diseases"}, {"source": "legacy", "opportunity_id": "360337", "opportunity_number": "CDC-RFA-JG-26-0052", "opportunity_title": "Expanding global health security though local partnerships in Tanzania", "agency_name": "", "post_date": "08/22/2025", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/360337", "matched_keywords": "global health", "keyword_group": "Emerging and Vector-Borne Diseases"}, {"source": "legacy", "opportunity_id": "360333", "opportunity_number": "CDC-RFA-JG-26-0046", "opportunity_title": "Expanding global health security through local partnerships in Ethiopia", "agency_name": "", "post_date": "08/22/2025", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/360333", "matched_keywords": "global health", "keyword_group": "Emerging and Vector-Borne Diseases"}, {"source": "legacy", "opportunity_id": "360338", "opportunity_number": "CDC-RFA-JG-26-0053", "opportunity_title": "Expanding global health security through local partnerships in Indonesia", "agency_name": "", "post_date": "08/22/2025", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/360338", "matched_keywords": "global health", "keyword_group": "Emerging and Vector-Borne Diseases"}, {"source": "legacy", "opportunity_id": "360339", "opportunity_number": "CDC-RFA-JG-26-0054", "opportunity_title": "Strengthening global health security through local partnerships in Uganda", "agency_name": "", "post_date": "08/22/2025", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/360339", "matched_keywords": "global health", "keyword_group": "Emerging and Vector-Borne Diseases"}, {"source": "legacy", "opportunity_id": "360455", "opportunity_number": "CDC-RFA-JG-26-0047", "opportunity_title": "Protecting and Improving Global Health Security by Engaging Local Partners: Strengthening and Sustaining Public Health Systems in Ghana", "agency_name": "", "post_date": "09/03/2025", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/360455", "matched_keywords": "global health", "keyword_group": "Emerging and Vector-Borne Diseases"}, {"source": "legacy", "opportunity_id": "360638", "opportunity_number": "RFA-TW-25-002", "opportunity_title": "LAUNCHing Leaders for Future U.S. Investments in Global Health Research (D43 Clinical Trial Optional)", "agency_name": "", "post_date": "09/22/2025", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/360638", "matched_keywords": "global health", "keyword_group": "Emerging and Vector-Borne Diseases"}, {"source": "legacy", "opportunity_id": "360334", "opportunity_number": "CDC-RFA-JG-26-0048", "opportunity_title": "Expanding Global Health Security through local partnerships in Senegal", "agency_name": "", "post_date": "08/22/2025", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/360334", "matched_keywords": "global health", "keyword_group": "Emerging and Vector-Borne Diseases"}, {"source": "legacy", "opportunity_id": "360343", "opportunity_number": "CDC-RFA-JG-26-0058", "opportunity_title": "Enhancing global laboratory systems to safely manage biological risks, deploy diagnostics, and sequence pathogens to improve capacities for global health threat response and detection", "agency_name": "", "post_date": "08/22/2025", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/360343", "matched_keywords": "global health", "keyword_group": "Emerging and Vector-Borne Diseases"}, {"source": "legacy", "opportunity_id": "360336", "opportunity_number": "CDC-RFA-JG-26-0051", "opportunity_title": "Strengthening global health security in India to contain public health threats and accelerate outbreak response", "agency_name": "", "post_date": "08/22/2025", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/360336", "matched_keywords": "global health", "keyword_group": "Emerging and Vector-Borne Diseases"}, {"source": "legacy", "opportunity_id": "360332", "opportunity_number": "CDC-RFA-JG-26-0043", "opportunity_title": "Expanding global health security through local partnerships in Nigeria", "agency_name": "", "post_date": "08/22/2025", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/360332", "matched_keywords": "global health", "keyword_group": "Emerging and Vector-Borne Diseases"}, {"source": "legacy", "opportunity_id": "361252", "opportunity_number": "PAR-26-117", "opportunity_title": "Global Infectious Diseases Research Training Program (D43 Clinical Trial Optional)", "agency_name": "", "post_date": "02/06/2026", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/361252", "matched_keywords": "infectious disease", "keyword_group": "Emerging and Vector-Borne Diseases"}, {"source": "legacy", "opportunity_id": "360210", "opportunity_number": "CDC-RFA-IP-26-0102", "opportunity_title": "Influenza Modeling and Forecasting", "agency_name": "", "post_date": "08/01/2025", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/360210", "matched_keywords": "Influenza", "keyword_group": "Emerging and Vector-Borne Diseases"}, {"source": "legacy", "opportunity_id": "360707", "opportunity_number": "CDC-RFA-JG-26-0136", "opportunity_title": "Engaging faith-based organizations to sustain lifesaving HIV and TB services in Ethiopia", "agency_name": "", "post_date": "10/01/2025", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/360707", "matched_keywords": "HIV", "keyword_group": "HIV & STIs"}, {"source": "legacy", "opportunity_id": "360755", "opportunity_number": "CDC-RFA-JG-26-0172", "opportunity_title": "Sustaining life-saving HIV services in Ukraine by strengthening resilient health systems under the Ukraine Ministry of Health, Public Health Center", "agency_name": "", "post_date": "10/16/2025", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/360755", "matched_keywords": "HIV", "keyword_group": "HIV & STIs"}, {"source": "legacy", "opportunity_id": "361045", "opportunity_number": "HRSA-26-068", "opportunity_title": "Ryan White HIV/AIDS Program Part D - Women, Infants, Children and Youth Grant Supplemental Funding", "agency_name": "", "post_date": "12/19/2025", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/361045", "matched_keywords": "HIV", "keyword_group": "HIV & STIs"}, {"source": "legacy", "opportunity_id": "361044", "opportunity_number": "HRSA-26-067", "opportunity_title": "Ryan White HIV/AIDS Program Part D Coordinated HIV Services and Access to Research for Women, Infants, Children, and Youth (WICY) Existing Geographic Service Areas", "agency_name": "", "post_date": "12/19/2025", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/361044", "matched_keywords": "HIV; STI", "keyword_group": "HIV & STIs"}, {"source": "legacy", "opportunity_id": "360704", "opportunity_number": "CDC-RFA-JG-26-0130", "opportunity_title": "Improving regional capacity to respond to HIV, TB, and other global health priorities in Central America", "agency_name": "", "post_date": "10/01/2025", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/360704", "matched_keywords": "HIV", "keyword_group": "HIV & STIs"}, {"source": "legacy", "opportunity_id": "361918", "opportunity_number": "CDC-RFA-PS-27-0001", "opportunity_title": "National HIV Behavioral Surveillance", "agency_name": "", "post_date": "04/16/2026", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/361918", "matched_keywords": "HIV", "keyword_group": "HIV & STIs"}, {"source": "legacy", "opportunity_id": "361815", "opportunity_number": "RFA-AI-28-001", "opportunity_title": "HIV/AIDS Clinical Trials Network Leadership and Operations Centers", "agency_name": "", "post_date": "04/08/2026", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/361815", "matched_keywords": "HIV", "keyword_group": "HIV & STIs"}, {"source": "legacy", "opportunity_id": "361519", "opportunity_number": "RFA-MH-27-110", "opportunity_title": "Impact of Immunotherapies on CNS Outcomes in People with HIV: Potential Benefits, Challenges and Risks", "agency_name": "", "post_date": "03/16/2026", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/361519", "matched_keywords": "HIV", "keyword_group": "HIV & STIs"}, {"source": "legacy", "opportunity_id": "360873", "opportunity_number": "RFA-AI-27-018", "opportunity_title": "Implementation Science to End the HIV Epidemic", "agency_name": "", "post_date": "11/18/2025", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/360873", "matched_keywords": "HIV", "keyword_group": "HIV & STIs"}, {"source": "legacy", "opportunity_id": "361616", "opportunity_number": "HRSA-26-074", "opportunity_title": "Ryan White HIV/AIDs Program Part B States/Territories Supplemental Grant Program", "agency_name": "", "post_date": "03/25/2026", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/361616", "matched_keywords": "HIV", "keyword_group": "HIV & STIs"}, {"source": "legacy", "opportunity_id": "359663", "opportunity_number": "FOR-AI-27-001", "opportunity_title": "Martin Delaney Collaboratories for HIV Cure Research", "agency_name": "", "post_date": "06/10/2025", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/359663", "matched_keywords": "HIV", "keyword_group": "HIV & STIs"}, {"source": "legacy", "opportunity_id": "358992", "opportunity_number": "NOT-HD-25-007", "opportunity_title": "Notice of Intent to Publish a Funding Opportunity Announcement for HIV Pediatric, Adolescent and Maternal Clinical Trials", "agency_name": "", "post_date": "06/25/2025", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/358992", "matched_keywords": "HIV", "keyword_group": "HIV & STIs"}, {"source": "legacy", "opportunity_id": "360591", "opportunity_number": "RFA-AI-27-020", "opportunity_title": "Consortia for Structure-based Immunogen Design for HIV (CSID-HIV)", "agency_name": "", "post_date": "09/15/2025", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/360591", "matched_keywords": "HIV", "keyword_group": "HIV & STIs"}, {"source": "legacy", "opportunity_id": "360710", "opportunity_number": "CDC-RFA-JG-26-0142", "opportunity_title": "Ending HIV and TB as public health threats through an accelerated and sustained comprehensive response in India", "agency_name": "", "post_date": "10/01/2025", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/360710", "matched_keywords": "HIV", "keyword_group": "HIV & STIs"}, {"source": "legacy", "opportunity_id": "360711", "opportunity_number": "CDC-RFA-JG-26-0143", "opportunity_title": "Enhancing sustainable health information and laboratory systems and networks for quality detection, management, and monitoring to end HIV and TB as public health threats in India", "agency_name": "", "post_date": "10/01/2025", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/360711", "matched_keywords": "HIV", "keyword_group": "HIV & STIs"}, {"source": "legacy", "opportunity_id": "361525", "opportunity_number": "HRSA-26-085", "opportunity_title": "Ryan White HIV/AIDS Program Part F Dental Reimbursement Program", "agency_name": "", "post_date": "03/17/2026", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/361525", "matched_keywords": "HIV", "keyword_group": "HIV & STIs"}, {"source": "legacy", "opportunity_id": "358991", "opportunity_number": "FOR-DA-27-003", "opportunity_title": "Avant Garde/Avenir award for Investigators conducting high risk/high reward research on HIV and Substance Use (or Substance Use Disorders)", "agency_name": "", "post_date": "05/28/2025", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/358991", "matched_keywords": "HIV; STI", "keyword_group": "HIV & STIs"}, {"source": "legacy", "opportunity_id": "361255", "opportunity_number": "PAR-26-105", "opportunity_title": "ORACLE 3C: Chronic Conditions, Coinfections, and Comorbidities in HIV", "agency_name": "", "post_date": "02/06/2026", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/361255", "matched_keywords": "HIV", "keyword_group": "HIV & STIs"}, {"source": "legacy", "opportunity_id": "360759", "opportunity_number": "CDC-RFA-JG-26-0178", "opportunity_title": "Strengthening Ghana Health Service laboratory services, diagnostic networks, and systems for a more effective, efficient, and sustainable response to HIV, TB, and other priority health threats", "agency_name": "", "post_date": "10/16/2025", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/360759", "matched_keywords": "HIV; STI", "keyword_group": "HIV & STIs"}, {"source": "legacy", "opportunity_id": "360295", "opportunity_number": "HHS-2026-IHS-ETHIC-0001", "opportunity_title": "Ending the HIV/HCV Epidemics in Indian Country", "agency_name": "", "post_date": "08/14/2025", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/360295", "matched_keywords": "HIV", "keyword_group": "HIV & STIs"}, {"source": "legacy", "opportunity_id": "361220", "opportunity_number": "HRSA-26-061", "opportunity_title": "Ryan White HIV/AIDS Program Part C Capacity Development Program&#8239;", "agency_name": "", "post_date": "01/30/2026", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/361220", "matched_keywords": "HIV", "keyword_group": "HIV & STIs"}, {"source": "legacy", "opportunity_id": "361821", "opportunity_number": "RFA-AI-28-004", "opportunity_title": "HIV/AIDS Clinical Trials Network Clinical Trials Units", "agency_name": "", "post_date": "04/08/2026", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/361821", "matched_keywords": "HIV", "keyword_group": "HIV & STIs"}, {"source": "legacy", "opportunity_id": "361376", "opportunity_number": "HRSA-26-087", "opportunity_title": "Strategies to Link, Engage, and Retain Men with HIV in Care: Evaluation Provider", "agency_name": "", "post_date": "02/26/2026", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/361376", "matched_keywords": "HIV", "keyword_group": "HIV & STIs"}, {"source": "legacy", "opportunity_id": "361377", "opportunity_number": "HRSA-26-088", "opportunity_title": "Strategies to Link, Engage, and Retain Men with HIV in Care: Implementation Technical Assistance Provider", "agency_name": "", "post_date": "02/26/2026", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/361377", "matched_keywords": "HIV", "keyword_group": "HIV & STIs"}, {"source": "legacy", "opportunity_id": "361820", "opportunity_number": "RFA-AI-28-002", "opportunity_title": "HIV/AIDS Clinical Trials Network Laboratory Centers", "agency_name": "", "post_date": "04/08/2026", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/361820", "matched_keywords": "HIV", "keyword_group": "HIV & STIs"}, {"source": "legacy", "opportunity_id": "361816", "opportunity_number": "RFA-AI-28-003", "opportunity_title": "HIV/AIDS Clinical Trials Network Statistical and Data Management Centers", "agency_name": "", "post_date": "04/08/2026", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/361816", "matched_keywords": "HIV; STI", "keyword_group": "HIV & STIs"}, {"source": "legacy", "opportunity_id": "359657", "opportunity_number": "FOR-MH-26-165", "opportunity_title": "Mechanistic Exploration of Therapeutic Targets and Treatable Traits to Improve CNS Outcomes in People with HIV", "agency_name": "", "post_date": "06/09/2025", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/359657", "matched_keywords": "HIV; STI", "keyword_group": "HIV & STIs"}, {"source": "legacy", "opportunity_id": "359860", "opportunity_number": "FOR-AI-27-017", "opportunity_title": "Multidisciplinary Research to Accelerate Hepatitis B Cure in Persons Living with HIV and HBV (MRA-HBV)", "agency_name": "", "post_date": "06/27/2025", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/359860", "matched_keywords": "HIV", "keyword_group": "HIV & STIs"}, {"source": "legacy", "opportunity_id": "361050", "opportunity_number": "RFA-AI-27-009", "opportunity_title": "Centers for Structural Biology of HIV and other Infectious Diseases", "agency_name": "", "post_date": "12/22/2025", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/361050", "matched_keywords": "HIV", "keyword_group": "HIV & STIs"}, {"source": "legacy", "opportunity_id": "361204", "opportunity_number": "PAR-26-092", "opportunity_title": "Pilot and Feasibility Studies in Preparation for Substance Use and HIV Prevention Intervention and Services Research Trials", "agency_name": "", "post_date": "01/26/2026", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/361204", "matched_keywords": "HIV", "keyword_group": "HIV & STIs"}, {"source": "legacy", "opportunity_id": "360701", "opportunity_number": "CDC-RFA-JG-26-0126", "opportunity_title": "Strengthening Botswana's national data, performance management, and surveillance systems for a sustainable and government-led HIV, TB, and related public health response", "agency_name": "", "post_date": "10/01/2025", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/360701", "matched_keywords": "HIV", "keyword_group": "HIV & STIs"}, {"source": "legacy", "opportunity_id": "359945", "opportunity_number": "FOR-HD-25-023", "opportunity_title": "Using Archived Data and Specimen Collections to Advance Maternal and Pediatric HIV/AIDS Research", "agency_name": "", "post_date": "07/08/2025", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/359945", "matched_keywords": "HIV", "keyword_group": "HIV & STIs"}, {"source": "sam", "opportunity_id": "4606d720400045dbb2dd8cc811fbd3e6", "opportunity_number": "75H71026Q00122", "opportunity_title": "Gallup Service Unit: Non-Personal Healthcare Services \u2013 General Internist Outpatient Physician Services and Infectious Disease Physician Services", "agency_name": "HEALTH AND HUMAN SERVICES, DEPARTMENT OF.INDIAN HEALTH SERVICE.NAVAJO AREA INDIAN HEALTH SVC", "post_date": "2026-03-26", "close_date": "2026-04-09T10:00:00-06:00", "award_floor": "", "award_ceiling": "", "summary_description": "https://api.sam.gov/prod/opportunities/v1/noticedesc?noticeid=4606d720400045dbb2dd8cc811fbd3e6", "opportunity_status": "Yes", "naics_code": "621111", "set_aside": "Indian Small Business Economic Enterprise (ISBEE) Set-Aside (specific to Department of Interior and Indian Health Services)", "notice_type": "Combined Synopsis/Solicitation", "contact_email": "Adrian.Segay@ihs.gov", "url": "https://sam.gov/opp/4606d720400045dbb2dd8cc811fbd3e6/view", "matched_keywords": "infectious", "keyword_group": "SAM.gov"}, {"source": "legacy", "opportunity_id": "361832", "opportunity_number": "RFA-AI-28-024", "opportunity_title": "Accelerating Research and Development of Next Generation Malaria Vaccines Against Malaria &ndash; A Model for Mosquito-Borne Diseases", "agency_name": "", "post_date": "04/09/2026", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/361832", "matched_keywords": "vaccines; vaccine", "keyword_group": "Vaccines and Therapeutics"}, {"source": "legacy", "opportunity_id": "359161", "opportunity_number": "FOR-NS-25-002", "opportunity_title": "Forecast for HEAL Initiative: Non-addictive Analgesic Therapeutics Development [Small Molecules and Biologics] to Treat Pain (UG3/UH3 Clinical Trial Optional", "agency_name": "", "post_date": "05/28/2025", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/359161", "matched_keywords": "therapeutics", "keyword_group": "Vaccines and Therapeutics"}, {"source": "legacy", "opportunity_id": "359866", "opportunity_number": "FOR-TR-27-002", "opportunity_title": "Extracellular Vesicle Therapeutics for Regenerative Medicine (ExTReMe)", "agency_name": "", "post_date": "06/27/2025", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/359866", "matched_keywords": "therapeutics", "keyword_group": "Vaccines and Therapeutics"}, {"source": "legacy", "opportunity_id": "357261", "opportunity_number": "FOR-FD-25-015", "opportunity_title": "Applied regulatory science research to evaluate and treat cardiotoxicity of oncology therapeutics", "agency_name": "", "post_date": "11/20/2024", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/357261", "matched_keywords": "therapeutics", "keyword_group": "Vaccines and Therapeutics"}, {"source": "legacy", "opportunity_id": "360606", "opportunity_number": "RFA-CA-25-033", "opportunity_title": "Glioblastoma Therapeutics Network (GTN; U19 Clinical Trial Required)", "agency_name": "", "post_date": "09/17/2025", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/360606", "matched_keywords": "therapeutics", "keyword_group": "Vaccines and Therapeutics"}, {"source": "legacy", "opportunity_id": "359133", "opportunity_number": "FOR-CA-25-089", "opportunity_title": "Forecast to Publish a Notice of Funding Opportunity for The Experimental Therapeutics Clinical Trials Network (ETCTN) Lead Academic Organizations (UM1 Clinical Trial Required)", "agency_name": "", "post_date": "05/27/2025", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/359133", "matched_keywords": "therapeutics", "keyword_group": "Vaccines and Therapeutics"}, {"source": "legacy", "opportunity_id": "360545", "opportunity_number": "PAR-26-073", "opportunity_title": "NEI Translational Research Program for Therapeutics (R61/R33 Clinical Trial Not Allowed)", "agency_name": "", "post_date": "09/09/2025", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/360545", "matched_keywords": "therapeutics", "keyword_group": "Vaccines and Therapeutics"}, {"source": "legacy", "opportunity_id": "360584", "opportunity_number": "RFA-HD-26-009", "opportunity_title": "Maternal and Pediatric Precision in Therapeutics (MPRINT) Knowledge and Research Coordination Center", "agency_name": "", "post_date": "09/15/2025", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/360584", "matched_keywords": "therapeutics", "keyword_group": "Vaccines and Therapeutics"}, {"source": "legacy", "opportunity_id": "359854", "opportunity_number": "FOR-CA-25-090", "opportunity_title": "Forecast to Publish a Notice of Funding Opportunity for The Experimental Therapeutics Clinical Trials Network (ETCTN) Pharmacokinetic Resource Laboratory (U24 Clinical Trial Not Allowed)", "agency_name": "", "post_date": "06/27/2025", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/359854", "matched_keywords": "therapeutics", "keyword_group": "Vaccines and Therapeutics"}, {"source": "legacy", "opportunity_id": "360201", "opportunity_number": "RFA-IP-26-097", "opportunity_title": "Collaborative Surveys to Provide Inputs into Vaccine-Related Economic Evaluations", "agency_name": "", "post_date": "08/01/2025", "close_date": "", "award_floor": "", "award_ceiling": "", "summary_description": "", "opportunity_status": "forecasted", "naics_code": "", "set_aside": "", "notice_type": "", "contact_email": "", "url": "https://www.grants.gov/search-results-detail/360201", "matched_keywords": "vaccine", "keyword_group": "Vaccines and Therapeutics"}];
 
 // Parse and store deadline days for sorting
 const data = RAW.map(r => ({
@@ -180,12 +2843,14 @@ function render() {
   const q      = normalize(document.getElementById("search-box").value);
   const group  = document.getElementById("filter-group").value;
   const source = document.getElementById("filter-source").value;
+  const status = document.getElementById("filter-status").value;
   const sortBy = document.getElementById("sort-by").value;
 
   // Filter
   let visible = cards.filter(card => {
     if (group  && card.dataset.group  !== group)  return false;
     if (source && card.dataset.source !== source) return false;
+    if (status && card.dataset.status !== status) return false;
     if (q) {
       const hay = [card.dataset.title, card.dataset.agency,
                    card.dataset.keywords].map(normalize).join(" ");
@@ -218,7 +2883,7 @@ function render() {
   counter.textContent = `${visible.length} of ${cards.length} shown`;
 }
 
-["search-box","filter-group","filter-source","sort-by"].forEach(id => {
+["search-box","filter-group","filter-source","filter-status","sort-by"].forEach(id => {
   document.getElementById(id).addEventListener("input", render);
 });
 

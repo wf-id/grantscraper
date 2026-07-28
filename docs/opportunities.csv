@@ -1,5 +1,4 @@
 source,opportunity_id,opportunity_number,opportunity_title,agency_name,post_date,close_date,award_floor,award_ceiling,summary_description,opportunity_status,url,matched_keywords,keyword_group
-legacy,362781,USDA-NIFA-OP-011777,"Urban, Indoor, and other Emerging Agricultural Production Research, Education, and Extension Initiative",,06/12/2026,07/27/2026,,,,posted,https://www.grants.gov/search-results-detail/362781,emerging,Emerging and Vector-Borne Diseases
 legacy,353590,PAR-24-174,Global Infectious Disease Research Training Program (D43 Clinical Trial Optional),,04/17/2024,08/06/2026,,,,posted,https://www.grants.gov/search-results-detail/353590,infectious disease,Emerging and Vector-Borne Diseases
 legacy,362231,HT942526MSRPIIRA,DoW Multiple Sclerosis Investigator-Initiated Research Award,,05/05/2026,08/13/2026,,,,posted,https://www.grants.gov/search-results-detail/362231,STI,HIV & STIs
 legacy,362230,HT942526MSRPEIRA,DoW Multiple Sclerosis Early Investigator Research Award,,05/05/2026,08/13/2026,,,,posted,https://www.grants.gov/search-results-detail/362230,STI,HIV & STIs
@@ -28,6 +27,7 @@ legacy,362304,HT942526TERPIIRA,DoW Toxic Exposures Investigator Initiated Resear
 legacy,356724,PAR-24-295,Emerging Global Leader Award (K43 Independent Clinical Trial Required),,10/15/2024,12/03/2026,,,,posted,https://www.grants.gov/search-results-detail/356724,emerging,Emerging and Vector-Borne Diseases
 legacy,356723,PAR-24-296,Emerging Global Leader Award (K43 Independent Clinical Trial Not Allowed),,10/15/2024,12/03/2026,,,,posted,https://www.grants.gov/search-results-detail/356723,emerging,Emerging and Vector-Borne Diseases
 legacy,351404,HM047623BAA0001,Boosting Innovative GEOINT - Science &amp; Technology  Broad Agency Announcement (BIG-ST BAA),,12/15/2023,12/14/2026,,,,posted,https://www.grants.gov/search-results-detail/351404,STI,HIV & STIs
+legacy,361480,20260511-PCS,Collections Stewardship,,03/11/2026,12/15/2026,,,,posted,https://www.grants.gov/search-results-detail/361480,Stewardship,ASP and ICP
 legacy,357075,PAR-25-081,National Cancer Institute's Investigator-Initiated Early Phase Clinical Trials for Cancer Treatment and Diagnosis (R01 Clinical Trial Required),,11/12/2024,01/07/2027,,,,posted,https://www.grants.gov/search-results-detail/357075,STI,HIV & STIs
 legacy,357542,PAR-25-025,NHLBI Early Phase Clinical Trials for Therapeutics and/or Diagnostics for HLBS Disorders (R33 CT Required),,12/05/2024,01/07/2027,,,,posted,https://www.grants.gov/search-results-detail/357542,therapeutics,Vaccines and Therapeutics
 legacy,357543,PAR-25-026,NHLBI Early Phase Clinical Trials for Therapeutics and/or Diagnostics for HLBS Disorders (R61/R33 Clinical Trial Required),,12/05/2024,01/07/2027,,,,posted,https://www.grants.gov/search-results-detail/357543,therapeutics,Vaccines and Therapeutics
@@ -65,6 +65,7 @@ legacy,361918,CDC-RFA-PS-27-0001,National HIV Behavioral Surveillance,,04/16/202
 legacy,361815,RFA-AI-28-001,HIV/AIDS Clinical Trials Network Leadership and Operations Centers,,04/08/2026,,,,,forecasted,https://www.grants.gov/search-results-detail/361815,HIV,HIV & STIs
 legacy,361519,RFA-MH-27-110,"Impact of Immunotherapies on CNS Outcomes in People with HIV: Potential Benefits, Challenges and Risks",,03/16/2026,,,,,forecasted,https://www.grants.gov/search-results-detail/361519,HIV,HIV & STIs
 legacy,360873,RFA-AI-27-018,Implementation Science to End the HIV Epidemic,,11/18/2025,,,,,forecasted,https://www.grants.gov/search-results-detail/360873,HIV,HIV & STIs
+legacy,363323,CDC-RFA-PS-27-0037,Direct-to-Consumer Distribution of HIV and other STI Self-Tests,,07/27/2026,,,,,forecasted,https://www.grants.gov/search-results-detail/363323,HIV; STI,HIV & STIs
 legacy,359663,FOR-AI-27-001,Martin Delaney Collaboratories for HIV Cure Research,,06/10/2025,,,,,forecasted,https://www.grants.gov/search-results-detail/359663,HIV,HIV & STIs
 legacy,358992,NOT-HD-25-007,"Notice of Intent to Publish a Funding Opportunity Announcement for HIV Pediatric, Adolescent and Maternal Clinical Trials",,06/25/2025,,,,,forecasted,https://www.grants.gov/search-results-detail/358992,HIV,HIV & STIs
 legacy,361255,PAR-26-105,"ORACLE 3C: Chronic Conditions, Coinfections, and Comorbidities in HIV",,02/06/2026,,,,,forecasted,https://www.grants.gov/search-results-detail/361255,HIV,HIV & STIs
